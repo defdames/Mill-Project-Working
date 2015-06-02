@@ -1,0 +1,22 @@
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\bin\Debug\Mill Project.exe.config
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\bin\Debug\Mill Project.exe
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\bin\Debug\Mill Project.pdb
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.csprojResolveAssemblyReference.cache
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill_Project.Properties.Resources.resources
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.csproj.GenerateResource.Cache
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.exe
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.pdb
+c:\users\doland\onedrive - silberline\documents\documents\visual studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill_Project.MainForm.resources
+C:\Users\doland\OneDrive - Silberline\documents\desktop\Visual Studio 2015\Projects\Mill Project\Mill Project\bin\Debug\Mill Project.exe.config
+C:\Users\doland\OneDrive - Silberline\documents\desktop\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.exe
+C:\Users\doland\OneDrive - Silberline\documents\desktop\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.pdb
+C:\Users\doland\OneDrive - Silberline\documents\desktop\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.csprojResolveAssemblyReference.cache
+C:\Users\doland\OneDrive - Silberline\documents\desktop\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill_Project.MainForm.resources
+C:\Users\doland\OneDrive - Silberline\documents\desktop\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill_Project.Properties.Resources.resources
+C:\Users\doland\OneDrive - Silberline\documents\desktop\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.csproj.GenerateResource.Cache
+C:\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill_Project.MainForm.resources
+C:\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill_Project.Properties.Resources.resources
+C:\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.csproj.GenerateResource.Cache
+C:\Visual Studio 2015\Projects\Mill Project\Mill Project\bin\Debug\Mill Project.exe.config
+C:\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.csprojResolveAssemblyReference.cache
+C:\Repository\Mill Project\Mill Project\bin\Debug\Mill Project.exe.config
