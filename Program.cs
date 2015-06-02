@@ -6,7 +6,9 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq.Expressions;
-
+using System.Data.OleDb;
+using System.Data.Common;
+using System.Globalization;
 
 namespace Mill_Project
 {
@@ -39,15 +41,15 @@ namespace Mill_Project
 
         public static string Get_gl_cmp()
         {
-            DataSet ds = new DataSet();
-            string user = GetUser();
-            //DataTable comp = ds.Tables["web_sa_cmp_tbl"];
+           
+            
 
-            var cmp = from c in adage_45DataSet.web_sa_cmp_tblDataTable
+            var cmp = from c in ds.
                       where c.sa_user_key == GetUser()
                       select c.gl_cmp_key.ToList();
             return cmp.ToString();
             
         }
     }
+
 }
