@@ -33,7 +33,7 @@
             this.dtmShiftStart = new System.Windows.Forms.DateTimePicker();
             this.lblShiftStart = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
-            this.txtgl_cmp = new System.Windows.Forms.TextBox();
+            this.cmb_Cmp = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtUserName
@@ -78,20 +78,20 @@
             this.lbl.TabIndex = 4;
             this.lbl.Text = "SO Number";
             // 
-            // txtgl_cmp
+            // cmb_Cmp
             // 
-            this.txtgl_cmp.Location = new System.Drawing.Point(882, 27);
-            this.txtgl_cmp.Name = "txtgl_cmp";
-            this.txtgl_cmp.ReadOnly = true;
-            this.txtgl_cmp.Size = new System.Drawing.Size(273, 20);
-            this.txtgl_cmp.TabIndex = 5;
+            this.cmb_Cmp.FormattingEnabled = true;
+            this.cmb_Cmp.Location = new System.Drawing.Point(882, 28);
+            this.cmb_Cmp.Name = "cmb_Cmp";
+            this.cmb_Cmp.Size = new System.Drawing.Size(284, 21);
+            this.cmb_Cmp.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 560);
-            this.Controls.Add(this.txtgl_cmp);
+            this.Controls.Add(this.cmb_Cmp);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.lblShiftStart);
             this.Controls.Add(this.dtmShiftStart);
@@ -112,7 +112,7 @@
         private System.Windows.Forms.DateTimePicker dtmShiftStart;
         private System.Windows.Forms.Label lblShiftStart;
         private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.TextBox txtgl_cmp;
+        private System.Windows.Forms.ComboBox cmb_Cmp;
     }
 }
 

@@ -17,12 +17,12 @@ namespace Mill_Project
         {
             InitializeComponent();
             txtUserName.Text = Program.GetUser();
-            txtgl_cmp.Text = Program.Get_gl_cmp();
+            cmb_Cmp.DataSource = Program.User_cmp();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+          
         }
 
        

@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq.Expressions;
-using System.Data.OleDb;
 using System.Data.Common;
-using System.Globalization;
+using Mill_Project.Data;
+
 
 namespace Mill_Project
 {
@@ -39,17 +39,28 @@ namespace Mill_Project
 
         }
 
-        public static string Get_gl_cmp()
+        public static List<string> User_cmp()
         {
-           
+            string uname = "midasc";
+            using (var context = new Model1())
             
+            {
+                var cmp = (from cm in context.web_sa_cmp_tbl
+                          where cm.sa_user_key == uname
+                              select cm.gl_cmp_key.ToString()).ToList();
+               
+                
+                
+                
 
-            var cmp = from c in ds.
-                      where c.sa_user_key == GetUser()
-                      select c.gl_cmp_key.ToList();
-            return cmp.ToString();
-            
+                return cmp;
+                
+
+
+            }
         }
+
+       
     }
 
 }

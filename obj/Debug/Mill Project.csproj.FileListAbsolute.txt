@@ -20,3 +20,15 @@ C:\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.
 C:\Visual Studio 2015\Projects\Mill Project\Mill Project\bin\Debug\Mill Project.exe.config
 C:\Visual Studio 2015\Projects\Mill Project\Mill Project\obj\Debug\Mill Project.csprojResolveAssemblyReference.cache
 C:\Repository\Mill Project\Mill Project\bin\Debug\Mill Project.exe.config
+C:\Repository\Mill Project\Mill Project\bin\Debug\Mill Project.exe
+C:\Repository\Mill Project\Mill Project\bin\Debug\Mill Project.pdb
+C:\Repository\Mill Project\Mill Project\bin\Debug\EntityFramework.dll
+C:\Repository\Mill Project\Mill Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Repository\Mill Project\Mill Project\bin\Debug\EntityFramework.xml
+C:\Repository\Mill Project\Mill Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Repository\Mill Project\Mill Project\obj\Debug\Mill_Project.MainForm.resources
+C:\Repository\Mill Project\Mill Project\obj\Debug\Mill_Project.Properties.Resources.resources
+C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.csproj.GenerateResource.Cache
+C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.exe
+C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.pdb
+C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.csprojResolveAssemblyReference.cache
