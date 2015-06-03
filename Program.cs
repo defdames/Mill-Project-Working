@@ -25,7 +25,7 @@ namespace Mill_Project
             Application.Run(new MainForm());
         }
 
-        public static string  GetUser()
+        public static string  GetUser() //Get user name for user plugged in
         {
             int found = 0;
 
@@ -39,7 +39,7 @@ namespace Mill_Project
 
         }
 
-        public static List<string> User_cmp()
+        public static List<string> User_cmp() //Get list of companies for user logged in
         {
             string uname = "midasc";
             using (var context = new Model1())
