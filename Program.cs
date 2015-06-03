@@ -73,9 +73,9 @@ namespace Mill_Project
             {typeof(RadioButton), c => ((RadioButton)c).Checked = false},
             {typeof(GroupBox), c => ((GroupBox)c).Controls.ClearControls()},
             {typeof(Panel), c => ((Panel)c).Controls.ClearControls()},
-            {typeof(MaskedTextBox), c => ((Panel)c).Controls.ClearControls()},
-            {typeof(ComboBox), c => ((Panel)c).Controls.ClearControls()},
-            {typeof(RichTextBox), c => ((Panel)c).Controls.ClearControls()}
+            {typeof(MaskedTextBox), c => ((MaskedTextBox)c).Clear()},
+            {typeof(ComboBox), c => ((ComboBox)c).Items.Clear()},
+            {typeof(RichTextBox), c => ((RichTextBox)c).Clear()}
         };
 
         private static void FindAndInvoke(Type type, Control control)
