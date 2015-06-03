@@ -18,7 +18,9 @@ namespace Mill_Project
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+       
         static void Main()
+
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -52,7 +54,22 @@ namespace Mill_Project
             }
         }
 
-       
+        public static List<string> Cmp_plant(string company)
+        {
+
+            
+           using (var context = new Model1())
+            {
+                 var plant = (from pl in context.sf_plant_tbl
+                             where pl.gl_cmp_key == company
+                             select pl.sf_plant_key.ToString()).ToList();
+                return plant;
+            }
+        }
+
+    
     }
+
+
 
 }

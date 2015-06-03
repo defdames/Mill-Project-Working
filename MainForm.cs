@@ -18,14 +18,37 @@ namespace Mill_Project
             InitializeComponent();
             txtUserName.Text = Program.GetUser();
             cmbCompany.DataSource = Program.User_cmp();
+           
+           
+            
         }
 
+
+       
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+            cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
+        }
+
+        private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
+            
         }
 
        
+
+
+
+
+       
+       
+
+
     }
+
+
+
+   
 
 }
