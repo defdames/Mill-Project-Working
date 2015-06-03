@@ -48,15 +48,7 @@ namespace Mill_Project
                 var cmp = (from cm in context.web_sa_cmp_tbl
                           where cm.sa_user_key == uname
                               select cm.gl_cmp_key.ToString()).ToList();
-               
-                
-                
-                
-
                 return cmp;
-                
-
-
             }
         }
 

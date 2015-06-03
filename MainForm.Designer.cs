@@ -33,7 +33,8 @@
             this.dtmShiftStart = new System.Windows.Forms.DateTimePicker();
             this.lblShiftStart = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
-            this.cmb_Cmp = new System.Windows.Forms.ComboBox();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.cmbPlant = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtUserName
@@ -78,20 +79,29 @@
             this.lbl.TabIndex = 4;
             this.lbl.Text = "SO Number";
             // 
-            // cmb_Cmp
+            // cmbCompany
             // 
-            this.cmb_Cmp.FormattingEnabled = true;
-            this.cmb_Cmp.Location = new System.Drawing.Point(882, 28);
-            this.cmb_Cmp.Name = "cmb_Cmp";
-            this.cmb_Cmp.Size = new System.Drawing.Size(284, 21);
-            this.cmb_Cmp.TabIndex = 5;
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(882, 28);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.Size = new System.Drawing.Size(284, 21);
+            this.cmbCompany.TabIndex = 5;
+            // 
+            // cmbPlant
+            // 
+            this.cmbPlant.FormattingEnabled = true;
+            this.cmbPlant.Location = new System.Drawing.Point(882, 56);
+            this.cmbPlant.Name = "cmbPlant";
+            this.cmbPlant.Size = new System.Drawing.Size(284, 21);
+            this.cmbPlant.TabIndex = 6;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 560);
-            this.Controls.Add(this.cmb_Cmp);
+            this.Controls.Add(this.cmbPlant);
+            this.Controls.Add(this.cmbCompany);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.lblShiftStart);
             this.Controls.Add(this.dtmShiftStart);
@@ -112,7 +122,8 @@
         private System.Windows.Forms.DateTimePicker dtmShiftStart;
         private System.Windows.Forms.Label lblShiftStart;
         private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.ComboBox cmb_Cmp;
+        private System.Windows.Forms.ComboBox cmbCompany;
+        private System.Windows.Forms.ComboBox cmbPlant;
     }
 }
 

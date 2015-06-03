@@ -17,7 +17,7 @@ namespace Mill_Project
         {
             InitializeComponent();
             txtUserName.Text = Program.GetUser();
-            cmb_Cmp.DataSource = Program.User_cmp();
+            cmbCompany.DataSource = Program.User_cmp();
         }
 
         private void Form1_Load(object sender, EventArgs e)
