@@ -16,7 +16,7 @@ namespace Mill_Project
         public MainForm()
         {
             InitializeComponent();
-            txtUserName.Text = Program.GetUser();
+            lblUserName.Text = Program.GetUser();
             cmbCompany.DataSource = Program.User_cmp();
            
            
@@ -34,6 +34,11 @@ namespace Mill_Project
         {
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
             
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Controls.ClearControls();
         }
 
        
