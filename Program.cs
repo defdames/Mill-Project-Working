@@ -35,10 +35,6 @@ namespace Mill_Project
             found = uName.IndexOf("\\");
 
             return uName.Substring(found + 1);
-
-            
-
-
         }
 
         public static List<string> User_cmp() //Get list of companies for user logged in
@@ -54,7 +50,7 @@ namespace Mill_Project
             }
         }
 
-        public static List<string> Cmp_plant(string company)
+        public static List<string> Cmp_plant(string company) //get list of plants in the company the user selects
         {
            using (var context = new Model1())
             {
@@ -74,7 +70,7 @@ namespace Mill_Project
             {typeof(GroupBox), c => ((GroupBox)c).Controls.ClearControls()},
             {typeof(Panel), c => ((Panel)c).Controls.ClearControls()},
             {typeof(MaskedTextBox), c => ((MaskedTextBox)c).Clear()},
-            {typeof(ComboBox), c => ((ComboBox)c).Items.Clear()},
+            //{typeof(ComboBox), c => ((ComboBox)c).Items.Clear()},
             {typeof(RichTextBox), c => ((RichTextBox)c).Clear()}
         };
 

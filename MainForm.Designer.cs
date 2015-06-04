@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblFormTitle = new System.Windows.Forms.Label();
             this.dtmShiftStart = new System.Windows.Forms.DateTimePicker();
             this.lblShiftStart = new System.Windows.Forms.Label();
@@ -70,16 +69,9 @@
             this.rtxtMemo = new System.Windows.Forms.RichTextBox();
             this.lblMemo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblUserName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Location = new System.Drawing.Point(964, 1);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.ReadOnly = true;
-            this.txtUserName.Size = new System.Drawing.Size(202, 20);
-            this.txtUserName.TabIndex = 0;
             // 
             // lblFormTitle
             // 
@@ -449,11 +441,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(1085, 159);
             this.dataGridView1.TabIndex = 47;
             // 
+            // lblUserName
+            // 
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Location = new System.Drawing.Point(964, 2);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(202, 23);
+            this.lblUserName.TabIndex = 48;
+            this.lblUserName.Text = "label1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 560);
+            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblMemo);
             this.Controls.Add(this.rtxtMemo);
@@ -495,7 +497,6 @@
             this.Controls.Add(this.lblShiftStart);
             this.Controls.Add(this.dtmShiftStart);
             this.Controls.Add(this.lblFormTitle);
-            this.Controls.Add(this.txtUserName);
             this.Name = "MainForm";
             this.Text = "Mill Utilization";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -507,7 +508,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label lblFormTitle;
         private System.Windows.Forms.DateTimePicker dtmShiftStart;
         private System.Windows.Forms.Label lblShiftStart;
@@ -549,6 +549,7 @@
         private System.Windows.Forms.RichTextBox rtxtMemo;
         private System.Windows.Forms.Label lblMemo;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblUserName;
     }
 }
 

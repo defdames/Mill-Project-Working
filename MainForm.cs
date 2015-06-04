@@ -16,7 +16,7 @@ namespace Mill_Project
         public MainForm()
         {
             InitializeComponent();
-            txtUserName.Text = Program.GetUser();
+            lblUserName.Text = Program.GetUser();
             cmbCompany.DataSource = Program.User_cmp();
            
            
