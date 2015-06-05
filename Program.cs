@@ -69,10 +69,18 @@ namespace Mill_Project
                              select ml.Mill_ID.ToString()).ToList();
                 return mills;
             }
-
-
         }
 
+        public static List<string>Get_Systems(string company, string plant)//get list of systems in the company and plant the user has access to
+        {
+            using (var context = new Model1())
+            {
+                var systems = (from sys in context.mill_Systems
+                               where sys.gl_cmp_key == company && sys.sf_plant_key == plant && sys.Active == "Y"
+                               select sys.System_Name.ToString()).ToList();
+                return systems;
+            }
+        }
 
         private static Dictionary<Type, Action<Control>> controldefaults = new Dictionary<Type, Action<Control>>() //Method to clear all controls instead of typping each one out
         {
