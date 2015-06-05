@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mill_Project.Data;
 
 
 namespace Mill_Project
@@ -53,6 +54,18 @@ namespace Mill_Project
         private void cmbPlant_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbMill.DataSource = Program.Get_Mills(cmbCompany.Text, cmbPlant.Text);
+        }
+
+        private void btnPost_Click(object sender, EventArgs e)
+        {
+            mill_Mills_Utilization record = new mill_Mills_Utilization
+            {
+
+                Mill_ID = this.cmbMill.Text,
+
+
+
+            }; 
         }
 
        

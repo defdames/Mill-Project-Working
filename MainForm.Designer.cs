@@ -406,6 +406,7 @@
             this.btnPost.TabIndex = 43;
             this.btnPost.Text = "Post";
             this.btnPost.UseVisualStyleBackColor = true;
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
             // 
             // btnCancel
             // 

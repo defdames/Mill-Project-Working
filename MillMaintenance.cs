@@ -88,6 +88,27 @@ namespace Mill_Project
             
         }
 
+        private void dgvMills_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            var list = new String[] { "Y", "N" };
+            if (dgvMills.Columns[e.ColumnIndex].Name == "Active")
+
+            {
+                if (!list.Contains(e.FormattedValue.ToString()))
+                {
+                        dgvMills.Rows[e.RowIndex].ErrorText =
+                            "Active must Y or N";
+                        e.Cancel = true; 
+                }
+                else
+                {
+                    dgvMills.Rows[e.RowIndex].ErrorText = "";
+                }
+
+            }
+            
+        }
+
    
 
   

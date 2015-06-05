@@ -42,7 +42,7 @@
             this.millMillsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.millsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.millIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glcmpkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,7 +134,7 @@
             this.dgvMills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.millsIDDataGridViewTextBoxColumn,
             this.millIDDataGridViewTextBoxColumn,
-            this.activeDataGridViewTextBoxColumn,
+            this.Active,
             this.glcmpkeyDataGridViewTextBoxColumn,
             this.sfplantkeyDataGridViewTextBoxColumn,
             this.createddateDataGridViewTextBoxColumn,
@@ -146,6 +146,7 @@
             this.dgvMills.Name = "dgvMills";
             this.dgvMills.Size = new System.Drawing.Size(965, 150);
             this.dgvMills.TabIndex = 57;
+            this.dgvMills.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvMills_CellValidating);
             // 
             // millMillsBindingSource2
             // 
@@ -165,11 +166,12 @@
             this.millIDDataGridViewTextBoxColumn.Name = "millIDDataGridViewTextBoxColumn";
             this.millIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // activeDataGridViewTextBoxColumn
+            // Active
             // 
-            this.activeDataGridViewTextBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewTextBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewTextBoxColumn.Name = "activeDataGridViewTextBoxColumn";
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.MaxInputLength = 1;
+            this.Active.Name = "Active";
             // 
             // glcmpkeyDataGridViewTextBoxColumn
             // 
@@ -255,7 +257,7 @@
         private System.Windows.Forms.BindingSource millMillsBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn millsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn millIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn activeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Active;
         private System.Windows.Forms.DataGridViewTextBoxColumn glcmpkeyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfplantkeyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createddateDataGridViewTextBoxColumn;
