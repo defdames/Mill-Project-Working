@@ -17,10 +17,12 @@ namespace Mill_Project
         {
             InitializeComponent();
             lblUserName.Text = Program.GetUser();
-            cmbCompany.DataSource = Program.User_cmp();
-           
-           
-            
+            cmbCompany.DataSource = Program.User_cmp(); 
+            if (Program.GetUser().ToString() == "doland")
+            {
+                btnMillMaint.Enabled = true;
+                btnMillMaint.Visible = true;
+            }
         }
 
 
@@ -34,11 +36,23 @@ namespace Mill_Project
         {
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
             
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Controls.ClearControls();
+        }
+
+        private void btnMillMaint_Click(object sender, EventArgs e)
+        {
+            MillMaintenance frm = new MillMaintenance();
+            frm.Show();
+        }
+
+        private void cmbPlant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbMill.DataSource = Program.Get_Mills(cmbCompany.Text, cmbPlant.Text);
         }
 
        

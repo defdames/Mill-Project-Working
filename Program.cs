@@ -9,7 +9,6 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using Mill_Project.Data;
 
-
 namespace Mill_Project
 {
     static class Program
@@ -61,6 +60,20 @@ namespace Mill_Project
             }
         }
 
+        public static List<string> Get_Mills(string company, string plant)//get list of mills in the compnay and plant user has access to
+        {
+            using (var context = new Model1())
+            {
+                var mills = (from ml in context.mill_Mills
+                             where ml.gl_cmp_key == company && ml.sf_plant_key == plant && ml.Active == "Y"
+                             select ml.Mill_ID.ToString()).ToList();
+                return mills;
+            }
+
+
+        }
+
+
         private static Dictionary<Type, Action<Control>> controldefaults = new Dictionary<Type, Action<Control>>() //Method to clear all controls instead of typping each one out
         {
             {typeof(TextBox), c => ((TextBox)c).Clear()},
@@ -101,6 +114,15 @@ namespace Mill_Project
                     FindAndInvoke(typeof(T), control);
                 }
             }
+
+        }
+
+        public class Mills
+        {
+            public string Mill_ID { get; set; }
+            public string Active { get; set; }
+            public string Company { get; set; }
+            public string Plant { get; set; }
 
         }
 

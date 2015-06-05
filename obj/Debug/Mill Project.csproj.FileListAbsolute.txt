@@ -32,3 +32,5 @@ C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.csproj.GenerateRe
 C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.exe
 C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.pdb
 C:\Repository\Mill Project\Mill Project\obj\Debug\Mill Project.csprojResolveAssemblyReference.cache
+C:\Repository\Mill Project\Mill Project\obj\Debug\Mill_Project.MillMaintenance.resources
+C:\Repository\Mill Project\Mill Project\bin\Debug\Microsoft.AspNet.EntityDataSource.dll

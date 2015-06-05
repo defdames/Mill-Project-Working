@@ -70,6 +70,7 @@
             this.lblMemo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.btnMillMaint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +125,7 @@
             this.cmbPlant.Name = "cmbPlant";
             this.cmbPlant.Size = new System.Drawing.Size(202, 21);
             this.cmbPlant.TabIndex = 6;
+            this.cmbPlant.SelectedIndexChanged += new System.EventHandler(this.cmbPlant_SelectedIndexChanged);
             // 
             // lblUser
             // 
@@ -450,11 +452,25 @@
             this.lblUserName.TabIndex = 48;
             this.lblUserName.Text = "label1";
             // 
+            // btnMillMaint
+            // 
+            this.btnMillMaint.Enabled = false;
+            this.btnMillMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMillMaint.Location = new System.Drawing.Point(695, 333);
+            this.btnMillMaint.Name = "btnMillMaint";
+            this.btnMillMaint.Size = new System.Drawing.Size(105, 56);
+            this.btnMillMaint.TabIndex = 49;
+            this.btnMillMaint.Text = "Mill Maintenance";
+            this.btnMillMaint.UseVisualStyleBackColor = true;
+            this.btnMillMaint.Visible = false;
+            this.btnMillMaint.Click += new System.EventHandler(this.btnMillMaint_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 560);
+            this.Controls.Add(this.btnMillMaint);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblMemo);
@@ -550,6 +566,7 @@
         private System.Windows.Forms.Label lblMemo;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Button btnMillMaint;
     }
 }
 
