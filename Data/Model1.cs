@@ -15,7 +15,7 @@ namespace Mill_Project.Data
         public virtual DbSet<gl_cmp_tbl> gl_cmp_tbl { get; set; }
         public virtual DbSet<mill_Mills> mill_Mills { get; set; }
         public virtual DbSet<mill_Mills_Utilization> mill_Mills_Utilization { get; set; }
-        public virtual DbSet<mill_Shift_Catagories> mill_Shift_Catagories { get; set; }
+        public virtual DbSet<mill_Shift_Categories> mill_Shift_Categories { get; set; }
         public virtual DbSet<mill_Shift_Patterns> mill_Shift_Patterns { get; set; }
         public virtual DbSet<mill_Stoppage_Reasons> mill_Stoppage_Reasons { get; set; }
         public virtual DbSet<mill_Sys_Mills_Combo> mill_Sys_Mills_Combo { get; set; }
@@ -283,27 +283,27 @@ namespace Mill_Project.Data
                 .Property(e => e.Modified_by)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<mill_Shift_Catagories>()
+            modelBuilder.Entity<mill_Shift_Categories>()
                 .Property(e => e.Category)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<mill_Shift_Catagories>()
+            modelBuilder.Entity<mill_Shift_Categories>()
                 .Property(e => e.Category_Description)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<mill_Shift_Catagories>()
+            modelBuilder.Entity<mill_Shift_Categories>()
                 .Property(e => e.gl_cmp_key)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<mill_Shift_Catagories>()
+            modelBuilder.Entity<mill_Shift_Categories>()
                 .Property(e => e.sf_plant_key)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<mill_Shift_Catagories>()
+            modelBuilder.Entity<mill_Shift_Categories>()
                 .Property(e => e.Created_by)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<mill_Shift_Catagories>()
+            modelBuilder.Entity<mill_Shift_Categories>()
                 .Property(e => e.Modified_by)
                 .IsUnicode(false);
 

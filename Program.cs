@@ -82,6 +82,40 @@ namespace Mill_Project
             }
         }
 
+        public static List<String>Get_Shift(string company, string plant)//get list of Shifts in the campnay plant user has access to
+        {
+            using (var context = new Model1())
+            {
+                var shifts = (from shift in context.mill_Shift_Patterns
+                               where shift.gl_cmp_key == company && shift.sf_plant_key == plant
+                               select shift.Shift_ID).ToList();
+                return shifts;
+            }
+        }
+
+        public static List<string>Get_Run(string company, string plant)//get list of stoppage reasons in the company and plant user has acces to
+        {
+            using (var context = new Model1())
+            {
+                var stoppage = (from stop in context.mill_Stoppage_Reasons
+                                where stop.gl_cmp_key == company && stop.sf_plant_key == plant
+                                select stop.Stop_Reason.ToString()).ToList();
+                return stoppage;
+            }
+
+        }
+
+        public static List<string>Get_Category(string company, string plant)//get list of categories in the company and plant user has access to
+        {
+            using (var context = new Model1())
+            {
+                var category = (from cat in context.mill_Shift_Categories
+                                where cat.gl_cmp_key == company && cat.sf_plant_key == plant
+                                select cat.Category.ToString()).ToList();
+                return category;
+            }
+        }
+
         private static Dictionary<Type, Action<Control>> controldefaults = new Dictionary<Type, Action<Control>>() //Method to clear all controls instead of typping each one out
         {
             {typeof(TextBox), c => ((TextBox)c).Clear()},

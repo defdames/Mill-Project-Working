@@ -53,6 +53,9 @@ namespace Mill_Project
         {
             cmbMill.DataSource = Program.Get_Mills(cmbCompany.Text, cmbPlant.Text);
             cmbSystem.DataSource = Program.Get_Systems(cmbCompany.Text, cmbPlant.Text);
+            cmbShift.DataSource = Program.Get_Shift(cmbCompany.Text, cmbPlant.Text);
+            cmbRunCode.DataSource = Program.Get_Run(cmbCompany.Text, cmbPlant.Text);
+            cmbCategory.DataSource = Program.Get_Category(cmbCompany.Text, cmbPlant.Text);
         }
 
         private void btnPost_Click(object sender, EventArgs e)
