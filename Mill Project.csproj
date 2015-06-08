@@ -68,7 +68,7 @@
     <Compile Include="Data\gl_cmp_tbl.cs" />
     <Compile Include="Data\mill_Mills.cs" />
     <Compile Include="Data\mill_Mills_Utilization.cs" />
-    <Compile Include="Data\mill_Shift_Catagories.cs" />
+    <Compile Include="Data\mill_Shift_Categories.cs" />
     <Compile Include="Data\mill_Shift_Patterns.cs" />
     <Compile Include="Data\mill_Stoppage_Reasons.cs" />
     <Compile Include="Data\mill_Systems.cs" />

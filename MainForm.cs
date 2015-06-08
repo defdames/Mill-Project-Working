@@ -35,9 +35,7 @@ namespace Mill_Project
 
         private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
-            
-            
+            cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text); 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -54,6 +52,10 @@ namespace Mill_Project
         private void cmbPlant_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbMill.DataSource = Program.Get_Mills(cmbCompany.Text, cmbPlant.Text);
+            cmbSystem.DataSource = Program.Get_Systems(cmbCompany.Text, cmbPlant.Text);
+            cmbShift.DataSource = Program.Get_Shift(cmbCompany.Text, cmbPlant.Text);
+            cmbRunCode.DataSource = Program.Get_Run(cmbCompany.Text, cmbPlant.Text);
+            cmbCategory.DataSource = Program.Get_Category(cmbCompany.Text, cmbPlant.Text);
         }
 
         private void btnPost_Click(object sender, EventArgs e)

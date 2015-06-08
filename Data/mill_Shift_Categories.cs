@@ -6,7 +6,7 @@ namespace Mill_Project.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class mill_Shift_Catagories
+    public partial class mill_Shift_Categories
     {
         [Key]
         public int Shift_catagories_ID { get; set; }
