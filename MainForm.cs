@@ -76,9 +76,9 @@ namespace Mill_Project
 
         private void btnPost_Click(object sender, EventArgs e)
         {
-           mill_Mills_Utilization record = new mill_Mills_Utilization
+           
 
-           record.Shift_Category = cmbCategory.Text;
+           
         }
 
 
