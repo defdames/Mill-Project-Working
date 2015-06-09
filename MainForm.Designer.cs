@@ -330,7 +330,7 @@
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(500, 227);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(109, 26);
+            this.cmbCategory.Size = new System.Drawing.Size(208, 26);
             this.cmbCategory.TabIndex = 34;
             // 
             // lblCategory

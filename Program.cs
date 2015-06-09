@@ -105,15 +105,18 @@ namespace Mill_Project
 
         }
 
-        public static List<string>Get_Category(string company, string plant)//get list of categories in the company and plant user has access to
+        public static List<GetCat> Get_Category(string company, string plant)//get list of categories in the company and plant user has access to
         {
             using (var context = new Model1())
             {
-                var category = (from cat in context.mill_Shift_Categories
-                                where cat.gl_cmp_key == company && cat.sf_plant_key == plant
-                                select cat.Category.ToString()).ToList();
-                return category;
+                var c = from cat in context.mill_Shift_Categories
+                        where cat.gl_cmp_key == company && cat.sf_plant_key == plant
+                        select new GetCat {Cat =  cat.Category, Desc = cat.Category_Description };
+                
+                return c.ToList();
+               
             }
+            
         }
 
         private static Dictionary<Type, Action<Control>> controldefaults = new Dictionary<Type, Action<Control>>() //Method to clear all controls instead of typping each one out
@@ -159,14 +162,17 @@ namespace Mill_Project
 
         }
 
-        public class Mills
+        public class GetCat
         {
-            public string Mill_ID { get; set; }
-            public string Active { get; set; }
-            public string Company { get; set; }
-            public string Plant { get; set; }
+            public string Cat { get; set; }
+            public string Desc { get; set; }
+
 
         }
+
+       
+
+        
 
     
     }
