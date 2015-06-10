@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Mill_Project.Data;
+
 using System.Data.Linq.SqlClient;
 using System.Data.Linq;
 using System.IO;

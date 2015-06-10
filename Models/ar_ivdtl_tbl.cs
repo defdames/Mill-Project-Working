@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+
+namespace Mill_Project.Models
+{
+    public partial class ar_ivdtl_tbl
+    {
+        public string gl_cmp_key { get; set; }
+        public string in_brnch_key { get; set; }
+        public string ar_ivhdr_key { get; set; }
+        public int ar_ivdtl_key { get; set; }
+        public short so_dtl_key { get; set; }
+        public string ar_ivdtl_type { get; set; }
+        public string in_prod_key { get; set; }
+        public string in_prod_desc { get; set; }
+        public string so_ship_key { get; set; }
+        public double so_dtl_unitc { get; set; }
+        public double so_dtl_unitcf { get; set; }
+        public double ar_ivdtl_extdc { get; set; }
+        public double ar_ivdtl_extdcf { get; set; }
+        public string ar_tax_key { get; set; }
+        public double ar_tax_amtc { get; set; }
+        public double ar_tax_amtcf { get; set; }
+        public string en_whs_key { get; set; }
+        public string en_sltyp_key { get; set; }
+        public double ar_tax_amt2c { get; set; }
+        public double ar_tax_amt2cf { get; set; }
+        public double ar_tax_amt3c { get; set; }
+        public double ar_tax_amt3cf { get; set; }
+        public double ar_tax_amt4c { get; set; }
+        public double ar_tax_amt4cf { get; set; }
+        public double ar_tax_amt5c { get; set; }
+        public double ar_tax_amt5cf { get; set; }
+        public Nullable<short> ar_ivdtl_adjfl { get; set; }
+        public int so_shpitm_line { get; set; }
+        public double ar_ivdtl_pot { get; set; }
+        public string ar_ivdtl_prcuom { get; set; }
+        public double ar_ivdtl_invqtpuom { get; set; }
+        public double ar_ivdtl_adjbasecf { get; set; }
+        public double ar_ivdtl_eadbasecf { get; set; }
+        public string ar_ivdtl_ouom { get; set; }
+        public double ar_ivdtl_invqtouom { get; set; }
+        public int ar_ivdtl_upcnt { get; set; }
+        public short ar_ivdtl_extactf { get; set; }
+        public short ar_ivdtl_eprcactf { get; set; }
+        public short ar_ivdtl_efrtactf { get; set; }
+        public double ar_ivdtl_grnomwt { get; set; }
+        public Nullable<double> ar_ivdtl_gractwt { get; set; }
+        public Nullable<double> ar_ivdtl_afill { get; set; }
+        public string en_uom_afill { get; set; }
+        public string en_uom_wtuom { get; set; }
+        public int im_localgrp_key { get; set; }
+        public string gl_vatcd_key { get; set; }
+        public double gl_vatrate_pct { get; set; }
+        public double ar_ivdtl_vatc { get; set; }
+        public double ar_ivdtl_vatcf { get; set; }
+        public short ar_ivdtl_disitmf { get; set; }
+        public Nullable<System.DateTime> so_ship_date { get; set; }
+        public Nullable<double> ar_ivdtl_quoteprcf { get; set; }
+        public string en_uom_analuom { get; set; }
+        public Nullable<double> ar_ivdtl_analqty { get; set; }
+        public string gl_cmp_profit { get; set; }
+        public string so_brnch_profit { get; set; }
+        public string gl_cmp_ship { get; set; }
+        public string so_brnch_ship { get; set; }
+        public Nullable<int> so_shpitm_intinv { get; set; }
+        public string gl_crncy_trfpr { get; set; }
+        public Nullable<double> ar_ivdtl_trfbasecs { get; set; }
+        public Nullable<double> ar_ivdtl_trfebascs { get; set; }
+        public Nullable<double> ar_ivdtl_trfetotcs { get; set; }
+        public Nullable<double> ar_ivdtl_trftax1cs { get; set; }
+        public Nullable<double> ar_ivdtl_trftax2cs { get; set; }
+        public Nullable<double> ar_ivdtl_trftax3cs { get; set; }
+        public Nullable<double> ar_ivdtl_trftax4cs { get; set; }
+        public Nullable<double> ar_ivdtl_trftax5cs { get; set; }
+        public Nullable<double> ar_ivdtl_trfvatcs { get; set; }
+        public string ar_tax_trfpr { get; set; }
+        public string gl_vatcd_artrfpr { get; set; }
+        public string gl_vatcd_aptrfpr { get; set; }
+        public string pc_bsprhd_trfpr { get; set; }
+        public Nullable<short> pc_bsprdt_trfpr { get; set; }
+        public string ar_ivdtl_shfvatregno { get; set; }
+        public string ar_ivdtl_shtvatregno { get; set; }
+        public string ar_ivdtl_exsus { get; set; }
+        public string ar_ivdtl_trfexsus { get; set; }
+        public string so_hdr_key { get; set; }
+        public string so_enduse_key { get; set; }
+        public Nullable<double> ar_ivdtl_icbasecf { get; set; }
+        public Nullable<double> ar_ivdtl_eicbasecf { get; set; }
+        public string ar_ship_key { get; set; }
+        public Nullable<double> ar_ivdtl_altqty { get; set; }
+        public string en_uom_alternate { get; set; }
+        public string so_brand_key { get; set; }
+        public string pc_agrmt_key { get; set; }
+        public Nullable<short> pc_agrhdr_ppcind { get; set; }
+        public string pc_agrhdr_prod { get; set; }
+        public Nullable<short> pc_agrhdr_key { get; set; }
+        public Nullable<short> pc_agrdtl_key { get; set; }
+    }
+}

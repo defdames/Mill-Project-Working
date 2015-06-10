@@ -85,6 +85,8 @@
             // 
             // dtmShiftStart
             // 
+            this.dtmShiftStart.CustomFormat = "MM dd yyyy hh mm ss";
+            this.dtmShiftStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtmShiftStart.Location = new System.Drawing.Point(128, 45);
             this.dtmShiftStart.Name = "dtmShiftStart";
             this.dtmShiftStart.Size = new System.Drawing.Size(200, 20);
@@ -197,6 +199,7 @@
             this.cmbMill.Name = "cmbMill";
             this.cmbMill.Size = new System.Drawing.Size(109, 26);
             this.cmbMill.TabIndex = 14;
+            this.cmbMill.SelectedIndexChanged += new System.EventHandler(this.cmbMill_SelectedIndexChanged);
             // 
             // lblTemp
             // 
@@ -237,7 +240,7 @@
             // lblD90
             // 
             this.lblD90.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblD90.Location = new System.Drawing.Point(565, 138);
+            this.lblD90.Location = new System.Drawing.Point(592, 138);
             this.lblD90.Name = "lblD90";
             this.lblD90.Size = new System.Drawing.Size(37, 21);
             this.lblD90.TabIndex = 19;
@@ -254,6 +257,7 @@
             // 
             // cmbSystem
             // 
+            this.cmbSystem.Enabled = false;
             this.cmbSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSystem.FormattingEnabled = true;
             this.cmbSystem.Location = new System.Drawing.Point(128, 181);
@@ -309,7 +313,7 @@
             // mtxtD90
             // 
             this.mtxtD90.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtD90.Location = new System.Drawing.Point(608, 141);
+            this.mtxtD90.Location = new System.Drawing.Point(636, 141);
             this.mtxtD90.Mask = "0.00";
             this.mtxtD90.Name = "mtxtD90";
             this.mtxtD90.Size = new System.Drawing.Size(100, 24);
@@ -365,10 +369,11 @@
             // 
             this.mtxtStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtStartTime.Location = new System.Drawing.Point(128, 333);
-            this.mtxtStartTime.Mask = "00.00";
+            this.mtxtStartTime.Mask = "00:00";
             this.mtxtStartTime.Name = "mtxtStartTime";
             this.mtxtStartTime.Size = new System.Drawing.Size(100, 24);
             this.mtxtStartTime.TabIndex = 40;
+            this.mtxtStartTime.ValidatingType = typeof(System.DateTime);
             // 
             // lblStartTime
             // 
@@ -383,10 +388,11 @@
             // 
             this.mtxtStopTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtStopTime.Location = new System.Drawing.Point(347, 333);
-            this.mtxtStopTime.Mask = "00.00";
+            this.mtxtStopTime.Mask = "00:00";
             this.mtxtStopTime.Name = "mtxtStopTime";
             this.mtxtStopTime.Size = new System.Drawing.Size(100, 24);
             this.mtxtStopTime.TabIndex = 42;
+            this.mtxtStopTime.ValidatingType = typeof(System.DateTime);
             // 
             // lblStopTime
             // 

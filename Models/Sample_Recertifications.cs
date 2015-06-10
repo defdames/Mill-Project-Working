@@ -1,0 +1,115 @@
+using System;
+using System.Collections.Generic;
+
+namespace Mill_Project.Models
+{
+    public partial class Sample_Recertifications
+    {
+        public int Request_Number { get; set; }
+        public Nullable<System.DateTime> Date_Submitted { get; set; }
+        public string Requestor { get; set; }
+        public string Customer_Name { get; set; }
+        public string Address_Line_1 { get; set; }
+        public string Address_Line_2 { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
+        public string Zip { get; set; }
+        public string Country { get; set; }
+        public Nullable<System.DateTime> Sample_Sent_from_Affilliate { get; set; }
+        public Nullable<System.DateTime> Sample_Received_from_Affilliate { get; set; }
+        public string Product_for_Recertification { get; set; }
+        public string Lot_Number { get; set; }
+        public Nullable<decimal> Original_NV { get; set; }
+        public Nullable<decimal> Retain_NV { get; set; }
+        public Nullable<decimal> Return_NV { get; set; }
+        public Nullable<decimal> Affilliate_Stock_NV { get; set; }
+        public Nullable<decimal> Original___Leafing { get; set; }
+        public Nullable<decimal> Retain___Leafing { get; set; }
+        public Nullable<decimal> Return___Leafing { get; set; }
+        public Nullable<decimal> Affilliate_Stock___Leafing { get; set; }
+        public Nullable<decimal> Original_D10 { get; set; }
+        public Nullable<decimal> Retain_D10 { get; set; }
+        public Nullable<decimal> Return_D10 { get; set; }
+        public Nullable<decimal> Affilliate_Stock_D10 { get; set; }
+        public Nullable<decimal> Original_D50 { get; set; }
+        public Nullable<decimal> Retain_D50 { get; set; }
+        public Nullable<decimal> Return_D50 { get; set; }
+        public Nullable<decimal> Affilliate_Stock_D50 { get; set; }
+        public Nullable<decimal> Original_D90 { get; set; }
+        public Nullable<decimal> Retain_D90 { get; set; }
+        public Nullable<decimal> Return_D90 { get; set; }
+        public Nullable<decimal> Affilliate_Stock_D90 { get; set; }
+        public Nullable<decimal> Original_200_Mesh { get; set; }
+        public Nullable<decimal> Retain_200_Mesh { get; set; }
+        public Nullable<decimal> Return_200_Mesh { get; set; }
+        public Nullable<decimal> Affilliate_Stock_200_Mesh { get; set; }
+        public Nullable<decimal> Original_325_Mesh { get; set; }
+        public Nullable<decimal> Retain_325_Mesh { get; set; }
+        public Nullable<decimal> Return_325_Mesh { get; set; }
+        public Nullable<decimal> Affilliate_Stock_325_Mesh { get; set; }
+        public Nullable<decimal> Original_400_Mesh { get; set; }
+        public Nullable<decimal> Retain_400_Mesh { get; set; }
+        public Nullable<decimal> Return_400_Mesh { get; set; }
+        public Nullable<decimal> Affilliate_Stock_400_Mesh { get; set; }
+        public string Comments { get; set; }
+        public Nullable<bool> Retain_Sample_in_Spec_ { get; set; }
+        public Nullable<bool> Return_Sample_in_Spec_ { get; set; }
+        public Nullable<bool> Affilliate_Sample_in_Spec_ { get; set; }
+        public string QA_Representative { get; set; }
+        public Nullable<System.DateTime> QA_Rep_Date { get; set; }
+        public Nullable<System.DateTime> Good_to_Use_Until_Date { get; set; }
+        public string Shipment_Tracking_Info { get; set; }
+        public Nullable<decimal> Original_H2O { get; set; }
+        public string Original_Urea { get; set; }
+        public Nullable<decimal> Original_Hegman { get; set; }
+        public Nullable<decimal> Original_DLM25 { get; set; }
+        public Nullable<decimal> Original_DLM45 { get; set; }
+        public Nullable<decimal> Original_DLM75 { get; set; }
+        public Nullable<decimal> Original_DLM110 { get; set; }
+        public Nullable<decimal> Original_DLT25 { get; set; }
+        public Nullable<decimal> Original_DLT45 { get; set; }
+        public Nullable<decimal> Original_DLT75 { get; set; }
+        public Nullable<decimal> Original_DLT110 { get; set; }
+        public string Master_Standard_Lot { get; set; }
+        public Nullable<decimal> Retain_H2O { get; set; }
+        public string Retain_Urea { get; set; }
+        public Nullable<decimal> Retain_Hegman { get; set; }
+        public Nullable<decimal> Retain_DLM25 { get; set; }
+        public Nullable<decimal> Retain_DLM45 { get; set; }
+        public Nullable<decimal> Retain_DLM75 { get; set; }
+        public string Retain_DLM110 { get; set; }
+        public Nullable<decimal> Retain_DLT25 { get; set; }
+        public Nullable<decimal> Retain_DLT45 { get; set; }
+        public Nullable<decimal> Retain_DLT75 { get; set; }
+        public Nullable<decimal> Retain_DLT110 { get; set; }
+        public Nullable<decimal> Return_H2O { get; set; }
+        public string Return_Urea { get; set; }
+        public Nullable<decimal> Return_Hegman { get; set; }
+        public Nullable<decimal> Return_DLM25 { get; set; }
+        public Nullable<decimal> Return_DLM45 { get; set; }
+        public Nullable<decimal> Return_DLM75 { get; set; }
+        public Nullable<decimal> Return_DLM110 { get; set; }
+        public Nullable<decimal> Return_DLT25 { get; set; }
+        public Nullable<decimal> Return_DLT45 { get; set; }
+        public Nullable<decimal> Return_DLT75 { get; set; }
+        public Nullable<decimal> Return_DLT110 { get; set; }
+        public Nullable<decimal> Affilliate_H2O { get; set; }
+        public string Affilliate_Urea { get; set; }
+        public Nullable<decimal> Affilliate_Hegman { get; set; }
+        public Nullable<decimal> Affilliate_DLM25 { get; set; }
+        public Nullable<decimal> Affilliate_DLM45 { get; set; }
+        public Nullable<decimal> Affilliate_DLM75 { get; set; }
+        public Nullable<decimal> Affilliate_DLM_110 { get; set; }
+        public Nullable<decimal> Affilliate_DLT25 { get; set; }
+        public Nullable<decimal> Affilliate_DLT45 { get; set; }
+        public Nullable<decimal> Affilliate_DLT75 { get; set; }
+        public Nullable<decimal> Affilliate_DLT_110 { get; set; }
+        public string en_ship_key { get; set; }
+        public string ContactName { get; set; }
+        public string TGA_Original { get; set; }
+        public string TGA_Retain { get; set; }
+        public string TGA_Return { get; set; }
+        public string TGA_Stock { get; set; }
+        public virtual en_ship_tbl en_ship_tbl { get; set; }
+    }
+}

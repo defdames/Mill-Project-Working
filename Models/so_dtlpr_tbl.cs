@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+
+namespace Mill_Project.Models
+{
+    public partial class so_dtlpr_tbl
+    {
+        public string gl_cmp_key { get; set; }
+        public string so_brnch_key { get; set; }
+        public string so_hdr_key { get; set; }
+        public short so_dtl_key { get; set; }
+        public string so_dtlpr_prcwhs { get; set; }
+        public string so_dtlpr_prcuom { get; set; }
+        public double so_dtlpr_qtypuom { get; set; }
+        public Nullable<double> so_dtlpr_prcqty { get; set; }
+        public Nullable<double> so_dtlpr_cep { get; set; }
+        public short so_dtlpr_fprcf { get; set; }
+        public string so_dtlpr_ccpcd { get; set; }
+        public short so_dtlpr_prcfl { get; set; }
+        public string so_dtlpr_pragrq { get; set; }
+        public string so_dtlpr_patmplt { get; set; }
+        public string so_dtlpr_batmpp { get; set; }
+        public string pc_bsphdr_key { get; set; }
+        public Nullable<short> pc_bsprdt_key { get; set; }
+        public string so_dtlpr_audit { get; set; }
+        public Nullable<int> so_dtlpr_frgcmb { get; set; }
+        public double so_dtlpr_basec { get; set; }
+        public double so_dtlpr_basecf { get; set; }
+        public Nullable<double> so_dtlpr_eudlvdcf { get; set; }
+        public Nullable<double> so_dtlpr_eudlvdacf { get; set; }
+        public Nullable<double> so_dtlpr_edlvdcf { get; set; }
+        public Nullable<double> so_dtlpr_eeldsccf { get; set; }
+        public Nullable<double> so_dtlpr_eelcomcf { get; set; }
+        public Nullable<double> so_dtlpr_eeltaxcf { get; set; }
+        public string ar_tax_key { get; set; }
+        public Nullable<double> so_dtlpr_tax1 { get; set; }
+        public Nullable<double> so_dtlpr_tax2 { get; set; }
+        public Nullable<double> so_dtlpr_tax3 { get; set; }
+        public Nullable<double> so_dtlpr_tax4 { get; set; }
+        public Nullable<double> so_dtlpr_tax5 { get; set; }
+        public Nullable<double> so_dtlpr_tax1cf { get; set; }
+        public Nullable<double> so_dtlpr_tax2cf { get; set; }
+        public Nullable<double> so_dtlpr_tax3cf { get; set; }
+        public Nullable<double> so_dtlpr_tax4cf { get; set; }
+        public Nullable<double> so_dtlpr_tax5cf { get; set; }
+        public double so_dtlpr_etotbillc { get; set; }
+        public double so_dtlpr_ettbillcf { get; set; }
+        public Nullable<double> so_dtlpr_eaccrcf { get; set; }
+        public Nullable<double> so_dtlpr_edlvdacf { get; set; }
+        public Nullable<double> so_dtlpr_frgtshpwt { get; set; }
+        public double so_dtlpr_ebasecf { get; set; }
+        public double so_dtlpr_ebasec { get; set; }
+        public double so_dtlpr_ebasecp { get; set; }
+        public double so_dtlpr_adjbasecf { get; set; }
+        public double so_dtlpr_eadbasecf { get; set; }
+        public int so_dtlpr_upcnt { get; set; }
+        public string en_uom_wtuom { get; set; }
+        public Nullable<double> so_dtlpr_ogroprcwt { get; set; }
+        public Nullable<double> so_dtlpr_onetprcwt { get; set; }
+        public short so_dtlpr_eprcactf { get; set; }
+        public short so_dtlpr_efrtactf { get; set; }
+        public string gl_vatcd_key { get; set; }
+        public double gl_vatrate_pct { get; set; }
+        public double so_dtlpr_vatc { get; set; }
+        public double so_dtlpr_vatcf { get; set; }
+        public Nullable<System.DateTime> so_dtlpr_prcorddt { get; set; }
+        public Nullable<System.DateTime> so_dtlpr_prcshpdt { get; set; }
+        public Nullable<double> so_dtlpr_quoteprcf { get; set; }
+        public string en_uom_analuom { get; set; }
+        public Nullable<double> so_dtlpr_analqty { get; set; }
+        public string gl_crncy_trfpr { get; set; }
+        public string pc_bsprhd_trfpr { get; set; }
+        public Nullable<short> pc_bsprdt_trfpr { get; set; }
+        public Nullable<double> so_dtlpr_trfbasecs { get; set; }
+        public Nullable<double> so_dtlpr_trfebascs { get; set; }
+        public Nullable<double> so_dtlpr_trfetotcs { get; set; }
+        public Nullable<double> so_dtlpr_trftax1cs { get; set; }
+        public Nullable<double> so_dtlpr_trftax2cs { get; set; }
+        public Nullable<double> so_dtlpr_trftax3cs { get; set; }
+        public Nullable<double> so_dtlpr_trftax4cs { get; set; }
+        public Nullable<double> so_dtlpr_trftax5cs { get; set; }
+        public Nullable<double> so_dtlpr_trfvatcs { get; set; }
+        public string ar_tax_trfpr { get; set; }
+        public string gl_vatcd_artrfpr { get; set; }
+        public string gl_vatcd_aptrfpr { get; set; }
+        public string so_dtlpr_trfexsus { get; set; }
+        public Nullable<short> so_dtlpr_ppcindrq { get; set; }
+        public string so_dtlpr_prodrq { get; set; }
+        public Nullable<short> so_dtlpr_agrhdrq { get; set; }
+        public double so_dtlpr_unitadjcf { get; set; }
+        public Nullable<double> so_dtlpr_icbasecf { get; set; }
+        public Nullable<double> so_dtlpr_eicbasecf { get; set; }
+        public double so_dtlpr_ettpretaxcf { get; set; }
+        public Nullable<double> so_dtlpr_expaccrcf { get; set; }
+        public string pc_agrmt_key { get; set; }
+        public Nullable<short> pc_agrhdr_ppcind { get; set; }
+        public string pc_agrhdr_prod { get; set; }
+        public Nullable<short> pc_agrhdr_key { get; set; }
+        public Nullable<short> pc_agrdtl_key { get; set; }
+        public string sa_user_key { get; set; }
+        public Nullable<System.DateTime> so_dtlpr_lastprcdt { get; set; }
+    }
+}

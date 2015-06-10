@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.Common;
-using Mill_Project.Data;
 
 namespace Mill_Project
 {
@@ -42,8 +41,9 @@ namespace Mill_Project
             using (var context = new Model1())
             
             {
-                var cmp = (from cm in context.web_sa_cmp_tbl
-                          where cm.sa_user_key == uname
+                var cmp = (from  sau in context.sa_user_tbl
+                           join cm in context.sa_uentp_tbl on sau.sa_user_key equals cm.sa_user_key
+                          where sau.sa_osuser_key == uname && cm.sa_uentp_entyp =="B"
                               select cm.gl_cmp_key.ToString()).ToList();
                 return cmp;
             }
@@ -71,13 +71,14 @@ namespace Mill_Project
             }
         }
 
-        public static List<string>Get_Systems(string company, string plant)//get list of systems in the company and plant the user has access to
+        public static List<string>Get_Systems(string company, string plant, string mill)//get list of systems in the company and plant the user has access to
         {
             using (var context = new Model1())
             {
                 var systems = (from sys in context.mill_Systems
-                               where sys.gl_cmp_key == company && sys.sf_plant_key == plant && sys.Active == "Y"
-                               select sys.System_Name.ToString()).ToList();
+                               join sysc in context.mill_Sys_Mills_Combo on sys.System_Name equals sysc.System 
+                               where sys.gl_cmp_key == company && sys.sf_plant_key == plant && sys.Active == "Y"  && sysc.Mill_ID == mill 
+                               select sysc.System.ToString()).ToList();
                 return systems;
             }
         }

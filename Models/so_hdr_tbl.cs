@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+
+namespace Mill_Project.Models
+{
+    public partial class so_hdr_tbl
+    {
+        public string gl_cmp_key { get; set; }
+        public string so_brnch_key { get; set; }
+        public string so_hdr_key { get; set; }
+        public string en_cust_key { get; set; }
+        public string ar_bill_key { get; set; }
+        public int ar_bill_adkey { get; set; }
+        public string ar_ship_key { get; set; }
+        public int ar_ship_adkey { get; set; }
+        public string ar_ship_adtxt { get; set; }
+        public int so_hdr_revno { get; set; }
+        public System.DateTime so_hdr_revdt { get; set; }
+        public System.DateTime so_hdr_reqdt { get; set; }
+        public Nullable<System.DateTime> so_hdr_clsdt { get; set; }
+        public System.DateTime so_hdr_lrvdt { get; set; }
+        public System.DateTime so_hdr_prmdt { get; set; }
+        public Nullable<System.DateTime> so_hdr_prtdt { get; set; }
+        public System.DateTime so_hdr_espdt { get; set; }
+        public string so_hdr_pytrm { get; set; }
+        public string so_hdr_cont { get; set; }
+        public string so_hdr_frgtshipuom { get; set; }
+        public string so_hdr_remks { get; set; }
+        public string so_hdr_tel { get; set; }
+        public int so_hdr_shply { get; set; }
+        public short so_hdr_holdf { get; set; }
+        public string so_hdr_typec { get; set; }
+        public string so_hdr_cpono { get; set; }
+        public string so_hdr_porelease { get; set; }
+        public string pa_proj_key { get; set; }
+        public int so_hdr_invf { get; set; }
+        public string so_hdr_instl { get; set; }
+        public string so_hdr_stat { get; set; }
+        public string so_hdr_ref { get; set; }
+        public string gl_crncy_key { get; set; }
+        public double so_hdr_rate { get; set; }
+        public double so_hdr_rvar { get; set; }
+        public double so_hdr_ciapc { get; set; }
+        public string so_resn_code { get; set; }
+        public string sa_created_by { get; set; }
+        public string sa_modified_by { get; set; }
+        public System.DateTime so_hdr_chgdt { get; set; }
+        public System.DateTime so_hdr_crtdt { get; set; }
+        public int so_hdr_upcnt { get; set; }
+        public string so_dtl_fobds { get; set; }
+        public string en_carr_key { get; set; }
+        public string en_frgt_key { get; set; }
+        public string en_mode_key { get; set; }
+        public string en_service_key { get; set; }
+        public string en_loadpf_key { get; set; }
+        public string so_hdr_prcwtuom { get; set; }
+        public Nullable<double> so_hdr_frgtshipwt { get; set; }
+        public short so_hdr_sadrf { get; set; }
+        public short so_hdr_badrf { get; set; }
+        public short sa_has_extf { get; set; }
+        public string so_hdr_expno { get; set; }
+        public short so_hdr_autofrcmbf { get; set; }
+        public Nullable<System.DateTime> so_hdr_cncldt { get; set; }
+        public string ar_tax_key { get; set; }
+        public short so_hdr_taxf { get; set; }
+        public Nullable<double> so_hdr_ogroprcwt { get; set; }
+        public Nullable<double> so_hdr_onetprcwt { get; set; }
+        public short so_hdr_dmctlf { get; set; }
+        public int im_localgrp_key { get; set; }
+        public string gl_vatcd_key { get; set; }
+        public string ar_bill_exsus { get; set; }
+        public double so_hdr_origto3 { get; set; }
+        public double so_hdr_tobase { get; set; }
+        public Nullable<System.DateTime> so_hdr_asofdt { get; set; }
+        public Nullable<short> so_hdr_whordf { get; set; }
+        public Nullable<System.DateTime> so_hdr_prcorddt { get; set; }
+        public Nullable<System.DateTime> so_hdr_prcshpdt { get; set; }
+        public string so_temphdr_key { get; set; }
+        public string so_hdr_storeid { get; set; }
+        public string ar_bill_intvndno { get; set; }
+        public string so_hdr_deptno { get; set; }
+        public short so_hdr_stradrf { get; set; }
+        public string so_hdr_ccaudit { get; set; }
+        public string sa_webuser_key { get; set; }
+        public short so_hdr_eustat { get; set; }
+        public Nullable<System.DateTime> so_hdr_eustatdt { get; set; }
+        public Nullable<int> ei_atf_key { get; set; }
+        public string gl_cmp_po { get; set; }
+        public string so_brnch_po { get; set; }
+        public short so_hdr_intcmpf { get; set; }
+        public string en_fob_key { get; set; }
+        public short so_hdr_asynchstat { get; set; }
+        public short so_hdr_usagef { get; set; }
+        public double so_hdr_ettbillcf { get; set; }
+        public string so_hdr_csono { get; set; }
+        public Nullable<int> im_cntct_key { get; set; }
+        public string so_hdr_webid { get; set; }
+        public string so_hdr_prcconfid { get; set; }
+        public int so_hdr_maxdtl { get; set; }
+    }
+}

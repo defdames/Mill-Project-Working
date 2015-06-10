@@ -1,4 +1,4 @@
-namespace Mill_Project.Data
+namespace Mill_Project
 {
     using System;
     using System.Collections.Generic;
@@ -17,9 +17,9 @@ namespace Mill_Project.Data
 
         public int? Shift_Length_Hours { get; set; }
 
-        public DateTime Shift_Start_Time { get; set; }
+        public TimeSpan Shift_Start_Time { get; set; }
 
-        public DateTime Shift_Stop_Time { get; set; }
+        public TimeSpan Shift_Stop_Time { get; set; }
 
         [Required]
         [StringLength(1)]
