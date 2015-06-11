@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblFormTitle = new System.Windows.Forms.Label();
             this.dtmShiftStart = new System.Windows.Forms.DateTimePicker();
             this.lblShiftStart = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.lblMill = new System.Windows.Forms.Label();
             this.cmbMill = new System.Windows.Forms.ComboBox();
             this.lblTemp = new System.Windows.Forms.Label();
-            this.txtTemp = new System.Windows.Forms.TextBox();
             this.lblD10 = new System.Windows.Forms.Label();
             this.lblD98 = new System.Windows.Forms.Label();
             this.lblD90 = new System.Windows.Forms.Label();
@@ -60,9 +60,7 @@
             this.lblCategory = new System.Windows.Forms.Label();
             this.cmbRunCode = new System.Windows.Forms.ComboBox();
             this.lblRunCode = new System.Windows.Forms.Label();
-            this.mtxtStartTime = new System.Windows.Forms.MaskedTextBox();
             this.lblStartTime = new System.Windows.Forms.Label();
-            this.mtxtStopTime = new System.Windows.Forms.MaskedTextBox();
             this.lblStopTime = new System.Windows.Forms.Label();
             this.btnPost = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -71,6 +69,16 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnMillMaint = new System.Windows.Forms.Button();
+            this.dtStart = new System.Windows.Forms.DateTimePicker();
+            this.dtStop = new System.Windows.Forms.DateTimePicker();
+            this.ttD10 = new System.Windows.Forms.ToolTip(this.components);
+            this.mtxtTemp = new System.Windows.Forms.MaskedTextBox();
+            this.ttD50 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttD90 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttD98 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttTemp = new System.Windows.Forms.ToolTip(this.components);
+            this.ttTime = new System.Windows.Forms.ToolTip(this.components);
+            this.tt24 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,6 +171,7 @@
             this.txtSONumber.Name = "txtSONumber";
             this.txtSONumber.Size = new System.Drawing.Size(100, 24);
             this.txtSONumber.TabIndex = 10;
+            this.txtSONumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSONumber_KeyPress);
             // 
             // lblItemNumber
             // 
@@ -210,14 +219,6 @@
             this.lblTemp.Size = new System.Drawing.Size(61, 18);
             this.lblTemp.TabIndex = 15;
             this.lblTemp.Text = "Temp C";
-            // 
-            // txtTemp
-            // 
-            this.txtTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemp.Location = new System.Drawing.Point(435, 104);
-            this.txtTemp.Name = "txtTemp";
-            this.txtTemp.Size = new System.Drawing.Size(100, 24);
-            this.txtTemp.TabIndex = 16;
             // 
             // lblD10
             // 
@@ -294,6 +295,7 @@
             // 
             // mtxtD10
             // 
+            this.mtxtD10.BeepOnError = true;
             this.mtxtD10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtD10.Location = new System.Drawing.Point(128, 141);
             this.mtxtD10.Mask = "0.00";
@@ -365,16 +367,6 @@
             this.lblRunCode.TabIndex = 35;
             this.lblRunCode.Text = "Run Code";
             // 
-            // mtxtStartTime
-            // 
-            this.mtxtStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtStartTime.Location = new System.Drawing.Point(128, 333);
-            this.mtxtStartTime.Mask = "00:00";
-            this.mtxtStartTime.Name = "mtxtStartTime";
-            this.mtxtStartTime.Size = new System.Drawing.Size(100, 24);
-            this.mtxtStartTime.TabIndex = 40;
-            this.mtxtStartTime.ValidatingType = typeof(System.DateTime);
-            // 
             // lblStartTime
             // 
             this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -384,20 +376,10 @@
             this.lblStartTime.TabIndex = 39;
             this.lblStartTime.Text = "Start Time";
             // 
-            // mtxtStopTime
-            // 
-            this.mtxtStopTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtStopTime.Location = new System.Drawing.Point(347, 333);
-            this.mtxtStopTime.Mask = "00:00";
-            this.mtxtStopTime.Name = "mtxtStopTime";
-            this.mtxtStopTime.Size = new System.Drawing.Size(100, 24);
-            this.mtxtStopTime.TabIndex = 42;
-            this.mtxtStopTime.ValidatingType = typeof(System.DateTime);
-            // 
             // lblStopTime
             // 
             this.lblStopTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStopTime.Location = new System.Drawing.Point(263, 333);
+            this.lblStopTime.Location = new System.Drawing.Point(276, 332);
             this.lblStopTime.Name = "lblStopTime";
             this.lblStopTime.Size = new System.Drawing.Size(85, 24);
             this.lblStopTime.TabIndex = 41;
@@ -406,7 +388,7 @@
             // btnPost
             // 
             this.btnPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPost.Location = new System.Drawing.Point(500, 333);
+            this.btnPost.Location = new System.Drawing.Point(500, 334);
             this.btnPost.Name = "btnPost";
             this.btnPost.Size = new System.Drawing.Size(75, 23);
             this.btnPost.TabIndex = 43;
@@ -417,7 +399,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(608, 334);
+            this.btnCancel.Location = new System.Drawing.Point(633, 334);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 44;
@@ -463,7 +445,7 @@
             // 
             this.btnMillMaint.Enabled = false;
             this.btnMillMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMillMaint.Location = new System.Drawing.Point(695, 333);
+            this.btnMillMaint.Location = new System.Drawing.Point(789, 334);
             this.btnMillMaint.Name = "btnMillMaint";
             this.btnMillMaint.Size = new System.Drawing.Size(105, 56);
             this.btnMillMaint.TabIndex = 49;
@@ -472,11 +454,43 @@
             this.btnMillMaint.Visible = false;
             this.btnMillMaint.Click += new System.EventHandler(this.btnMillMaint_Click);
             // 
+            // dtStart
+            // 
+            this.dtStart.CustomFormat = "MM/dd/yyyy HH:mm tt";
+            this.dtStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtStart.Location = new System.Drawing.Point(128, 331);
+            this.dtStart.Name = "dtStart";
+            this.dtStart.ShowUpDown = true;
+            this.dtStart.Size = new System.Drawing.Size(142, 20);
+            this.dtStart.TabIndex = 50;
+            // 
+            // dtStop
+            // 
+            this.dtStop.CustomFormat = "MM/dd/yyyy HH:mm tt";
+            this.dtStop.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtStop.Location = new System.Drawing.Point(354, 331);
+            this.dtStop.Name = "dtStop";
+            this.dtStop.ShowUpDown = true;
+            this.dtStop.Size = new System.Drawing.Size(136, 20);
+            this.dtStop.TabIndex = 51;
+            // 
+            // mtxtTemp
+            // 
+            this.mtxtTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtxtTemp.Location = new System.Drawing.Point(435, 104);
+            this.mtxtTemp.Mask = "0.000";
+            this.mtxtTemp.Name = "mtxtTemp";
+            this.mtxtTemp.Size = new System.Drawing.Size(100, 24);
+            this.mtxtTemp.TabIndex = 52;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 560);
+            this.Controls.Add(this.mtxtTemp);
+            this.Controls.Add(this.dtStop);
+            this.Controls.Add(this.dtStart);
             this.Controls.Add(this.btnMillMaint);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.dataGridView1);
@@ -484,9 +498,7 @@
             this.Controls.Add(this.rtxtMemo);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPost);
-            this.Controls.Add(this.mtxtStopTime);
             this.Controls.Add(this.lblStopTime);
-            this.Controls.Add(this.mtxtStartTime);
             this.Controls.Add(this.lblStartTime);
             this.Controls.Add(this.cmbRunCode);
             this.Controls.Add(this.lblRunCode);
@@ -504,7 +516,6 @@
             this.Controls.Add(this.lblD90);
             this.Controls.Add(this.lblD98);
             this.Controls.Add(this.lblD10);
-            this.Controls.Add(this.txtTemp);
             this.Controls.Add(this.lblTemp);
             this.Controls.Add(this.cmbMill);
             this.Controls.Add(this.lblMill);
@@ -520,6 +531,7 @@
             this.Controls.Add(this.lblShiftStart);
             this.Controls.Add(this.dtmShiftStart);
             this.Controls.Add(this.lblFormTitle);
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Mill Utilization";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -546,7 +558,6 @@
         private System.Windows.Forms.Label lblMill;
         private System.Windows.Forms.ComboBox cmbMill;
         private System.Windows.Forms.Label lblTemp;
-        private System.Windows.Forms.TextBox txtTemp;
         private System.Windows.Forms.Label lblD10;
         private System.Windows.Forms.Label lblD98;
         private System.Windows.Forms.Label lblD90;
@@ -563,9 +574,7 @@
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.ComboBox cmbRunCode;
         private System.Windows.Forms.Label lblRunCode;
-        private System.Windows.Forms.MaskedTextBox mtxtStartTime;
         private System.Windows.Forms.Label lblStartTime;
-        private System.Windows.Forms.MaskedTextBox mtxtStopTime;
         private System.Windows.Forms.Label lblStopTime;
         private System.Windows.Forms.Button btnPost;
         private System.Windows.Forms.Button btnCancel;
@@ -574,6 +583,16 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnMillMaint;
+        private System.Windows.Forms.DateTimePicker dtStart;
+        private System.Windows.Forms.DateTimePicker dtStop;
+        private System.Windows.Forms.ToolTip ttD10;
+        private System.Windows.Forms.MaskedTextBox mtxtTemp;
+        private System.Windows.Forms.ToolTip ttD50;
+        private System.Windows.Forms.ToolTip ttD90;
+        private System.Windows.Forms.ToolTip ttD98;
+        private System.Windows.Forms.ToolTip ttTemp;
+        private System.Windows.Forms.ToolTip ttTime;
+        private System.Windows.Forms.ToolTip tt24;
     }
 }
 

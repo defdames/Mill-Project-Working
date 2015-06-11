@@ -31,7 +31,7 @@ namespace Mill_Project
 
         public DateTime? Shift_Start_Date { get; set; }
 
-        public decimal? Mill_Hours_Booked { get; set; }
+        public TimeSpan? Mill_Hours_Booked { get; set; }
 
         public DateTime? Shift_Start_Time { get; set; }
 

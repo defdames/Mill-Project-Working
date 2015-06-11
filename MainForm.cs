@@ -41,14 +41,143 @@ namespace Mill_Project
         {
 
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
+
+
+            #region autofill values
+            mtxtD10.Mask = "0.00";
+            mtxtD10.Text = "0.00";
+            mtxtD50.Mask = "0.00";
+            mtxtD50.Text = "0.00";
+            mtxtD90.Mask = "0.00";
+            mtxtD90.Text = "0.00";
+            mtxtD98.Mask = "0.00";
+            mtxtD98.Text = "0.00";
+            mtxtTemp.Mask = "0.000";
+            mtxtTemp.Text = "0.000";
+            txtSONumber.Text = "0";
+            #endregion
+
+            #region validaion calls for Masked TextBoxes
+            mtxtD10.MaskInputRejected += new MaskInputRejectedEventHandler(mtxtD10_MaskInputRejected);
+            mtxtD10.ValidatingType = typeof(System.Decimal);
+            mtxtD10.TypeValidationCompleted += new TypeValidationEventHandler(mtxtD10_TypeValidationCompleted);
+
+            mtxtD50.MaskInputRejected += new MaskInputRejectedEventHandler(mtxtD50_MaskInputRejected);
+            mtxtD50.ValidatingType = typeof(System.Decimal);
+            mtxtD50.TypeValidationCompleted += new TypeValidationEventHandler(mtxtD50_TypeValidationCompleted);
+
+            mtxtD90.MaskInputRejected += new MaskInputRejectedEventHandler(mtxtD90_MaskInputRejected);
+            mtxtD90.ValidatingType = typeof(System.Decimal);
+            mtxtD90.TypeValidationCompleted += new TypeValidationEventHandler(mtxtD90_TypeValidationCompleted);
+
+            mtxtD98.MaskInputRejected += new MaskInputRejectedEventHandler(mtxtD98_MaskInputRejected);
+            mtxtD98.ValidatingType = typeof(System.Decimal);
+            mtxtD98.TypeValidationCompleted += new TypeValidationEventHandler(mtxtD98_TypeValidationCompleted);
+
+            mtxtTemp.MaskInputRejected += new MaskInputRejectedEventHandler(mtxtTemp_MaskInputRejected);
+            mtxtTemp.ValidatingType = typeof(System.Decimal);
+            mtxtTemp.TypeValidationCompleted += new TypeValidationEventHandler(mtxtTemp_TypeValidationCompleted);
+            #endregion
         }
 
-              
-            
-               
-                
-               
+
+        #region Validation methods for Masked Text Boxes
+        public void mtxtD10_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
+        {
+            if (!e.IsValidInput)
+            {
+                ttD10.ToolTipTitle = "Invalid Decimal Value";
+                ttD10.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD10, 0, 25);
+                e.Cancel = true;
+            }
+        }
         
+        void mtxtD10_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            ttD10.ToolTipTitle = "Invalid Input";
+            ttD10.Show("We're sorry, but only digits (0-9) are allowed in this control.", mtxtD10, 0, 25);
+        }
+
+        public void mtxtD50_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
+        {
+            if (!e.IsValidInput)
+            {
+                ttD50.ToolTipTitle = "Invalid Decimal Value";
+                ttD50.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD50, 0, 25);
+                e.Cancel = true;
+            }
+        }
+
+        void mtxtD50_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            ttD50.ToolTipTitle = "Invalid Input";
+            ttD50.Show("We're sorry, but only digits (0-9) are allowed in this control.", mtxtD50, 0, 25);
+        }
+
+        public void mtxtD90_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
+        {
+            if (!e.IsValidInput)
+            {
+                ttD90.ToolTipTitle = "Invalid Decimal Value";
+                ttD90.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD90, 0, 25);
+                e.Cancel = true;
+            }
+        }
+
+        void mtxtD90_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            ttD90.ToolTipTitle = "Invalid Input";
+            ttD90.Show("We're sorry, but only digits (0-9) are allowed in this control.", mtxtD90, 0, 25);
+        }
+
+
+        public void mtxtD98_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
+        {
+            if (!e.IsValidInput)
+            {
+                ttD98.ToolTipTitle = "Invalid Decimal Value";
+                ttD98.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD98, 0, 25);
+                e.Cancel = true;
+            }
+        }
+
+        void mtxtD98_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            ttD98.ToolTipTitle = "Invalid Input";
+            ttD98.Show("We're sorry, but only digits (0-9) are allowed in this control.", mtxtD98, 0, 25);
+        }
+
+        public void mtxtTemp_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
+        {
+            if (!e.IsValidInput)
+            {
+                ttTemp.ToolTipTitle = "Invalid Decimal Value";
+                ttTemp.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtTemp, 0, 25);
+                e.Cancel = true;
+            }
+        }
+
+        void mtxtTemp_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            ttTemp.ToolTipTitle = "Invalid Input";
+            ttTemp.Show("We're sorry, but only digits (0-9) are allowed in this control.", mtxtTemp, 0, 25);
+        }
+        #endregion
+
+        private void txtSONumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,53 +213,88 @@ namespace Mill_Project
             cmbSystem.DataSource = Program.Get_Systems(cmbCompany.Text, cmbPlant.Text, cmbMill.Text);
         }
 
+
+        
         private void btnPost_Click(object sender, EventArgs e)
         {
             string date = this.dtmShiftStart.Text.ToString();
-            string starttime = this.mtxtStartTime.Text.ToString();
-            string stoptime = this.mtxtStopTime.Text.ToString();
 
+            //string starttime = this.mtxtStartTime.Text.ToString();
+            //string stoptime = this.mtxtStopTime.Text.ToString();
 
-            DateTime dtstart = Convert.ToDateTime(date + " " + starttime);
-            DateTime dtstop = Convert.ToDateTime(date + " " + stoptime);
+            string starttime = dtStart.Value.ToString();
+            string stoptime = dtStop.Value.ToString();
+
+            DateTime dts = DateTime.Parse(starttime);
+            DateTime dtss = DateTime.Parse(stoptime);
             
-            var just_date = dtstart.Date;
+
+
+
+
+            DateTime dtvstart = Convert.ToDateTime(date + " " + dts.TimeOfDay);
+            DateTime dtvstop = Convert.ToDateTime(date + " " + dtss.TimeOfDay);
+
+            TimeSpan hrbooked = dtss - dts;
+            //DateTime dtStartTimeValue = dtStart.Text;
+            
+            var just_date = dtvstart.Date;
             //DateTime dt1start = DateTime.ParseExact(date + " " + starttime, "M/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
 
-            
-            using (Model1 record = new Model1())
+            if (dtStart.Value <= dtStop.Value)
             {
-                mill_Mills_Utilization rec = new mill_Mills_Utilization();
+                if (hrbooked.TotalHours <= 24)
                 {
-
-                    
-                    
-                    rec.Mill_ID = cmbMill.Text;
-                    rec.gl_cmp_key = cmbCompany.Text;
-                    rec.sf_plant_key = cmbPlant.Text;
-                    rec.Start_Time = dtstart;
-                    rec.Stop_Time = dtstop;
-                    rec.Memo = rtxtMemo.Text;
-                    rec.System = cmbSystem.Text;
-                    rec.Shift = cmbCategory.Text;
-                    rec.Shift_Category = cmbCategory.Text;
-                    rec.Run_Code = cmbRunCode.Text;
-                    rec.Shift_Start_Date = just_date;
-                    rec.Mill_temp = Decimal.Parse(txtTemp.Text);
-                    rec.D10 = Decimal.Parse(mtxtD10.Text);
-                    rec.D50 = Decimal.Parse(mtxtD50.Text);
-                    rec.D90 = Decimal.Parse(mtxtD90.Text);
-                    rec.D98 = Decimal.Parse(mtxtD98.Text);
-                    rec.Item_Number = txtItemNo.Text;
-                    rec.SO_Number = Int32.Parse(txtSONumber.Text);
-
-                    record.mill_Mills_Utilization.Add(rec);
-                    record.SaveChanges();
+                    using (Model1 record = new Model1())
+                    {
+                        mill_Mills_Utilization rec = new mill_Mills_Utilization();
+                        {
 
 
+
+                            rec.Mill_ID = cmbMill.Text;
+                            rec.gl_cmp_key = cmbCompany.Text;
+                            rec.sf_plant_key = cmbPlant.Text;
+                            rec.Start_Time = dts;
+                            rec.Stop_Time = dtss;
+                            rec.Memo = rtxtMemo.Text;
+                            rec.System = cmbSystem.Text;
+                            rec.Shift = cmbCategory.Text;
+                            rec.Shift_Category = cmbCategory.Text;
+                            rec.Run_Code = cmbRunCode.Text;
+                            rec.Shift_Start_Date = dtStart.Value;
+                            rec.Shift_Stop_Time = dtStop.Value;
+                            rec.Mill_temp = Decimal.Parse(mtxtTemp.Text);
+                            rec.D10 = Decimal.Parse(mtxtD10.Text);
+                            rec.D50 = Decimal.Parse(mtxtD50.Text);
+                            rec.D90 = Decimal.Parse(mtxtD90.Text);
+                            rec.D98 = Decimal.Parse(mtxtD98.Text);
+                            rec.Item_Number = txtItemNo.Text;
+                            rec.Shift_Start_Time = dtvstart;
+                            rec.Mill_Hours_Booked = hrbooked;
+                            rec.SO_Number = Int32.Parse(txtSONumber.Text);
+                            rec.sa_user_key = Program.GetUser();
+                            rec.Created_by = Program.GetUser();
+                            rec.Created_date = DateTime.Now;
+
+                            record.mill_Mills_Utilization.Add(rec);
+                            record.SaveChanges();
+
+
+                        }
+                    }
+                }
+
+                else
+                {
+                    tt24.Show("Time Span cannot be greater then 24 hours. Please check start and top time", dtStop, 0 25);
                 }
             }
-           
+
+            else
+            {
+                ttTime.Show("Start time cannot be greater then Stop Time", dtStart, 0, 25 );
+            }
         }
 
 
@@ -172,6 +336,9 @@ namespace Mill_Project
             public string Comment { get; set; }
 
         }
+
+
+     
 
         
        
