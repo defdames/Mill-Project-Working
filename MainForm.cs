@@ -25,6 +25,8 @@ namespace Mill_Project
     {
 
         BindingSource bs = new BindingSource();
+        BindingSource runcmb = new BindingSource(); //run code gridview combo box
+        BindingSource shiftcmb = new BindingSource(); //shift category gridview combo box
 
         Model1 context = new Model1();
         public MainForm()
@@ -43,12 +45,8 @@ namespace Mill_Project
         private void Form1_Load(object sender, EventArgs e)
         {
            
-
-
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
            
-            
-
 
             #region autofill values
             mtxtD10.Mask = "0.00";
@@ -59,8 +57,8 @@ namespace Mill_Project
             mtxtD90.Text = "0.00";
             mtxtD98.Mask = "0.00";
             mtxtD98.Text = "0.00";
-            mtxtTemp.Mask = "0.000";
-            mtxtTemp.Text = "0.000";
+            mtxtTemp.Mask = "000.00";
+            mtxtTemp.Text = "000.00";
             txtSONumber.Text = "0";
             #endregion
 
@@ -186,6 +184,33 @@ namespace Mill_Project
             }
         }
 
+
+        private void dgvMillUtil_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 16 || dgvMillUtil.CurrentCell.ColumnIndex == 17 || dgvMillUtil.CurrentCell.ColumnIndex == 18 || dgvMillUtil.CurrentCell.ColumnIndex == 19 || dgvMillUtil.CurrentCell.ColumnIndex == 20) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
+                }
+            }
+        }
+
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)&&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text); 
@@ -235,6 +260,26 @@ namespace Mill_Project
             bs.DataSource = query.ToList();
             dgvMillUtil.DataSource = bs;
 
+            #region fills Run Code Data Grid View Combo Box
+            var cmb = Program.Get_Run(company, plant);
+            runcmb.DataSource = cmb.ToList();
+            Run_Code.DataSource = runcmb;
+            #endregion
+
+            #region Fills Shift Category Data Grid View Combo Box
+            var shcmb = Get_Category(company, plant);
+            shiftcmb.DataSource = shcmb.ToList();
+            Shift_Category.DataSource = shiftcmb;
+            #endregion
+
+            //DataGridViewComboBoxColumn dgvcmbrc = new DataGridViewComboBoxColumn();
+            //dgvcmbrc.Name = "dgvcmbRun_Code";
+            //dgvcmbrc.DataSource = bs;
+            //dgvcmbrc.HeaderText = "Run_Code";
+            //dgvcmbrc.ValueMember = "Run_Code";
+            //dgvcmbrc.DisplayMember = "Run_Code";
+            //dgvMillUtil.Columns.Add(dgvcmbrc);
+
         }
 
         private void cmbMill_SelectedIndexChanged(object sender, EventArgs e)
@@ -257,9 +302,6 @@ namespace Mill_Project
             DateTime dts = DateTime.Parse(starttime);
             DateTime dtss = DateTime.Parse(stoptime);
             
-
-
-
 
             DateTime dtvstart = Convert.ToDateTime(date + " " + dts.TimeOfDay);
             DateTime dtvstop = Convert.ToDateTime(date + " " + dtss.TimeOfDay);
@@ -290,7 +332,7 @@ namespace Mill_Project
                                 rec.Stop_Time = dtss;
                                 rec.Memo = rtxtMemo.Text;
                                 rec.System = cmbSystem.Text;
-                                rec.Shift = cmbCategory.Text;
+                                rec.Shift = cmbShift.Text;
                                 rec.Shift_Category = cmbCategory.Text;
                                 rec.Run_Code = cmbRunCode.Text;
                                 rec.Shift_Start_Date = dtStart.Value;
@@ -385,6 +427,15 @@ namespace Mill_Project
         }
 
 
+
+        private void dgvMillUtil_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            context.SaveChanges();
+        }
+
+       
+
+
      
 
         
@@ -399,148 +450,148 @@ namespace Mill_Project
 
     }
 
-    public static class ObjectContextExtensions
-    {
-        public static void SubmitChanges(this ObjectContext context)
-        {
-            context.SaveChanges();
-        }
+    //public static class ObjectContextExtensions
+    //{
+    //    public static void SubmitChanges(this ObjectContext context)
+    //    {
+    //        context.SaveChanges();
+    //    }
 
-        public static void InsertOnSubmit<T>(this ObjectQuery<T> table, T entity)
-        {
-            table.Context.AddObject(GetEntitySetName(table.Context, entity.GetType()), entity);
-        }
+    //    public static void InsertOnSubmit<T>(this ObjectQuery<T> table, T entity)
+    //    {
+    //        table.Context.AddObject(GetEntitySetName(table.Context, entity.GetType()), entity);
+    //    }
 
-        public static void InsertAllOnSubmit<T>(this ObjectQuery<T> table, IEnumerable<T> entities)
-        {
-            var entitySetName = GetEntitySetName(table.Context, typeof(T));
-            foreach (var entity in entities)
-            {
-                table.Context.AddObject(entitySetName, entity);
-            }
-        }
+    //    public static void InsertAllOnSubmit<T>(this ObjectQuery<T> table, IEnumerable<T> entities)
+    //    {
+    //        var entitySetName = GetEntitySetName(table.Context, typeof(T));
+    //        foreach (var entity in entities)
+    //        {
+    //            table.Context.AddObject(entitySetName, entity);
+    //        }
+    //    }
 
-        public static void DeleteAllOnSubmit<T>(this ObjectQuery<T> table, IEnumerable<T> entities) where T : EntityObject, new()
-        {
-            var entitiesList = entities.ToList();
-            foreach (var entity in entitiesList)
-            {
-                if (null == entity.EntityKey)
-                {
-                    SetEntityKey(table.Context, entity);
-                }
+    //    public static void DeleteAllOnSubmit<T>(this ObjectQuery<T> table, IEnumerable<T> entities) where T : EntityObject, new()
+    //    {
+    //        var entitiesList = entities.ToList();
+    //        foreach (var entity in entitiesList)
+    //        {
+    //            if (null == entity.EntityKey)
+    //            {
+    //                SetEntityKey(table.Context, entity);
+    //            }
 
-                var toDelete = (T)table.Context.GetObjectByKey(entity.EntityKey);
-                if (null != toDelete)
-                {
-                    table.Context.DeleteObject(toDelete);
-                }
-            }
-        }
+    //            var toDelete = (T)table.Context.GetObjectByKey(entity.EntityKey);
+    //            if (null != toDelete)
+    //            {
+    //                table.Context.DeleteObject(toDelete);
+    //            }
+    //        }
+    //    }
 
-        public static void SetEntityKey<TEntity>(this ObjectContext context, TEntity entity) where TEntity : EntityObject, new()
-        {
-            entity.EntityKey = context.CreateEntityKey(GetEntitySetName(context, entity.GetType()), entity);
-        }
+    //    public static void SetEntityKey<TEntity>(this ObjectContext context, TEntity entity) where TEntity : EntityObject, new()
+    //    {
+    //        entity.EntityKey = context.CreateEntityKey(GetEntitySetName(context, entity.GetType()), entity);
+    //    }
 
-        public static string GetEntitySetName(this ObjectContext context, Type entityType)
-        {
-            return EntityHelper.GetEntitySetName(entityType, context);
-        }
-    }
+    //    public static string GetEntitySetName(this ObjectContext context, Type entityType)
+    //    {
+    //        return EntityHelper.GetEntitySetName(entityType, context);
+    //    }
+    //}
 
 
-    public static class EntityHelper
-    {
-        private static void LoadAssemblyIntoWorkspace(MetadataWorkspace workspace, Assembly assembly)
-        {
-            workspace.LoadFromAssembly(assembly);
-        }
+    //public static class EntityHelper
+    //{
+    //    private static void LoadAssemblyIntoWorkspace(MetadataWorkspace workspace, Assembly assembly)
+    //    {
+    //        workspace.LoadFromAssembly(assembly);
+    //    }
 
-        #region GetEntitySetName
+    //    #region GetEntitySetName
 
-        public static string GetEntitySetName(Type entityType, ObjectContext context)
-        {
-            EntityType edmEntityType = GetEntityType(context, entityType);
-            EntityContainer container = context.MetadataWorkspace.GetItems<EntityContainer>(DataSpace.CSpace).Single<EntityContainer>();
-            EntitySet set = (EntitySet)container.BaseEntitySets.Single<EntitySetBase>(delegate(EntitySetBase p)
-            {
-                return (p.ElementType == edmEntityType);
-            });
-            return (container.Name + "." + set.Name);
-        }
+    //    public static string GetEntitySetName(Type entityType, ObjectContext context)
+    //    {
+    //        EntityType edmEntityType = GetEntityType(context, entityType);
+    //        EntityContainer container = context.MetadataWorkspace.GetItems<EntityContainer>(DataSpace.CSpace).Single<EntityContainer>();
+    //        EntitySet set = (EntitySet)container.BaseEntitySets.Single<EntitySetBase>(delegate(EntitySetBase p)
+    //        {
+    //            return (p.ElementType == edmEntityType);
+    //        });
+    //        return (container.Name + "." + set.Name);
+    //    }
 
-        #endregion
+    //    #endregion
 
-        #region GetEntityType
-        public static EntityType GetEntityType(ObjectContext context, Type clrType)
-        {
-            if (context == null)
-            {
-                throw new ArgumentNullException("context");
-            }
-            if (clrType == null)
-            {
-                throw new ArgumentNullException("clrType");
-            }
-            EdmType type = null;
-            try
-            {
-                type = context.MetadataWorkspace.GetType(clrType.Name, clrType.Namespace, DataSpace.OSpace);
-            }
-            catch (ArgumentException)
-            {
-                LoadAssemblyIntoWorkspace(context.MetadataWorkspace, clrType.Assembly);
-                type = context.MetadataWorkspace.GetType(clrType.Name, clrType.Namespace, DataSpace.OSpace);
-            }
-            return (EntityType)context.MetadataWorkspace.GetEdmSpaceType((StructuralType)type);
-        }
+    //    #region GetEntityType
+    //    public static EntityType GetEntityType(ObjectContext context, Type clrType)
+    //    {
+    //        if (context == null)
+    //        {
+    //            throw new ArgumentNullException("context");
+    //        }
+    //        if (clrType == null)
+    //        {
+    //            throw new ArgumentNullException("clrType");
+    //        }
+    //        EdmType type = null;
+    //        try
+    //        {
+    //            type = context.MetadataWorkspace.GetType(clrType.Name, clrType.Namespace, DataSpace.OSpace);
+    //        }
+    //        catch (ArgumentException)
+    //        {
+    //            LoadAssemblyIntoWorkspace(context.MetadataWorkspace, clrType.Assembly);
+    //            type = context.MetadataWorkspace.GetType(clrType.Name, clrType.Namespace, DataSpace.OSpace);
+    //        }
+    //        return (EntityType)context.MetadataWorkspace.GetEdmSpaceType((StructuralType)type);
+    //    }
 
-        public static bool TryGetEntityType(ObjectContext context, Type clrType, out EntityType entityType)
-        {
-            entityType = null;
-            if (context == null)
-            {
-                throw new ArgumentNullException("context");
-            }
-            if (clrType == null)
-            {
-                throw new ArgumentNullException("clrType");
-            }
-            EdmType type = null;
-            bool flag = context.MetadataWorkspace.TryGetType(clrType.Name, clrType.Namespace, DataSpace.OSpace, out type);
-            if (!flag)
-            {
-                LoadAssemblyIntoWorkspace(context.MetadataWorkspace, clrType.Assembly);
-                flag = context.MetadataWorkspace.TryGetType(clrType.Name, clrType.Namespace, DataSpace.OSpace, out type);
-            }
-            if (flag)
-            {
-                entityType = (EntityType)context.MetadataWorkspace.GetEdmSpaceType((StructuralType)type);
-                return true;
-            }
-            return false;
-        }
-        #endregion
+    //    public static bool TryGetEntityType(ObjectContext context, Type clrType, out EntityType entityType)
+    //    {
+    //        entityType = null;
+    //        if (context == null)
+    //        {
+    //            throw new ArgumentNullException("context");
+    //        }
+    //        if (clrType == null)
+    //        {
+    //            throw new ArgumentNullException("clrType");
+    //        }
+    //        EdmType type = null;
+    //        bool flag = context.MetadataWorkspace.TryGetType(clrType.Name, clrType.Namespace, DataSpace.OSpace, out type);
+    //        if (!flag)
+    //        {
+    //            LoadAssemblyIntoWorkspace(context.MetadataWorkspace, clrType.Assembly);
+    //            flag = context.MetadataWorkspace.TryGetType(clrType.Name, clrType.Namespace, DataSpace.OSpace, out type);
+    //        }
+    //        if (flag)
+    //        {
+    //            entityType = (EntityType)context.MetadataWorkspace.GetEdmSpaceType((StructuralType)type);
+    //            return true;
+    //        }
+    //        return false;
+    //    }
+    //    #endregion
 
-        #region GetReferenceProperty
+    //    #region GetReferenceProperty
 
-        public static PropertyDescriptor GetReferenceProperty(PropertyDescriptor pd)
-        {
-            return GetReferenceProperty(pd, TypeDescriptor.GetProperties(pd.ComponentType).Cast<PropertyDescriptor>());
-        }
+    //    public static PropertyDescriptor GetReferenceProperty(PropertyDescriptor pd)
+    //    {
+    //        return GetReferenceProperty(pd, TypeDescriptor.GetProperties(pd.ComponentType).Cast<PropertyDescriptor>());
+    //    }
 
-        public static PropertyDescriptor GetReferenceProperty(PropertyDescriptor pd, IEnumerable<PropertyDescriptor> properties)
-        {
-            string refPropertyName = pd.Name + "Reference";
-            return properties.SingleOrDefault<PropertyDescriptor>(delegate(PropertyDescriptor p)
-            {
-                return (p.Name == refPropertyName);
-            });
-        }
-        #endregion
+    //    public static PropertyDescriptor GetReferenceProperty(PropertyDescriptor pd, IEnumerable<PropertyDescriptor> properties)
+    //    {
+    //        string refPropertyName = pd.Name + "Reference";
+    //        return properties.SingleOrDefault<PropertyDescriptor>(delegate(PropertyDescriptor p)
+    //        {
+    //            return (p.Name == refPropertyName);
+    //        });
+    //    }
+    //    #endregion
 
-    }
+    //}
 
    
 

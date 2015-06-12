@@ -80,36 +80,40 @@
             this.ttTime = new System.Windows.Forms.ToolTip(this.components);
             this.tt24 = new System.Windows.Forms.ToolTip(this.components);
             this.ttCategory = new System.Windows.Forms.ToolTip(this.components);
-            this.millsUtilizationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.millIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.systemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.runCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shiftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shiftStartDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.millHoursBookedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shiftStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shiftStopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.memoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sONumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shiftCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.milltempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.d10DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.d50DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.d90DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.d98DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sauserkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.glcmpkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcmbRun_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modifieddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modifiedbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millsUtilizationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.systemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millHoursBookedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Run_Code = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Shift_Category = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.milltempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d10DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d50DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d90DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d98DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sauserkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftStartDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftStopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sONumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFormTitle
@@ -462,39 +466,40 @@
             this.dgvMillUtil.AutoGenerateColumns = false;
             this.dgvMillUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMillUtil.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvcmbRun_Code,
+            this.sfplantkeyDataGridViewTextBoxColumn,
+            this.createddateDataGridViewTextBoxColumn,
+            this.modifieddateDataGridViewTextBoxColumn,
+            this.createdbyDataGridViewTextBoxColumn,
+            this.modifiedbyDataGridViewTextBoxColumn,
             this.millsUtilizationIDDataGridViewTextBoxColumn,
-            this.millIDDataGridViewTextBoxColumn,
             this.systemDataGridViewTextBoxColumn,
-            this.runCodeDataGridViewTextBoxColumn,
+            this.millIDDataGridViewTextBoxColumn,
+            this.millHoursBookedDataGridViewTextBoxColumn,
+            this.Run_Code,
             this.startTimeDataGridViewTextBoxColumn,
             this.stopTimeDataGridViewTextBoxColumn,
-            this.shiftDataGridViewTextBoxColumn,
-            this.shiftStartDateDataGridViewTextBoxColumn,
-            this.millHoursBookedDataGridViewTextBoxColumn,
-            this.shiftStartTimeDataGridViewTextBoxColumn,
-            this.shiftStopTimeDataGridViewTextBoxColumn,
             this.memoDataGridViewTextBoxColumn,
-            this.sONumberDataGridViewTextBoxColumn,
-            this.itemNumberDataGridViewTextBoxColumn,
-            this.shiftCategoryDataGridViewTextBoxColumn,
+            this.shiftDataGridViewTextBoxColumn,
+            this.Shift_Category,
             this.milltempDataGridViewTextBoxColumn,
             this.d10DataGridViewTextBoxColumn,
             this.d50DataGridViewTextBoxColumn,
             this.d90DataGridViewTextBoxColumn,
             this.d98DataGridViewTextBoxColumn,
+            this.itemNumberDataGridViewTextBoxColumn,
             this.sauserkeyDataGridViewTextBoxColumn,
-            this.glcmpkeyDataGridViewTextBoxColumn,
-            this.sfplantkeyDataGridViewTextBoxColumn,
-            this.createddateDataGridViewTextBoxColumn,
-            this.modifieddateDataGridViewTextBoxColumn,
-            this.createdbyDataGridViewTextBoxColumn,
-            this.modifiedbyDataGridViewTextBoxColumn});
+            this.shiftStartDateDataGridViewTextBoxColumn,
+            this.shiftStartTimeDataGridViewTextBoxColumn,
+            this.shiftStopTimeDataGridViewTextBoxColumn,
+            this.sONumberDataGridViewTextBoxColumn});
             this.dgvMillUtil.DataSource = this.millMillsUtilizationBindingSource;
             this.dgvMillUtil.Location = new System.Drawing.Point(17, 396);
             this.dgvMillUtil.Name = "dgvMillUtil";
-            this.dgvMillUtil.ReadOnly = true;
             this.dgvMillUtil.Size = new System.Drawing.Size(1107, 238);
             this.dgvMillUtil.TabIndex = 47;
+            this.dgvMillUtil.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMillUtil_CellEndEdit);
+            this.dgvMillUtil.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvMillUtil_EditingControlShowing);
             // 
             // lblUserName
             // 
@@ -544,10 +549,52 @@
             // 
             this.mtxtTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtTemp.Location = new System.Drawing.Point(435, 104);
-            this.mtxtTemp.Mask = "0.000";
+            this.mtxtTemp.Mask = "000.00";
             this.mtxtTemp.Name = "mtxtTemp";
             this.mtxtTemp.Size = new System.Drawing.Size(100, 24);
             this.mtxtTemp.TabIndex = 52;
+            // 
+            // dgvcmbRun_Code
+            // 
+            this.dgvcmbRun_Code.DataPropertyName = "gl_cmp_key";
+            this.dgvcmbRun_Code.HeaderText = "gl_cmp_key";
+            this.dgvcmbRun_Code.Name = "dgvcmbRun_Code";
+            this.dgvcmbRun_Code.Visible = false;
+            // 
+            // sfplantkeyDataGridViewTextBoxColumn
+            // 
+            this.sfplantkeyDataGridViewTextBoxColumn.DataPropertyName = "sf_plant_key";
+            this.sfplantkeyDataGridViewTextBoxColumn.HeaderText = "sf_plant_key";
+            this.sfplantkeyDataGridViewTextBoxColumn.Name = "sfplantkeyDataGridViewTextBoxColumn";
+            this.sfplantkeyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // createddateDataGridViewTextBoxColumn
+            // 
+            this.createddateDataGridViewTextBoxColumn.DataPropertyName = "Created_date";
+            this.createddateDataGridViewTextBoxColumn.HeaderText = "Created_date";
+            this.createddateDataGridViewTextBoxColumn.Name = "createddateDataGridViewTextBoxColumn";
+            this.createddateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // modifieddateDataGridViewTextBoxColumn
+            // 
+            this.modifieddateDataGridViewTextBoxColumn.DataPropertyName = "Modified_date";
+            this.modifieddateDataGridViewTextBoxColumn.HeaderText = "Modified_date";
+            this.modifieddateDataGridViewTextBoxColumn.Name = "modifieddateDataGridViewTextBoxColumn";
+            this.modifieddateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // createdbyDataGridViewTextBoxColumn
+            // 
+            this.createdbyDataGridViewTextBoxColumn.DataPropertyName = "Created_by";
+            this.createdbyDataGridViewTextBoxColumn.HeaderText = "Created_by";
+            this.createdbyDataGridViewTextBoxColumn.Name = "createdbyDataGridViewTextBoxColumn";
+            this.createdbyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // modifiedbyDataGridViewTextBoxColumn
+            // 
+            this.modifiedbyDataGridViewTextBoxColumn.DataPropertyName = "Modified_by";
+            this.modifiedbyDataGridViewTextBoxColumn.HeaderText = "Modified_by";
+            this.modifiedbyDataGridViewTextBoxColumn.Name = "modifiedbyDataGridViewTextBoxColumn";
+            this.modifiedbyDataGridViewTextBoxColumn.Visible = false;
             // 
             // millsUtilizationIDDataGridViewTextBoxColumn
             // 
@@ -556,13 +603,6 @@
             this.millsUtilizationIDDataGridViewTextBoxColumn.Name = "millsUtilizationIDDataGridViewTextBoxColumn";
             this.millsUtilizationIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // millIDDataGridViewTextBoxColumn
-            // 
-            this.millIDDataGridViewTextBoxColumn.DataPropertyName = "Mill_ID";
-            this.millIDDataGridViewTextBoxColumn.HeaderText = "Mill_ID";
-            this.millIDDataGridViewTextBoxColumn.Name = "millIDDataGridViewTextBoxColumn";
-            this.millIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // systemDataGridViewTextBoxColumn
             // 
             this.systemDataGridViewTextBoxColumn.DataPropertyName = "System";
@@ -570,12 +610,27 @@
             this.systemDataGridViewTextBoxColumn.Name = "systemDataGridViewTextBoxColumn";
             this.systemDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // runCodeDataGridViewTextBoxColumn
+            // millIDDataGridViewTextBoxColumn
             // 
-            this.runCodeDataGridViewTextBoxColumn.DataPropertyName = "Run_Code";
-            this.runCodeDataGridViewTextBoxColumn.HeaderText = "Run_Code";
-            this.runCodeDataGridViewTextBoxColumn.Name = "runCodeDataGridViewTextBoxColumn";
-            this.runCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.millIDDataGridViewTextBoxColumn.DataPropertyName = "Mill_ID";
+            this.millIDDataGridViewTextBoxColumn.HeaderText = "Mill_ID";
+            this.millIDDataGridViewTextBoxColumn.Name = "millIDDataGridViewTextBoxColumn";
+            this.millIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // millHoursBookedDataGridViewTextBoxColumn
+            // 
+            this.millHoursBookedDataGridViewTextBoxColumn.DataPropertyName = "Mill_Hours_Booked";
+            this.millHoursBookedDataGridViewTextBoxColumn.HeaderText = "Mill_Hours_Booked";
+            this.millHoursBookedDataGridViewTextBoxColumn.Name = "millHoursBookedDataGridViewTextBoxColumn";
+            this.millHoursBookedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Run_Code
+            // 
+            this.Run_Code.DataPropertyName = "Run_Code";
+            this.Run_Code.HeaderText = "Run_Code";
+            this.Run_Code.Name = "Run_Code";
+            this.Run_Code.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Run_Code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // startTimeDataGridViewTextBoxColumn
             // 
@@ -591,6 +646,12 @@
             this.stopTimeDataGridViewTextBoxColumn.Name = "stopTimeDataGridViewTextBoxColumn";
             this.stopTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // memoDataGridViewTextBoxColumn
+            // 
+            this.memoDataGridViewTextBoxColumn.DataPropertyName = "Memo";
+            this.memoDataGridViewTextBoxColumn.HeaderText = "Memo";
+            this.memoDataGridViewTextBoxColumn.Name = "memoDataGridViewTextBoxColumn";
+            // 
             // shiftDataGridViewTextBoxColumn
             // 
             this.shiftDataGridViewTextBoxColumn.DataPropertyName = "Shift";
@@ -598,155 +659,95 @@
             this.shiftDataGridViewTextBoxColumn.Name = "shiftDataGridViewTextBoxColumn";
             this.shiftDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // shiftStartDateDataGridViewTextBoxColumn
+            // Shift_Category
             // 
-            this.shiftStartDateDataGridViewTextBoxColumn.DataPropertyName = "Shift_Start_Date";
-            this.shiftStartDateDataGridViewTextBoxColumn.HeaderText = "Shift_Start_Date";
-            this.shiftStartDateDataGridViewTextBoxColumn.Name = "shiftStartDateDataGridViewTextBoxColumn";
-            this.shiftStartDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // millHoursBookedDataGridViewTextBoxColumn
-            // 
-            this.millHoursBookedDataGridViewTextBoxColumn.DataPropertyName = "Mill_Hours_Booked";
-            this.millHoursBookedDataGridViewTextBoxColumn.HeaderText = "Mill_Hours_Booked";
-            this.millHoursBookedDataGridViewTextBoxColumn.Name = "millHoursBookedDataGridViewTextBoxColumn";
-            this.millHoursBookedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // shiftStartTimeDataGridViewTextBoxColumn
-            // 
-            this.shiftStartTimeDataGridViewTextBoxColumn.DataPropertyName = "Shift_Start_Time";
-            this.shiftStartTimeDataGridViewTextBoxColumn.HeaderText = "Shift_Start_Time";
-            this.shiftStartTimeDataGridViewTextBoxColumn.Name = "shiftStartTimeDataGridViewTextBoxColumn";
-            this.shiftStartTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // shiftStopTimeDataGridViewTextBoxColumn
-            // 
-            this.shiftStopTimeDataGridViewTextBoxColumn.DataPropertyName = "Shift_Stop_Time";
-            this.shiftStopTimeDataGridViewTextBoxColumn.HeaderText = "Shift_Stop_Time";
-            this.shiftStopTimeDataGridViewTextBoxColumn.Name = "shiftStopTimeDataGridViewTextBoxColumn";
-            this.shiftStopTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // memoDataGridViewTextBoxColumn
-            // 
-            this.memoDataGridViewTextBoxColumn.DataPropertyName = "Memo";
-            this.memoDataGridViewTextBoxColumn.HeaderText = "Memo";
-            this.memoDataGridViewTextBoxColumn.Name = "memoDataGridViewTextBoxColumn";
-            this.memoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sONumberDataGridViewTextBoxColumn
-            // 
-            this.sONumberDataGridViewTextBoxColumn.DataPropertyName = "SO_Number";
-            this.sONumberDataGridViewTextBoxColumn.HeaderText = "SO_Number";
-            this.sONumberDataGridViewTextBoxColumn.Name = "sONumberDataGridViewTextBoxColumn";
-            this.sONumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemNumberDataGridViewTextBoxColumn
-            // 
-            this.itemNumberDataGridViewTextBoxColumn.DataPropertyName = "Item_Number";
-            this.itemNumberDataGridViewTextBoxColumn.HeaderText = "Item_Number";
-            this.itemNumberDataGridViewTextBoxColumn.Name = "itemNumberDataGridViewTextBoxColumn";
-            this.itemNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // shiftCategoryDataGridViewTextBoxColumn
-            // 
-            this.shiftCategoryDataGridViewTextBoxColumn.DataPropertyName = "Shift_Category";
-            this.shiftCategoryDataGridViewTextBoxColumn.HeaderText = "Shift_Category";
-            this.shiftCategoryDataGridViewTextBoxColumn.Name = "shiftCategoryDataGridViewTextBoxColumn";
-            this.shiftCategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Shift_Category.DataPropertyName = "Shift_Category";
+            this.Shift_Category.HeaderText = "Shift_Category";
+            this.Shift_Category.Name = "Shift_Category";
+            this.Shift_Category.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Shift_Category.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // milltempDataGridViewTextBoxColumn
             // 
             this.milltempDataGridViewTextBoxColumn.DataPropertyName = "Mill_temp";
             this.milltempDataGridViewTextBoxColumn.HeaderText = "Mill_temp";
             this.milltempDataGridViewTextBoxColumn.Name = "milltempDataGridViewTextBoxColumn";
-            this.milltempDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // d10DataGridViewTextBoxColumn
             // 
             this.d10DataGridViewTextBoxColumn.DataPropertyName = "D10";
             this.d10DataGridViewTextBoxColumn.HeaderText = "D10";
             this.d10DataGridViewTextBoxColumn.Name = "d10DataGridViewTextBoxColumn";
-            this.d10DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // d50DataGridViewTextBoxColumn
             // 
             this.d50DataGridViewTextBoxColumn.DataPropertyName = "D50";
             this.d50DataGridViewTextBoxColumn.HeaderText = "D50";
             this.d50DataGridViewTextBoxColumn.Name = "d50DataGridViewTextBoxColumn";
-            this.d50DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // d90DataGridViewTextBoxColumn
             // 
             this.d90DataGridViewTextBoxColumn.DataPropertyName = "D90";
             this.d90DataGridViewTextBoxColumn.HeaderText = "D90";
             this.d90DataGridViewTextBoxColumn.Name = "d90DataGridViewTextBoxColumn";
-            this.d90DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // d98DataGridViewTextBoxColumn
             // 
             this.d98DataGridViewTextBoxColumn.DataPropertyName = "D98";
             this.d98DataGridViewTextBoxColumn.HeaderText = "D98";
             this.d98DataGridViewTextBoxColumn.Name = "d98DataGridViewTextBoxColumn";
-            this.d98DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemNumberDataGridViewTextBoxColumn
+            // 
+            this.itemNumberDataGridViewTextBoxColumn.DataPropertyName = "Item_Number";
+            this.itemNumberDataGridViewTextBoxColumn.HeaderText = "Item_Number";
+            this.itemNumberDataGridViewTextBoxColumn.Name = "itemNumberDataGridViewTextBoxColumn";
             // 
             // sauserkeyDataGridViewTextBoxColumn
             // 
             this.sauserkeyDataGridViewTextBoxColumn.DataPropertyName = "sa_user_key";
             this.sauserkeyDataGridViewTextBoxColumn.HeaderText = "sa_user_key";
             this.sauserkeyDataGridViewTextBoxColumn.Name = "sauserkeyDataGridViewTextBoxColumn";
-            this.sauserkeyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // glcmpkeyDataGridViewTextBoxColumn
+            // shiftStartDateDataGridViewTextBoxColumn
             // 
-            this.glcmpkeyDataGridViewTextBoxColumn.DataPropertyName = "gl_cmp_key";
-            this.glcmpkeyDataGridViewTextBoxColumn.HeaderText = "gl_cmp_key";
-            this.glcmpkeyDataGridViewTextBoxColumn.Name = "glcmpkeyDataGridViewTextBoxColumn";
-            this.glcmpkeyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.glcmpkeyDataGridViewTextBoxColumn.Visible = false;
+            this.shiftStartDateDataGridViewTextBoxColumn.DataPropertyName = "Shift_Start_Date";
+            this.shiftStartDateDataGridViewTextBoxColumn.HeaderText = "Shift_Start_Date";
+            this.shiftStartDateDataGridViewTextBoxColumn.Name = "shiftStartDateDataGridViewTextBoxColumn";
+            this.shiftStartDateDataGridViewTextBoxColumn.Visible = false;
             // 
-            // sfplantkeyDataGridViewTextBoxColumn
+            // shiftStartTimeDataGridViewTextBoxColumn
             // 
-            this.sfplantkeyDataGridViewTextBoxColumn.DataPropertyName = "sf_plant_key";
-            this.sfplantkeyDataGridViewTextBoxColumn.HeaderText = "sf_plant_key";
-            this.sfplantkeyDataGridViewTextBoxColumn.Name = "sfplantkeyDataGridViewTextBoxColumn";
-            this.sfplantkeyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sfplantkeyDataGridViewTextBoxColumn.Visible = false;
+            this.shiftStartTimeDataGridViewTextBoxColumn.DataPropertyName = "Shift_Start_Time";
+            this.shiftStartTimeDataGridViewTextBoxColumn.HeaderText = "Shift_Start_Time";
+            this.shiftStartTimeDataGridViewTextBoxColumn.Name = "shiftStartTimeDataGridViewTextBoxColumn";
+            this.shiftStartTimeDataGridViewTextBoxColumn.Visible = false;
             // 
-            // createddateDataGridViewTextBoxColumn
+            // shiftStopTimeDataGridViewTextBoxColumn
             // 
-            this.createddateDataGridViewTextBoxColumn.DataPropertyName = "Created_date";
-            this.createddateDataGridViewTextBoxColumn.HeaderText = "Created_date";
-            this.createddateDataGridViewTextBoxColumn.Name = "createddateDataGridViewTextBoxColumn";
-            this.createddateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createddateDataGridViewTextBoxColumn.Visible = false;
+            this.shiftStopTimeDataGridViewTextBoxColumn.DataPropertyName = "Shift_Stop_Time";
+            this.shiftStopTimeDataGridViewTextBoxColumn.HeaderText = "Shift_Stop_Time";
+            this.shiftStopTimeDataGridViewTextBoxColumn.Name = "shiftStopTimeDataGridViewTextBoxColumn";
+            this.shiftStopTimeDataGridViewTextBoxColumn.Visible = false;
             // 
-            // modifieddateDataGridViewTextBoxColumn
+            // sONumberDataGridViewTextBoxColumn
             // 
-            this.modifieddateDataGridViewTextBoxColumn.DataPropertyName = "Modified_date";
-            this.modifieddateDataGridViewTextBoxColumn.HeaderText = "Modified_date";
-            this.modifieddateDataGridViewTextBoxColumn.Name = "modifieddateDataGridViewTextBoxColumn";
-            this.modifieddateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.modifieddateDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // createdbyDataGridViewTextBoxColumn
-            // 
-            this.createdbyDataGridViewTextBoxColumn.DataPropertyName = "Created_by";
-            this.createdbyDataGridViewTextBoxColumn.HeaderText = "Created_by";
-            this.createdbyDataGridViewTextBoxColumn.Name = "createdbyDataGridViewTextBoxColumn";
-            this.createdbyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createdbyDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // modifiedbyDataGridViewTextBoxColumn
-            // 
-            this.modifiedbyDataGridViewTextBoxColumn.DataPropertyName = "Modified_by";
-            this.modifiedbyDataGridViewTextBoxColumn.HeaderText = "Modified_by";
-            this.modifiedbyDataGridViewTextBoxColumn.Name = "modifiedbyDataGridViewTextBoxColumn";
-            this.modifiedbyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.modifiedbyDataGridViewTextBoxColumn.Visible = false;
+            this.sONumberDataGridViewTextBoxColumn.DataPropertyName = "SO_Number";
+            this.sONumberDataGridViewTextBoxColumn.HeaderText = "SO_Number";
+            this.sONumberDataGridViewTextBoxColumn.Name = "sONumberDataGridViewTextBoxColumn";
+            this.sONumberDataGridViewTextBoxColumn.Visible = false;
             // 
             // millMillsUtilizationBindingSource
             // 
             this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
+            // 
+            // millStoppageReasonsBindingSource1
+            // 
+            this.millStoppageReasonsBindingSource1.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
+            // 
+            // millStoppageReasonsBindingSource
+            // 
+            this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
             // 
             // MainForm
             // 
@@ -802,6 +803,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -860,34 +863,36 @@
         private System.Windows.Forms.ToolTip ttTime;
         private System.Windows.Forms.ToolTip tt24;
         private System.Windows.Forms.BindingSource millMillsUtilizationBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn millsUtilizationIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn millIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn systemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn runCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stopTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shiftDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStartDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn millHoursBookedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStartTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStopTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sONumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shiftCategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn milltempDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn d10DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn d50DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn d90DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn d98DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sauserkeyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn glcmpkeyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolTip ttCategory;
+        private System.Windows.Forms.BindingSource millStoppageReasonsBindingSource1;
+        private System.Windows.Forms.BindingSource millStoppageReasonsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcmbRun_Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfplantkeyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createddateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifieddateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdbyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifiedbyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolTip ttCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn millsUtilizationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn systemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn millIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn millHoursBookedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Run_Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stopTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Shift_Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn milltempDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d10DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d50DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d90DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d98DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sauserkeyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStartDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStartTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStopTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sONumberDataGridViewTextBoxColumn;
     }
 }
 

@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mill Project.exe" size="115656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Mill Project.exe" size="112584">
       <assemblyIdentity name="Mill Project" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xm42R1b01hFMmoxIpC+QOloXYM5oGdO6mBVYW6XYOjg=</dsig:DigestValue>
+        <dsig:DigestValue>s4hQwmxczA7xRVG5RhToK/hG1Kd9qIRF5aFiP9QljqQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
