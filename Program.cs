@@ -37,7 +37,8 @@ namespace Mill_Project
 
         public static List<string> User_cmp() //Get list of companies for user logged in
         {
-            string uname = "midasc";
+            //string uname = "midasc";
+            string uname = GetUser();
             using (var context = new Model1())
             
             {
