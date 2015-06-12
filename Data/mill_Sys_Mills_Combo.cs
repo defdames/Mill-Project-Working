@@ -1,4 +1,4 @@
-namespace Mill_Project.Data
+namespace Mill_Project
 {
     using System;
     using System.Collections.Generic;

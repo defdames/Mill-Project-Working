@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+
+namespace Mill_Project.Models
+{
+    public partial class in_item_tbl
+    {
+        public string gl_cmp_key { get; set; }
+        public string in_item_key { get; set; }
+        public string in_ssds { get; set; }
+        public Nullable<System.DateTime> in_ssds_date { get; set; }
+        public string in_ssby { get; set; }
+        public Nullable<System.DateTime> in_ssby_date { get; set; }
+        public string in_desc { get; set; }
+        public string uom_key { get; set; }
+        public string in_abcc { get; set; }
+        public string in_item_revno { get; set; }
+        public string in_srce_key { get; set; }
+        public string in_class_key { get; set; }
+        public string in_comcd_key { get; set; }
+        public string in_drwsz { get; set; }
+        public string in_drwno { get; set; }
+        public string ec_hdr_key { get; set; }
+        public short in_ndysp { get; set; }
+        public double in_sstk { get; set; }
+        public int in_mhlc { get; set; }
+        public double in_yldf { get; set; }
+        public double in_minoq { get; set; }
+        public int in_ropt { get; set; }
+        public string gl_acct_key { get; set; }
+        public string en_stats_key { get; set; }
+        public Nullable<System.DateTime> in_lscdt { get; set; }
+        public int in_pmcd { get; set; }
+        public string in_srlf { get; set; }
+        public string in_msds { get; set; }
+        public string in_type_key { get; set; }
+        public string in_catlg_key { get; set; }
+        public double in_item_wgt { get; set; }
+        public string in_item_wuom { get; set; }
+        public double in_item_wdth { get; set; }
+        public double in_item_hght { get; set; }
+        public double in_item_dpth { get; set; }
+        public string in_item_szuom { get; set; }
+        public string in_itgrp_key { get; set; }
+        public int in_item_cmth { get; set; }
+        public short in_item_shelf { get; set; }
+        public short in_item_sopolicy { get; set; }
+        public short in_item_wtpolicy { get; set; }
+        public short in_item_wopolicy { get; set; }
+        public short in_item_lvlcd { get; set; }
+        public int in_cnfgf { get; set; }
+        public int in_item_stflg { get; set; }
+        public string in_mohcd_key { get; set; }
+        public string in_cyccd_key { get; set; }
+        public string sa_user_key { get; set; }
+        public System.DateTime in_item_chgdt { get; set; }
+        public System.DateTime in_item_crtdt { get; set; }
+        public short in_item_allocf { get; set; }
+        public short in_item_pickf { get; set; }
+        public short in_item_lotalcf { get; set; }
+        public Nullable<short> in_item_ffltm { get; set; }
+        public Nullable<short> in_item_piktm { get; set; }
+        public Nullable<short> in_item_rsrvtm { get; set; }
+        public string in_uomgrp_key { get; set; }
+        public double in_item_spgvt { get; set; }
+        public short in_item_actconf { get; set; }
+        public double in_item_pltqt { get; set; }
+        public double in_item_vol { get; set; }
+        public string in_item_vuom { get; set; }
+        public short in_item_drctf { get; set; }
+        public string en_frtitem_key { get; set; }
+        public string en_phfmt_key { get; set; }
+        public short in_item_taxf { get; set; }
+        public string ap_resn_key { get; set; }
+        public short in_item_fillattr { get; set; }
+        public string gl_vatcd_key { get; set; }
+        public string in_item_upcean { get; set; }
+        public string in_item_scccode { get; set; }
+        public string in_item_sccdesc { get; set; }
+        public Nullable<short> in_item_mfridlen { get; set; }
+        public int in_item_upcnt { get; set; }
+        public int in_item_qcsublotf { get; set; }
+        public int in_item_actfillf { get; set; }
+        public int in_item_sublotf { get; set; }
+        public short in_item_hazf { get; set; }
+        public short in_item_bkflinf { get; set; }
+        public short in_item_bkflopf { get; set; }
+        public string en_cntry_key { get; set; }
+        public short in_item_cstpltp { get; set; }
+        public Nullable<double> in_item_ovtfct { get; set; }
+        public string gl_acct_stkvar { get; set; }
+        public string gl_acct_paccrual { get; set; }
+        public short in_item_qcspecf { get; set; }
+        public short in_source_blendf { get; set; }
+        public short in_target_blendf { get; set; }
+        public string in_item_prefpack { get; set; }
+        public string en_gtin_key { get; set; }
+        public short in_item_apprf { get; set; }
+        public short in_item_autosourcef { get; set; }
+        public Nullable<double> in_item_bklvlpercent { get; set; }
+        public string gl_invacctgrp_key { get; set; }
+        public short in_item_invcntrlf { get; set; }
+        public string in_item_dlotfrmt { get; set; }
+        public string in_item_plotfrmt { get; set; }
+        public string in_item_mlotfrmt { get; set; }
+    }
+}

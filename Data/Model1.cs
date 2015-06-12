@@ -1,4 +1,4 @@
-namespace Mill_Project.Data
+namespace Mill_Project
 {
     using System;
     using System.Data.Entity;
@@ -8,7 +8,7 @@ namespace Mill_Project.Data
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model11")
+            : base("name=Model12")
         {
         }
 
@@ -20,9 +20,9 @@ namespace Mill_Project.Data
         public virtual DbSet<mill_Stoppage_Reasons> mill_Stoppage_Reasons { get; set; }
         public virtual DbSet<mill_Sys_Mills_Combo> mill_Sys_Mills_Combo { get; set; }
         public virtual DbSet<mill_Systems> mill_Systems { get; set; }
+        public virtual DbSet<sa_uentp_tbl> sa_uentp_tbl { get; set; }
+        public virtual DbSet<sa_user_tbl> sa_user_tbl { get; set; }
         public virtual DbSet<sf_plant_tbl> sf_plant_tbl { get; set; }
-        public virtual DbSet<web_sa_cmp_tbl> web_sa_cmp_tbl { get; set; }
-        public virtual DbSet<web_sa_user_tbl> web_sa_user_tbl { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -244,7 +244,7 @@ namespace Mill_Project.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<mill_Mills_Utilization>()
-                .Property(e => e.RunCode)
+                .Property(e => e.Run_Code)
                 .IsUnicode(false);
 
             modelBuilder.Entity<mill_Mills_Utilization>()
@@ -346,7 +346,7 @@ namespace Mill_Project.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<mill_Stoppage_Reasons>()
-                .Property(e => e.DESCRIPTION)
+                .Property(e => e.Description)
                 .IsUnicode(false);
 
             modelBuilder.Entity<mill_Stoppage_Reasons>()
@@ -422,6 +422,122 @@ namespace Mill_Project.Data
 
             modelBuilder.Entity<mill_Systems>()
                 .Property(e => e.Modified_by)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_uentp_tbl>()
+                .Property(e => e.sa_user_key)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_uentp_tbl>()
+                .Property(e => e.gl_cmp_key)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_uentp_tbl>()
+                .Property(e => e.sa_uentp_entyp)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_uentp_tbl>()
+                .Property(e => e.sa_uentp_entid)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_key)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_paswd)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_adr1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_adr2)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_city)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_state)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_postc)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_tel)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_fax)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.gl_cmp_key)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_defbr)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_defpt)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_defwh)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_deffr)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_osuser_key)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_ceuser)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_cepaswd)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_colorset)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_loginname)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_sgid)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.en_role_key)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_manager)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<sa_user_tbl>()
+                .Property(e => e.sa_user_newappr)
                 .IsUnicode(false);
 
             modelBuilder.Entity<sf_plant_tbl>()
@@ -518,26 +634,6 @@ namespace Mill_Project.Data
 
             modelBuilder.Entity<sf_plant_tbl>()
                 .Property(e => e.sf_mfgrp_key)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<web_sa_cmp_tbl>()
-                .Property(e => e.sa_user_key)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<web_sa_cmp_tbl>()
-                .Property(e => e.gl_cmp_key)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<web_sa_cmp_tbl>()
-                .Property(e => e._default)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<web_sa_user_tbl>()
-                .Property(e => e.sa_user_key)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<web_sa_user_tbl>()
-                .Property(e => e.sa_user_name)
                 .IsUnicode(false);
         }
     }

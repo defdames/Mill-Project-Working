@@ -1,4 +1,4 @@
-namespace Mill_Project.Data
+namespace Mill_Project
 {
     using System;
     using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Mill_Project.Data
         public string Stop_Reason { get; set; }
 
         [Column(TypeName = "text")]
-        public string DESCRIPTION { get; set; }
+        public string Description { get; set; }
 
         [Required]
         [StringLength(2)]

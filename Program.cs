@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.Common;
-using Mill_Project.Data;
 
 namespace Mill_Project
 {
@@ -38,12 +37,14 @@ namespace Mill_Project
 
         public static List<string> User_cmp() //Get list of companies for user logged in
         {
-            string uname = "midasc";
+            //string uname = "midasc";
+            string uname = GetUser();
             using (var context = new Model1())
             
             {
-                var cmp = (from cm in context.web_sa_cmp_tbl
-                          where cm.sa_user_key == uname
+                var cmp = (from  sau in context.sa_user_tbl
+                           join cm in context.sa_uentp_tbl on sau.sa_user_key equals cm.sa_user_key
+                          where sau.sa_osuser_key == uname && cm.sa_uentp_entyp =="B"
                               select cm.gl_cmp_key.ToString()).ToList();
                 return cmp;
             }
@@ -71,13 +72,14 @@ namespace Mill_Project
             }
         }
 
-        public static List<string>Get_Systems(string company, string plant)//get list of systems in the company and plant the user has access to
+        public static List<string>Get_Systems(string company, string plant, string mill)//get list of systems in the company and plant the user has access to
         {
             using (var context = new Model1())
             {
                 var systems = (from sys in context.mill_Systems
-                               where sys.gl_cmp_key == company && sys.sf_plant_key == plant && sys.Active == "Y"
-                               select sys.System_Name.ToString()).ToList();
+                               join sysc in context.mill_Sys_Mills_Combo on sys.System_Name equals sysc.System 
+                               where sys.gl_cmp_key == company && sys.sf_plant_key == plant && sys.Active == "Y"  && sysc.Mill_ID == mill 
+                               select sysc.System.ToString()).ToList();
                 return systems;
             }
         }
@@ -105,15 +107,18 @@ namespace Mill_Project
 
         }
 
-        public static List<string>Get_Category(string company, string plant)//get list of categories in the company and plant user has access to
+        public static List<GetCat> Get_Category(string company, string plant)//get list of categories in the company and plant user has access to
         {
             using (var context = new Model1())
             {
-                var category = (from cat in context.mill_Shift_Categories
-                                where cat.gl_cmp_key == company && cat.sf_plant_key == plant
-                                select cat.Category.ToString()).ToList();
-                return category;
+                var c = from cat in context.mill_Shift_Categories
+                        where cat.gl_cmp_key == company && cat.sf_plant_key == plant
+                        select new GetCat {Cat =  cat.Category, Desc = cat.Category_Description };
+                
+                return c.ToList();
+               
             }
+            
         }
 
         private static Dictionary<Type, Action<Control>> controldefaults = new Dictionary<Type, Action<Control>>() //Method to clear all controls instead of typping each one out
@@ -159,14 +164,17 @@ namespace Mill_Project
 
         }
 
-        public class Mills
+        public class GetCat
         {
-            public string Mill_ID { get; set; }
-            public string Active { get; set; }
-            public string Company { get; set; }
-            public string Plant { get; set; }
+            public string Cat { get; set; }
+            public string Desc { get; set; }
+
 
         }
+
+       
+
+        
 
     
     }

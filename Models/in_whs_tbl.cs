@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+
+namespace Mill_Project.Models
+{
+    public partial class in_whs_tbl
+    {
+        public string gl_cmp_key { get; set; }
+        public string in_whs_key { get; set; }
+        public int in_whs_upcnt { get; set; }
+        public string in_whs_name { get; set; }
+        public string in_whs_type { get; set; }
+        public string in_whs_adr1 { get; set; }
+        public string in_whs_adr2 { get; set; }
+        public string in_whs_postc { get; set; }
+        public string in_whs_city { get; set; }
+        public string in_whs_state { get; set; }
+        public string en_cntry_key { get; set; }
+        public string in_whs_tel { get; set; }
+        public string in_whs_fax { get; set; }
+        public string in_whs_cont { get; set; }
+        public string in_whs_telex { get; set; }
+        public int in_whs_sqsiz { get; set; }
+        public double in_whs_mnchg { get; set; }
+        public int in_whs_cusiz { get; set; }
+        public string uom_key { get; set; }
+        public string in_whs_pbrch { get; set; }
+        public string in_whs_nsloc { get; set; }
+        public string in_whs_invac { get; set; }
+        public string in_whs_scpac { get; set; }
+        public string in_whs_invvr { get; set; }
+        public string in_whs_missa { get; set; }
+        public string in_whs_mreca { get; set; }
+        public string in_whs_invaj { get; set; }
+        public string in_whs_sdcaj { get; set; }
+        public string in_whs_stgac { get; set; }
+        public string in_whs_trnst { get; set; }
+        public string in_whs_trnloc { get; set; }
+        public string in_whs_inspl { get; set; }
+        public string in_whs_wofac { get; set; }
+        public string sa_user_key { get; set; }
+        public System.DateTime in_whs_chgdt { get; set; }
+        public System.DateTime in_whs_crtdt { get; set; }
+        public string in_whs_nnlocn { get; set; }
+        public string in_whs_stdvr { get; set; }
+        public short in_whs_ffltm { get; set; }
+        public short in_whs_piktm { get; set; }
+        public short in_whs_rsrvtm { get; set; }
+        public string in_whs_stagl { get; set; }
+        public string in_whs_loadl { get; set; }
+        public string en_frtzone_key { get; set; }
+        public string en_geocode_key { get; set; }
+        public string in_whs_wostgl { get; set; }
+        public string en_fob_key { get; set; }
+        public short in_whs_carrf { get; set; }
+        public string in_whs_trnvarac { get; set; }
+        public string ar_tax_salestaxkey { get; set; }
+        public string ar_tax_usetaxkey { get; set; }
+        public string gl_acct_afillvar { get; set; }
+        public string en_mfrid_key { get; set; }
+        public int in_whs_autoclspckf { get; set; }
+        public int in_whs_autoprtpckf { get; set; }
+        public string gl_bkcd_key { get; set; }
+        public string gl_acct_icreturn { get; set; }
+        public string gl_acct_suspense { get; set; }
+        public string in_whs_ldfrmt { get; set; }
+        public string gl_acct_icppvar { get; set; }
+        public string gl_bunit_key { get; set; }
+        public string gl_acct_unallocsus { get; set; }
+        public short in_whs_shpdtf { get; set; }
+        public short in_whs_shppcf { get; set; }
+        public string gl_acct_autoblend { get; set; }
+        public short in_whs_cnsgnf { get; set; }
+        public Nullable<short> in_whs_usagecntf { get; set; }
+        public string in_whs_pprplnt { get; set; }
+        public short in_whs_pklstitm { get; set; }
+        public System.DateTime in_whs_sopriortime { get; set; }
+        public short in_whs_autolotselectf { get; set; }
+        public string in_whs_vatreg { get; set; }
+        public string in_whs_blendac { get; set; }
+        public short in_whs_wmsf { get; set; }
+        public short in_whs_picklistoption { get; set; }
+        public short in_whs_shippreference { get; set; }
+        public short in_whs_shpdtpreference { get; set; }
+        public short in_whs_pickupdefault { get; set; }
+        public string gl_acct_purOverHeadVar { get; set; }
+        public string gl_acct_DistOverHeadVar { get; set; }
+        public short in_whs_eamflag { get; set; }
+        public string gl_acct_invcostVar { get; set; }
+        public short in_whs_allowshipmentf { get; set; }
+        public short in_whs_autoreleaseshipf { get; set; }
+        public string in_whs_holdlocation { get; set; }
+        public string in_whs_wmsuser { get; set; }
+        public string in_whs_dlotfrmt { get; set; }
+        public string in_whs_plotfrmt { get; set; }
+        public string in_whs_mlotfrmt { get; set; }
+        public short in_whs_scebackflushf { get; set; }
+    }
+}

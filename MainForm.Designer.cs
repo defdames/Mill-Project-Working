@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblFormTitle = new System.Windows.Forms.Label();
             this.dtmShiftStart = new System.Windows.Forms.DateTimePicker();
             this.lblShiftStart = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.lblMill = new System.Windows.Forms.Label();
             this.cmbMill = new System.Windows.Forms.ComboBox();
             this.lblTemp = new System.Windows.Forms.Label();
-            this.txtTemp = new System.Windows.Forms.TextBox();
             this.lblD10 = new System.Windows.Forms.Label();
             this.lblD98 = new System.Windows.Forms.Label();
             this.lblD90 = new System.Windows.Forms.Label();
@@ -60,18 +60,56 @@
             this.lblCategory = new System.Windows.Forms.Label();
             this.cmbRunCode = new System.Windows.Forms.ComboBox();
             this.lblRunCode = new System.Windows.Forms.Label();
-            this.mtxtStartTime = new System.Windows.Forms.MaskedTextBox();
             this.lblStartTime = new System.Windows.Forms.Label();
-            this.mtxtStopTime = new System.Windows.Forms.MaskedTextBox();
             this.lblStopTime = new System.Windows.Forms.Label();
             this.btnPost = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.rtxtMemo = new System.Windows.Forms.RichTextBox();
             this.lblMemo = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMillUtil = new System.Windows.Forms.DataGridView();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnMillMaint = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dtStart = new System.Windows.Forms.DateTimePicker();
+            this.dtStop = new System.Windows.Forms.DateTimePicker();
+            this.ttD10 = new System.Windows.Forms.ToolTip(this.components);
+            this.mtxtTemp = new System.Windows.Forms.MaskedTextBox();
+            this.ttD50 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttD90 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttD98 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttTemp = new System.Windows.Forms.ToolTip(this.components);
+            this.ttTime = new System.Windows.Forms.ToolTip(this.components);
+            this.tt24 = new System.Windows.Forms.ToolTip(this.components);
+            this.ttCategory = new System.Windows.Forms.ToolTip(this.components);
+            this.millsUtilizationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.systemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.runCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftStartDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millHoursBookedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftStopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sONumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.milltempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d10DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d50DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d90DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.d98DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sauserkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.glcmpkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modifieddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modifiedbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFormTitle
@@ -85,6 +123,8 @@
             // 
             // dtmShiftStart
             // 
+            this.dtmShiftStart.CustomFormat = "MM dd yyyy hh mm ss";
+            this.dtmShiftStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtmShiftStart.Location = new System.Drawing.Point(128, 45);
             this.dtmShiftStart.Name = "dtmShiftStart";
             this.dtmShiftStart.Size = new System.Drawing.Size(200, 20);
@@ -161,6 +201,7 @@
             this.txtSONumber.Name = "txtSONumber";
             this.txtSONumber.Size = new System.Drawing.Size(100, 24);
             this.txtSONumber.TabIndex = 10;
+            this.txtSONumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSONumber_KeyPress);
             // 
             // lblItemNumber
             // 
@@ -197,6 +238,7 @@
             this.cmbMill.Name = "cmbMill";
             this.cmbMill.Size = new System.Drawing.Size(109, 26);
             this.cmbMill.TabIndex = 14;
+            this.cmbMill.SelectedIndexChanged += new System.EventHandler(this.cmbMill_SelectedIndexChanged);
             // 
             // lblTemp
             // 
@@ -207,14 +249,6 @@
             this.lblTemp.Size = new System.Drawing.Size(61, 18);
             this.lblTemp.TabIndex = 15;
             this.lblTemp.Text = "Temp C";
-            // 
-            // txtTemp
-            // 
-            this.txtTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemp.Location = new System.Drawing.Point(435, 104);
-            this.txtTemp.Name = "txtTemp";
-            this.txtTemp.Size = new System.Drawing.Size(100, 24);
-            this.txtTemp.TabIndex = 16;
             // 
             // lblD10
             // 
@@ -237,7 +271,7 @@
             // lblD90
             // 
             this.lblD90.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblD90.Location = new System.Drawing.Point(565, 138);
+            this.lblD90.Location = new System.Drawing.Point(592, 138);
             this.lblD90.Name = "lblD90";
             this.lblD90.Size = new System.Drawing.Size(37, 21);
             this.lblD90.TabIndex = 19;
@@ -254,6 +288,7 @@
             // 
             // cmbSystem
             // 
+            this.cmbSystem.Enabled = false;
             this.cmbSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSystem.FormattingEnabled = true;
             this.cmbSystem.Location = new System.Drawing.Point(128, 181);
@@ -290,6 +325,7 @@
             // 
             // mtxtD10
             // 
+            this.mtxtD10.BeepOnError = true;
             this.mtxtD10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtD10.Location = new System.Drawing.Point(128, 141);
             this.mtxtD10.Mask = "0.00";
@@ -309,7 +345,7 @@
             // mtxtD90
             // 
             this.mtxtD90.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtD90.Location = new System.Drawing.Point(608, 141);
+            this.mtxtD90.Location = new System.Drawing.Point(636, 141);
             this.mtxtD90.Mask = "0.00";
             this.mtxtD90.Name = "mtxtD90";
             this.mtxtD90.Size = new System.Drawing.Size(100, 24);
@@ -330,7 +366,7 @@
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(500, 227);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(109, 26);
+            this.cmbCategory.Size = new System.Drawing.Size(208, 26);
             this.cmbCategory.TabIndex = 34;
             // 
             // lblCategory
@@ -361,15 +397,6 @@
             this.lblRunCode.TabIndex = 35;
             this.lblRunCode.Text = "Run Code";
             // 
-            // mtxtStartTime
-            // 
-            this.mtxtStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtStartTime.Location = new System.Drawing.Point(128, 333);
-            this.mtxtStartTime.Mask = "00.00";
-            this.mtxtStartTime.Name = "mtxtStartTime";
-            this.mtxtStartTime.Size = new System.Drawing.Size(100, 24);
-            this.mtxtStartTime.TabIndex = 40;
-            // 
             // lblStartTime
             // 
             this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -379,19 +406,10 @@
             this.lblStartTime.TabIndex = 39;
             this.lblStartTime.Text = "Start Time";
             // 
-            // mtxtStopTime
-            // 
-            this.mtxtStopTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtStopTime.Location = new System.Drawing.Point(347, 333);
-            this.mtxtStopTime.Mask = "00.00";
-            this.mtxtStopTime.Name = "mtxtStopTime";
-            this.mtxtStopTime.Size = new System.Drawing.Size(100, 24);
-            this.mtxtStopTime.TabIndex = 42;
-            // 
             // lblStopTime
             // 
             this.lblStopTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStopTime.Location = new System.Drawing.Point(263, 333);
+            this.lblStopTime.Location = new System.Drawing.Point(320, 331);
             this.lblStopTime.Name = "lblStopTime";
             this.lblStopTime.Size = new System.Drawing.Size(85, 24);
             this.lblStopTime.TabIndex = 41;
@@ -400,7 +418,7 @@
             // btnPost
             // 
             this.btnPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPost.Location = new System.Drawing.Point(500, 333);
+            this.btnPost.Location = new System.Drawing.Point(616, 333);
             this.btnPost.Name = "btnPost";
             this.btnPost.Size = new System.Drawing.Size(75, 23);
             this.btnPost.TabIndex = 43;
@@ -411,7 +429,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(608, 334);
+            this.btnCancel.Location = new System.Drawing.Point(708, 333);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 44;
@@ -436,13 +454,47 @@
             this.lblMemo.TabIndex = 46;
             this.lblMemo.Text = "Memo";
             // 
-            // dataGridView1
+            // dgvMillUtil
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 395);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1085, 159);
-            this.dataGridView1.TabIndex = 47;
+            this.dgvMillUtil.AllowUserToAddRows = false;
+            this.dgvMillUtil.AllowUserToDeleteRows = false;
+            this.dgvMillUtil.AllowUserToOrderColumns = true;
+            this.dgvMillUtil.AutoGenerateColumns = false;
+            this.dgvMillUtil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMillUtil.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.millsUtilizationIDDataGridViewTextBoxColumn,
+            this.millIDDataGridViewTextBoxColumn,
+            this.systemDataGridViewTextBoxColumn,
+            this.runCodeDataGridViewTextBoxColumn,
+            this.startTimeDataGridViewTextBoxColumn,
+            this.stopTimeDataGridViewTextBoxColumn,
+            this.shiftDataGridViewTextBoxColumn,
+            this.shiftStartDateDataGridViewTextBoxColumn,
+            this.millHoursBookedDataGridViewTextBoxColumn,
+            this.shiftStartTimeDataGridViewTextBoxColumn,
+            this.shiftStopTimeDataGridViewTextBoxColumn,
+            this.memoDataGridViewTextBoxColumn,
+            this.sONumberDataGridViewTextBoxColumn,
+            this.itemNumberDataGridViewTextBoxColumn,
+            this.shiftCategoryDataGridViewTextBoxColumn,
+            this.milltempDataGridViewTextBoxColumn,
+            this.d10DataGridViewTextBoxColumn,
+            this.d50DataGridViewTextBoxColumn,
+            this.d90DataGridViewTextBoxColumn,
+            this.d98DataGridViewTextBoxColumn,
+            this.sauserkeyDataGridViewTextBoxColumn,
+            this.glcmpkeyDataGridViewTextBoxColumn,
+            this.sfplantkeyDataGridViewTextBoxColumn,
+            this.createddateDataGridViewTextBoxColumn,
+            this.modifieddateDataGridViewTextBoxColumn,
+            this.createdbyDataGridViewTextBoxColumn,
+            this.modifiedbyDataGridViewTextBoxColumn});
+            this.dgvMillUtil.DataSource = this.millMillsUtilizationBindingSource;
+            this.dgvMillUtil.Location = new System.Drawing.Point(17, 396);
+            this.dgvMillUtil.Name = "dgvMillUtil";
+            this.dgvMillUtil.ReadOnly = true;
+            this.dgvMillUtil.Size = new System.Drawing.Size(1107, 238);
+            this.dgvMillUtil.TabIndex = 47;
             // 
             // lblUserName
             // 
@@ -457,7 +509,7 @@
             // 
             this.btnMillMaint.Enabled = false;
             this.btnMillMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMillMaint.Location = new System.Drawing.Point(695, 333);
+            this.btnMillMaint.Location = new System.Drawing.Point(789, 334);
             this.btnMillMaint.Name = "btnMillMaint";
             this.btnMillMaint.Size = new System.Drawing.Size(105, 56);
             this.btnMillMaint.TabIndex = 49;
@@ -466,21 +518,252 @@
             this.btnMillMaint.Visible = false;
             this.btnMillMaint.Click += new System.EventHandler(this.btnMillMaint_Click);
             // 
+            // dtStart
+            // 
+            this.dtStart.CustomFormat = "MM/dd/yyyy HH:mm tt";
+            this.dtStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtStart.Location = new System.Drawing.Point(128, 331);
+            this.dtStart.Name = "dtStart";
+            this.dtStart.ShowUpDown = true;
+            this.dtStart.Size = new System.Drawing.Size(186, 26);
+            this.dtStart.TabIndex = 50;
+            // 
+            // dtStop
+            // 
+            this.dtStop.CustomFormat = "MM/dd/yyyy HH:mm tt";
+            this.dtStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtStop.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtStop.Location = new System.Drawing.Point(411, 327);
+            this.dtStop.Name = "dtStop";
+            this.dtStop.ShowUpDown = true;
+            this.dtStop.Size = new System.Drawing.Size(186, 26);
+            this.dtStop.TabIndex = 51;
+            // 
+            // mtxtTemp
+            // 
+            this.mtxtTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtxtTemp.Location = new System.Drawing.Point(435, 104);
+            this.mtxtTemp.Mask = "0.000";
+            this.mtxtTemp.Name = "mtxtTemp";
+            this.mtxtTemp.Size = new System.Drawing.Size(100, 24);
+            this.mtxtTemp.TabIndex = 52;
+            // 
+            // millsUtilizationIDDataGridViewTextBoxColumn
+            // 
+            this.millsUtilizationIDDataGridViewTextBoxColumn.DataPropertyName = "Mills_Utilization_ID";
+            this.millsUtilizationIDDataGridViewTextBoxColumn.HeaderText = "Mills_Utilization_ID";
+            this.millsUtilizationIDDataGridViewTextBoxColumn.Name = "millsUtilizationIDDataGridViewTextBoxColumn";
+            this.millsUtilizationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // millIDDataGridViewTextBoxColumn
+            // 
+            this.millIDDataGridViewTextBoxColumn.DataPropertyName = "Mill_ID";
+            this.millIDDataGridViewTextBoxColumn.HeaderText = "Mill_ID";
+            this.millIDDataGridViewTextBoxColumn.Name = "millIDDataGridViewTextBoxColumn";
+            this.millIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // systemDataGridViewTextBoxColumn
+            // 
+            this.systemDataGridViewTextBoxColumn.DataPropertyName = "System";
+            this.systemDataGridViewTextBoxColumn.HeaderText = "System";
+            this.systemDataGridViewTextBoxColumn.Name = "systemDataGridViewTextBoxColumn";
+            this.systemDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // runCodeDataGridViewTextBoxColumn
+            // 
+            this.runCodeDataGridViewTextBoxColumn.DataPropertyName = "Run_Code";
+            this.runCodeDataGridViewTextBoxColumn.HeaderText = "Run_Code";
+            this.runCodeDataGridViewTextBoxColumn.Name = "runCodeDataGridViewTextBoxColumn";
+            this.runCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // startTimeDataGridViewTextBoxColumn
+            // 
+            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "Start_Time";
+            this.startTimeDataGridViewTextBoxColumn.HeaderText = "Start_Time";
+            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
+            this.startTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stopTimeDataGridViewTextBoxColumn
+            // 
+            this.stopTimeDataGridViewTextBoxColumn.DataPropertyName = "Stop_Time";
+            this.stopTimeDataGridViewTextBoxColumn.HeaderText = "Stop_Time";
+            this.stopTimeDataGridViewTextBoxColumn.Name = "stopTimeDataGridViewTextBoxColumn";
+            this.stopTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shiftDataGridViewTextBoxColumn
+            // 
+            this.shiftDataGridViewTextBoxColumn.DataPropertyName = "Shift";
+            this.shiftDataGridViewTextBoxColumn.HeaderText = "Shift";
+            this.shiftDataGridViewTextBoxColumn.Name = "shiftDataGridViewTextBoxColumn";
+            this.shiftDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shiftStartDateDataGridViewTextBoxColumn
+            // 
+            this.shiftStartDateDataGridViewTextBoxColumn.DataPropertyName = "Shift_Start_Date";
+            this.shiftStartDateDataGridViewTextBoxColumn.HeaderText = "Shift_Start_Date";
+            this.shiftStartDateDataGridViewTextBoxColumn.Name = "shiftStartDateDataGridViewTextBoxColumn";
+            this.shiftStartDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // millHoursBookedDataGridViewTextBoxColumn
+            // 
+            this.millHoursBookedDataGridViewTextBoxColumn.DataPropertyName = "Mill_Hours_Booked";
+            this.millHoursBookedDataGridViewTextBoxColumn.HeaderText = "Mill_Hours_Booked";
+            this.millHoursBookedDataGridViewTextBoxColumn.Name = "millHoursBookedDataGridViewTextBoxColumn";
+            this.millHoursBookedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shiftStartTimeDataGridViewTextBoxColumn
+            // 
+            this.shiftStartTimeDataGridViewTextBoxColumn.DataPropertyName = "Shift_Start_Time";
+            this.shiftStartTimeDataGridViewTextBoxColumn.HeaderText = "Shift_Start_Time";
+            this.shiftStartTimeDataGridViewTextBoxColumn.Name = "shiftStartTimeDataGridViewTextBoxColumn";
+            this.shiftStartTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shiftStopTimeDataGridViewTextBoxColumn
+            // 
+            this.shiftStopTimeDataGridViewTextBoxColumn.DataPropertyName = "Shift_Stop_Time";
+            this.shiftStopTimeDataGridViewTextBoxColumn.HeaderText = "Shift_Stop_Time";
+            this.shiftStopTimeDataGridViewTextBoxColumn.Name = "shiftStopTimeDataGridViewTextBoxColumn";
+            this.shiftStopTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // memoDataGridViewTextBoxColumn
+            // 
+            this.memoDataGridViewTextBoxColumn.DataPropertyName = "Memo";
+            this.memoDataGridViewTextBoxColumn.HeaderText = "Memo";
+            this.memoDataGridViewTextBoxColumn.Name = "memoDataGridViewTextBoxColumn";
+            this.memoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sONumberDataGridViewTextBoxColumn
+            // 
+            this.sONumberDataGridViewTextBoxColumn.DataPropertyName = "SO_Number";
+            this.sONumberDataGridViewTextBoxColumn.HeaderText = "SO_Number";
+            this.sONumberDataGridViewTextBoxColumn.Name = "sONumberDataGridViewTextBoxColumn";
+            this.sONumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemNumberDataGridViewTextBoxColumn
+            // 
+            this.itemNumberDataGridViewTextBoxColumn.DataPropertyName = "Item_Number";
+            this.itemNumberDataGridViewTextBoxColumn.HeaderText = "Item_Number";
+            this.itemNumberDataGridViewTextBoxColumn.Name = "itemNumberDataGridViewTextBoxColumn";
+            this.itemNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // shiftCategoryDataGridViewTextBoxColumn
+            // 
+            this.shiftCategoryDataGridViewTextBoxColumn.DataPropertyName = "Shift_Category";
+            this.shiftCategoryDataGridViewTextBoxColumn.HeaderText = "Shift_Category";
+            this.shiftCategoryDataGridViewTextBoxColumn.Name = "shiftCategoryDataGridViewTextBoxColumn";
+            this.shiftCategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // milltempDataGridViewTextBoxColumn
+            // 
+            this.milltempDataGridViewTextBoxColumn.DataPropertyName = "Mill_temp";
+            this.milltempDataGridViewTextBoxColumn.HeaderText = "Mill_temp";
+            this.milltempDataGridViewTextBoxColumn.Name = "milltempDataGridViewTextBoxColumn";
+            this.milltempDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // d10DataGridViewTextBoxColumn
+            // 
+            this.d10DataGridViewTextBoxColumn.DataPropertyName = "D10";
+            this.d10DataGridViewTextBoxColumn.HeaderText = "D10";
+            this.d10DataGridViewTextBoxColumn.Name = "d10DataGridViewTextBoxColumn";
+            this.d10DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // d50DataGridViewTextBoxColumn
+            // 
+            this.d50DataGridViewTextBoxColumn.DataPropertyName = "D50";
+            this.d50DataGridViewTextBoxColumn.HeaderText = "D50";
+            this.d50DataGridViewTextBoxColumn.Name = "d50DataGridViewTextBoxColumn";
+            this.d50DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // d90DataGridViewTextBoxColumn
+            // 
+            this.d90DataGridViewTextBoxColumn.DataPropertyName = "D90";
+            this.d90DataGridViewTextBoxColumn.HeaderText = "D90";
+            this.d90DataGridViewTextBoxColumn.Name = "d90DataGridViewTextBoxColumn";
+            this.d90DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // d98DataGridViewTextBoxColumn
+            // 
+            this.d98DataGridViewTextBoxColumn.DataPropertyName = "D98";
+            this.d98DataGridViewTextBoxColumn.HeaderText = "D98";
+            this.d98DataGridViewTextBoxColumn.Name = "d98DataGridViewTextBoxColumn";
+            this.d98DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sauserkeyDataGridViewTextBoxColumn
+            // 
+            this.sauserkeyDataGridViewTextBoxColumn.DataPropertyName = "sa_user_key";
+            this.sauserkeyDataGridViewTextBoxColumn.HeaderText = "sa_user_key";
+            this.sauserkeyDataGridViewTextBoxColumn.Name = "sauserkeyDataGridViewTextBoxColumn";
+            this.sauserkeyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // glcmpkeyDataGridViewTextBoxColumn
+            // 
+            this.glcmpkeyDataGridViewTextBoxColumn.DataPropertyName = "gl_cmp_key";
+            this.glcmpkeyDataGridViewTextBoxColumn.HeaderText = "gl_cmp_key";
+            this.glcmpkeyDataGridViewTextBoxColumn.Name = "glcmpkeyDataGridViewTextBoxColumn";
+            this.glcmpkeyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.glcmpkeyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // sfplantkeyDataGridViewTextBoxColumn
+            // 
+            this.sfplantkeyDataGridViewTextBoxColumn.DataPropertyName = "sf_plant_key";
+            this.sfplantkeyDataGridViewTextBoxColumn.HeaderText = "sf_plant_key";
+            this.sfplantkeyDataGridViewTextBoxColumn.Name = "sfplantkeyDataGridViewTextBoxColumn";
+            this.sfplantkeyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sfplantkeyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // createddateDataGridViewTextBoxColumn
+            // 
+            this.createddateDataGridViewTextBoxColumn.DataPropertyName = "Created_date";
+            this.createddateDataGridViewTextBoxColumn.HeaderText = "Created_date";
+            this.createddateDataGridViewTextBoxColumn.Name = "createddateDataGridViewTextBoxColumn";
+            this.createddateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createddateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // modifieddateDataGridViewTextBoxColumn
+            // 
+            this.modifieddateDataGridViewTextBoxColumn.DataPropertyName = "Modified_date";
+            this.modifieddateDataGridViewTextBoxColumn.HeaderText = "Modified_date";
+            this.modifieddateDataGridViewTextBoxColumn.Name = "modifieddateDataGridViewTextBoxColumn";
+            this.modifieddateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.modifieddateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // createdbyDataGridViewTextBoxColumn
+            // 
+            this.createdbyDataGridViewTextBoxColumn.DataPropertyName = "Created_by";
+            this.createdbyDataGridViewTextBoxColumn.HeaderText = "Created_by";
+            this.createdbyDataGridViewTextBoxColumn.Name = "createdbyDataGridViewTextBoxColumn";
+            this.createdbyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdbyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // modifiedbyDataGridViewTextBoxColumn
+            // 
+            this.modifiedbyDataGridViewTextBoxColumn.DataPropertyName = "Modified_by";
+            this.modifiedbyDataGridViewTextBoxColumn.HeaderText = "Modified_by";
+            this.modifiedbyDataGridViewTextBoxColumn.Name = "modifiedbyDataGridViewTextBoxColumn";
+            this.modifiedbyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.modifiedbyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // millMillsUtilizationBindingSource
+            // 
+            this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 560);
+            this.ClientSize = new System.Drawing.Size(1167, 657);
+            this.Controls.Add(this.mtxtTemp);
+            this.Controls.Add(this.dtStop);
+            this.Controls.Add(this.dtStart);
             this.Controls.Add(this.btnMillMaint);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvMillUtil);
             this.Controls.Add(this.lblMemo);
             this.Controls.Add(this.rtxtMemo);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPost);
-            this.Controls.Add(this.mtxtStopTime);
             this.Controls.Add(this.lblStopTime);
-            this.Controls.Add(this.mtxtStartTime);
             this.Controls.Add(this.lblStartTime);
             this.Controls.Add(this.cmbRunCode);
             this.Controls.Add(this.lblRunCode);
@@ -498,7 +781,6 @@
             this.Controls.Add(this.lblD90);
             this.Controls.Add(this.lblD98);
             this.Controls.Add(this.lblD10);
-            this.Controls.Add(this.txtTemp);
             this.Controls.Add(this.lblTemp);
             this.Controls.Add(this.cmbMill);
             this.Controls.Add(this.lblMill);
@@ -514,10 +796,12 @@
             this.Controls.Add(this.lblShiftStart);
             this.Controls.Add(this.dtmShiftStart);
             this.Controls.Add(this.lblFormTitle);
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Mill Utilization";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,7 +824,6 @@
         private System.Windows.Forms.Label lblMill;
         private System.Windows.Forms.ComboBox cmbMill;
         private System.Windows.Forms.Label lblTemp;
-        private System.Windows.Forms.TextBox txtTemp;
         private System.Windows.Forms.Label lblD10;
         private System.Windows.Forms.Label lblD98;
         private System.Windows.Forms.Label lblD90;
@@ -557,17 +840,54 @@
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.ComboBox cmbRunCode;
         private System.Windows.Forms.Label lblRunCode;
-        private System.Windows.Forms.MaskedTextBox mtxtStartTime;
         private System.Windows.Forms.Label lblStartTime;
-        private System.Windows.Forms.MaskedTextBox mtxtStopTime;
         private System.Windows.Forms.Label lblStopTime;
         private System.Windows.Forms.Button btnPost;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.RichTextBox rtxtMemo;
         private System.Windows.Forms.Label lblMemo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMillUtil;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnMillMaint;
+        private System.Windows.Forms.DateTimePicker dtStart;
+        private System.Windows.Forms.DateTimePicker dtStop;
+        private System.Windows.Forms.ToolTip ttD10;
+        private System.Windows.Forms.MaskedTextBox mtxtTemp;
+        private System.Windows.Forms.ToolTip ttD50;
+        private System.Windows.Forms.ToolTip ttD90;
+        private System.Windows.Forms.ToolTip ttD98;
+        private System.Windows.Forms.ToolTip ttTemp;
+        private System.Windows.Forms.ToolTip ttTime;
+        private System.Windows.Forms.ToolTip tt24;
+        private System.Windows.Forms.BindingSource millMillsUtilizationBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn millsUtilizationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn millIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn systemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn runCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stopTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStartDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn millHoursBookedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStartTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftStopTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sONumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shiftCategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn milltempDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d10DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d50DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d90DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn d98DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sauserkeyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn glcmpkeyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sfplantkeyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createddateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modifieddateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdbyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modifiedbyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolTip ttCategory;
     }
 }
 

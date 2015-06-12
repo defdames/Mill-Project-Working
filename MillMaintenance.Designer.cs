@@ -150,7 +150,7 @@
             // 
             // millMillsBindingSource2
             // 
-            this.millMillsBindingSource2.DataSource = typeof(Mill_Project.Data.mill_Mills);
+            //this.millMillsBindingSource2.DataSource = typeof(Mill_Project.Data.mill_Mills);
             // 
             // millsIDDataGridViewTextBoxColumn
             // 

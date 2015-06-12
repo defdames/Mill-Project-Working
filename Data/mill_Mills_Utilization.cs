@@ -1,4 +1,4 @@
-namespace Mill_Project.Data
+namespace Mill_Project
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Mill_Project.Data
         public string System { get; set; }
 
         [StringLength(255)]
-        public string RunCode { get; set; }
+        public string Run_Code { get; set; }
 
         public DateTime? Start_Time { get; set; }
 
@@ -31,7 +31,11 @@ namespace Mill_Project.Data
 
         public DateTime? Shift_Start_Date { get; set; }
 
-        public DateTime? Shift_Stop_Date { get; set; }
+        public TimeSpan? Mill_Hours_Booked { get; set; }
+
+        public DateTime? Shift_Start_Time { get; set; }
+
+        public DateTime? Shift_Stop_Time { get; set; }
 
         [StringLength(20)]
         public string sa_user_key { get; set; }
@@ -48,15 +52,15 @@ namespace Mill_Project.Data
         [StringLength(255)]
         public string Shift_Category { get; set; }
 
-        public int? Mill_temp { get; set; }
+        public decimal? Mill_temp { get; set; }
 
-        public int? D10 { get; set; }
+        public decimal? D10 { get; set; }
 
-        public int? D50 { get; set; }
+        public decimal? D50 { get; set; }
 
-        public int? D90 { get; set; }
+        public decimal? D90 { get; set; }
 
-        public int? D98 { get; set; }
+        public decimal? D98 { get; set; }
 
         [Required]
         [StringLength(2)]
