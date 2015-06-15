@@ -80,6 +80,9 @@
             this.ttTime = new System.Windows.Forms.ToolTip(this.components);
             this.tt24 = new System.Windows.Forms.ToolTip(this.components);
             this.ttCategory = new System.Windows.Forms.ToolTip(this.components);
+            this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvcmbRun_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,9 +110,6 @@
             this.shiftStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftStopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sONumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource1)).BeginInit();
@@ -154,6 +154,7 @@
             // 
             // cmbCompany
             // 
+            this.cmbCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCompany.FormattingEnabled = true;
             this.cmbCompany.Location = new System.Drawing.Point(964, 28);
             this.cmbCompany.Name = "cmbCompany";
@@ -164,6 +165,7 @@
             // 
             // cmbPlant
             // 
+            this.cmbPlant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPlant.FormattingEnabled = true;
             this.cmbPlant.Location = new System.Drawing.Point(964, 56);
             this.cmbPlant.Name = "cmbPlant";
@@ -292,6 +294,7 @@
             // 
             // cmbSystem
             // 
+            this.cmbSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSystem.Enabled = false;
             this.cmbSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSystem.FormattingEnabled = true;
@@ -311,6 +314,7 @@
             // 
             // cmbShift
             // 
+            this.cmbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShift.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbShift.FormattingEnabled = true;
             this.cmbShift.Location = new System.Drawing.Point(128, 227);
@@ -366,6 +370,7 @@
             // 
             // cmbCategory
             // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(500, 227);
@@ -385,6 +390,7 @@
             // 
             // cmbRunCode
             // 
+            this.cmbRunCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRunCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRunCode.FormattingEnabled = true;
             this.cmbRunCode.Location = new System.Drawing.Point(128, 273);
@@ -554,6 +560,18 @@
             this.mtxtTemp.Size = new System.Drawing.Size(100, 24);
             this.mtxtTemp.TabIndex = 52;
             // 
+            // millMillsUtilizationBindingSource
+            // 
+            this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
+            // 
+            // millStoppageReasonsBindingSource1
+            // 
+            this.millStoppageReasonsBindingSource1.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
+            // 
+            // millStoppageReasonsBindingSource
+            // 
+            this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
+            // 
             // dgvcmbRun_Code
             // 
             this.dgvcmbRun_Code.DataPropertyName = "gl_cmp_key";
@@ -671,30 +689,35 @@
             // 
             this.milltempDataGridViewTextBoxColumn.DataPropertyName = "Mill_temp";
             this.milltempDataGridViewTextBoxColumn.HeaderText = "Mill_temp";
+            this.milltempDataGridViewTextBoxColumn.MaxInputLength = 6;
             this.milltempDataGridViewTextBoxColumn.Name = "milltempDataGridViewTextBoxColumn";
             // 
             // d10DataGridViewTextBoxColumn
             // 
             this.d10DataGridViewTextBoxColumn.DataPropertyName = "D10";
             this.d10DataGridViewTextBoxColumn.HeaderText = "D10";
+            this.d10DataGridViewTextBoxColumn.MaxInputLength = 4;
             this.d10DataGridViewTextBoxColumn.Name = "d10DataGridViewTextBoxColumn";
             // 
             // d50DataGridViewTextBoxColumn
             // 
             this.d50DataGridViewTextBoxColumn.DataPropertyName = "D50";
             this.d50DataGridViewTextBoxColumn.HeaderText = "D50";
+            this.d50DataGridViewTextBoxColumn.MaxInputLength = 4;
             this.d50DataGridViewTextBoxColumn.Name = "d50DataGridViewTextBoxColumn";
             // 
             // d90DataGridViewTextBoxColumn
             // 
             this.d90DataGridViewTextBoxColumn.DataPropertyName = "D90";
             this.d90DataGridViewTextBoxColumn.HeaderText = "D90";
+            this.d90DataGridViewTextBoxColumn.MaxInputLength = 4;
             this.d90DataGridViewTextBoxColumn.Name = "d90DataGridViewTextBoxColumn";
             // 
             // d98DataGridViewTextBoxColumn
             // 
             this.d98DataGridViewTextBoxColumn.DataPropertyName = "D98";
             this.d98DataGridViewTextBoxColumn.HeaderText = "D98";
+            this.d98DataGridViewTextBoxColumn.MaxInputLength = 4;
             this.d98DataGridViewTextBoxColumn.Name = "d98DataGridViewTextBoxColumn";
             // 
             // itemNumberDataGridViewTextBoxColumn
@@ -736,18 +759,6 @@
             this.sONumberDataGridViewTextBoxColumn.HeaderText = "SO_Number";
             this.sONumberDataGridViewTextBoxColumn.Name = "sONumberDataGridViewTextBoxColumn";
             this.sONumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // millMillsUtilizationBindingSource
-            // 
-            this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
-            // 
-            // millStoppageReasonsBindingSource1
-            // 
-            this.millStoppageReasonsBindingSource1.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
-            // 
-            // millStoppageReasonsBindingSource
-            // 
-            this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
             // 
             // MainForm
             // 

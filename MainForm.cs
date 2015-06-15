@@ -185,7 +185,7 @@ namespace Mill_Project
         }
 
 
-        private void dgvMillUtil_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void dgvMillUtil_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)//Handles validation datagridview columns Temp and D columns
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
             if (dgvMillUtil.CurrentCell.ColumnIndex == 16 || dgvMillUtil.CurrentCell.ColumnIndex == 17 || dgvMillUtil.CurrentCell.ColumnIndex == 18 || dgvMillUtil.CurrentCell.ColumnIndex == 19 || dgvMillUtil.CurrentCell.ColumnIndex == 20) //Desired Column
@@ -198,7 +198,7 @@ namespace Mill_Project
             }
         }
 
-        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)//Handles validation datagridview columns Temp and D columns
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)&&
             (e.KeyChar != '.'))
