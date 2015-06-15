@@ -130,7 +130,7 @@ namespace Mill_Project
             {typeof(GroupBox), c => ((GroupBox)c).Controls.ClearControls()},
             {typeof(Panel), c => ((Panel)c).Controls.ClearControls()},
             {typeof(MaskedTextBox), c => ((MaskedTextBox)c).Clear()},
-            //{typeof(ComboBox), c => ((ComboBox)c).Items.Clear()},
+            {typeof(ComboBox), c => ((ComboBox)c).Items.Clear()},
             {typeof(RichTextBox), c => ((RichTextBox)c).Clear()}
         };
 
