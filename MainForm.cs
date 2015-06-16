@@ -311,80 +311,92 @@ namespace Mill_Project
             
             var just_date = dtvstart.Date;
             //DateTime dt1start = DateTime.ParseExact(date + " " + starttime, "M/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+            var timecheck = from mu in context.mill_Mills_Utilization
+                            where cmbMill.Text == mu.Mill_ID && dtStart.Value < mu.Shift_Stop_Time && dtStop.Value > mu.Shift_Start_Time
+                            select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
 
-            if (dtStart.Value <= dtStop.Value)
+            if (timecheck == null)
             {
-                if (hrbooked.TotalHours <= 24)
+
+                if (dtStart.Value <= dtStop.Value)
                 {
-                    if(cmbCategory.SelectedItem != null)
+                    if (hrbooked.TotalHours <= 24)
                     {
-                        using (Model1 record = new Model1())
+                        if (cmbCategory.SelectedItem != null)
                         {
-                            mill_Mills_Utilization rec = new mill_Mills_Utilization();
+                            using (Model1 record = new Model1())
                             {
+                                mill_Mills_Utilization rec = new mill_Mills_Utilization();
+                                {
 
 
 
-                                rec.Mill_ID = cmbMill.Text;
-                                rec.gl_cmp_key = cmbCompany.Text;
-                                rec.sf_plant_key = cmbPlant.Text;
-                                rec.Start_Time = dts;
-                                rec.Stop_Time = dtss;
-                                rec.Memo = rtxtMemo.Text;
-                                rec.System = cmbSystem.Text;
-                                rec.Shift = cmbShift.Text;
-                                rec.Shift_Category = cmbCategory.Text;
-                                rec.Run_Code = cmbRunCode.Text;
-                                rec.Shift_Start_Date = dtStart.Value;
-                                rec.Shift_Stop_Time = dtStop.Value;
-                                rec.Mill_temp = Decimal.Parse(mtxtTemp.Text);
-                                rec.D10 = Decimal.Parse(mtxtD10.Text);
-                                rec.D50 = Decimal.Parse(mtxtD50.Text);
-                                rec.D90 = Decimal.Parse(mtxtD90.Text);
-                                rec.D98 = Decimal.Parse(mtxtD98.Text);
-                                rec.Item_Number = txtItemNo.Text;
-                                rec.Shift_Start_Time = dtvstart;
-                                rec.Mill_Hours_Booked = hrbooked;
-                                rec.SO_Number = Int32.Parse(txtSONumber.Text);
-                                rec.sa_user_key = Program.GetUser();
-                                rec.Created_by = Program.GetUser();
-                                rec.Created_date = DateTime.Now;
+                                    rec.Mill_ID = cmbMill.Text;
+                                    rec.gl_cmp_key = cmbCompany.Text;
+                                    rec.sf_plant_key = cmbPlant.Text;
+                                    rec.Start_Time = dts;
+                                    rec.Stop_Time = dtss;
+                                    rec.Memo = rtxtMemo.Text;
+                                    rec.System = cmbSystem.Text;
+                                    rec.Shift = cmbShift.Text;
+                                    rec.Shift_Category = cmbCategory.Text;
+                                    rec.Run_Code = cmbRunCode.Text;
+                                    rec.Shift_Start_Date = dtStart.Value;
+                                    rec.Shift_Stop_Time = dtStop.Value;
+                                    rec.Mill_temp = Decimal.Parse(mtxtTemp.Text);
+                                    rec.D10 = Decimal.Parse(mtxtD10.Text);
+                                    rec.D50 = Decimal.Parse(mtxtD50.Text);
+                                    rec.D90 = Decimal.Parse(mtxtD90.Text);
+                                    rec.D98 = Decimal.Parse(mtxtD98.Text);
+                                    rec.Item_Number = txtItemNo.Text;
+                                    rec.Shift_Start_Time = dtvstart;
+                                    rec.Mill_Hours_Booked = hrbooked;
+                                    rec.SO_Number = Int32.Parse(txtSONumber.Text);
+                                    rec.sa_user_key = Program.GetUser();
+                                    rec.Created_by = Program.GetUser();
+                                    rec.Created_date = DateTime.Now;
 
-                                record.mill_Mills_Utilization.Add(rec);
-                                record.SaveChanges();
+                                    record.mill_Mills_Utilization.Add(rec);
+                                    record.SaveChanges();
 
-                                context.mill_Mills_Utilization.ToList();
-                                
-                                
-                                string company = cmbCompany.Text;
-                                string plant = cmbPlant.Text;
+                                    context.mill_Mills_Utilization.ToList();
 
-                                var query = from mu in context.mill_Mills_Utilization
-                                            where mu.gl_cmp_key == company && mu.sf_plant_key == plant
-                                            select mu;
 
-                                bs.DataSource = query.ToList();
-                                dgvMillUtil.DataSource = bs;
+                                    string company = cmbCompany.Text;
+                                    string plant = cmbPlant.Text;
+
+                                    var query = from mu in context.mill_Mills_Utilization
+                                                where mu.gl_cmp_key == company && mu.sf_plant_key == plant
+                                                select mu;
+
+                                    bs.DataSource = query.ToList();
+                                    dgvMillUtil.DataSource = bs;
+                                }
                             }
                         }
+                        else
+                        {
+                            ttCategory.Show("Category cannot be blank.  Please Pick a Category", cmbCategory, 0, 25);
+                        }
                     }
+
                     else
                     {
-                        ttCategory.Show("Category cannot be blank.  Please Pick a Category", cmbCategory, 0, 25);
+                        tt24.Show("Time Span cannot be greater then 24 hours. Please check start and top time", dtStop, 0, 25);
                     }
                 }
 
                 else
                 {
-                    tt24.Show("Time Span cannot be greater then 24 hours. Please check start and top time", dtStop, 0, 25);
+                    ttTime.Show("Start time cannot be greater then Stop Time", dtStart, 0, 25);
                 }
             }
-
             else
             {
-                ttTime.Show("Start time cannot be greater then Stop Time", dtStart, 0, 25 );
+                ttDuplicateMillShift.Show("Shift for this Mill already exisits, please change time or mill", btnPost, 0, 25);
             }
         }
+
 
 
         public static List<String> Get_Category(string company, string plant)//get list of categories in the company and plant user has access to
