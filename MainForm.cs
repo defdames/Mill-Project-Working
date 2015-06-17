@@ -23,10 +23,12 @@ namespace Mill_Project
 {
     public partial class MainForm : Form
     {
+        DateTimePicker oDateTimePicker;
 
         BindingSource bs = new BindingSource();
         BindingSource runcmb = new BindingSource(); //run code gridview combo box
         BindingSource shiftcmb = new BindingSource(); //shift category gridview combo box
+        BindingSource millcmb = new BindingSource(); //mill category gridview combo box
 
         Model1 context = new Model1();
         public MainForm()
@@ -169,7 +171,7 @@ namespace Mill_Project
         }
         #endregion
 
-        private void txtSONumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSONumber_KeyPress(object sender, KeyPressEventArgs e)//Only allow one . in text box and is a digit
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.'))
@@ -198,7 +200,7 @@ namespace Mill_Project
             }
         }
 
-        private void Column1_KeyPress(object sender, KeyPressEventArgs e)//Handles validation datagridview columns Temp and D columns
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)//Handles validation datagridview columns Temp and D columns 
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)&&
             (e.KeyChar != '.'))
@@ -272,13 +274,13 @@ namespace Mill_Project
             Shift_Category.DataSource = shiftcmb;
             #endregion
 
-            //DataGridViewComboBoxColumn dgvcmbrc = new DataGridViewComboBoxColumn();
-            //dgvcmbrc.Name = "dgvcmbRun_Code";
-            //dgvcmbrc.DataSource = bs;
-            //dgvcmbrc.HeaderText = "Run_Code";
-            //dgvcmbrc.ValueMember = "Run_Code";
-            //dgvcmbrc.DisplayMember = "Run_Code";
-            //dgvMillUtil.Columns.Add(dgvcmbrc);
+            #region Fills Mill Catergory Data Grid View Combo Box
+            var mlcmb = Get_Mills(company, plant);
+            millcmb.DataSource = mlcmb.ToList();
+            Mill_ID.DataSource = millcmb;
+            #endregion
+
+
 
         }
 
@@ -342,6 +344,7 @@ namespace Mill_Project
                                     rec.Shift_Category = cmbCategory.Text;
                                     rec.Run_Code = cmbRunCode.Text;
                                     rec.Shift_Start_Date = dtStart.Value;
+                                    rec.Shift_Start_Time = dtvstart;
                                     rec.Shift_Stop_Time = dtStop.Value;
                                     rec.Mill_temp = Decimal.Parse(mtxtTemp.Text);
                                     rec.D10 = Decimal.Parse(mtxtD10.Text);
@@ -349,7 +352,7 @@ namespace Mill_Project
                                     rec.D90 = Decimal.Parse(mtxtD90.Text);
                                     rec.D98 = Decimal.Parse(mtxtD98.Text);
                                     rec.Item_Number = txtItemNo.Text;
-                                    rec.Shift_Start_Time = dtvstart;
+                                    
                                     rec.Mill_Hours_Booked = hrbooked;
                                     rec.SO_Number = Int32.Parse(txtSONumber.Text);
                                     rec.sa_user_key = Program.GetUser();
@@ -422,6 +425,17 @@ namespace Mill_Project
             }
         }
 
+        public static List<string> Get_Mills(string company, string plant)//get list of mills in the compnay and plant user has access to
+        {
+            using (var context = new Model1())
+            {
+                var mills = (from ml in context.mill_Mills
+                             where ml.gl_cmp_key == company && ml.sf_plant_key == plant && ml.Active == "Y"
+                             select ml.Mill_ID.ToString()).ToList();
+                return mills;
+            }
+        }
+
         public class GetCat
         {
             public string Cat { get; set; }
@@ -445,6 +459,150 @@ namespace Mill_Project
             context.SaveChanges();
         }
 
+        private void dgvMillUtil_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int myRow = 2;  // row index
+            int myCol = 11;  // column index
+
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 11 || dgvMillUtil.CurrentCell.ColumnIndex == 12)
+            {
+                
+                //Initialized a new DateTimePicker Control  
+                oDateTimePicker = new DateTimePicker();
+
+                //Adding DateTimePicker control into DataGridView   
+                dgvMillUtil.Controls.Add(oDateTimePicker);
+
+                // Setting the format  
+                oDateTimePicker.Format = DateTimePickerFormat.Custom;
+                oDateTimePicker.CustomFormat = "MM/dd/yyyy HH:mm tt";
+                oDateTimePicker.ShowUpDown = true;
+                
+
+                // It returns the retangular area that represents the Display area for a cell  
+                Rectangle oRectangle = dgvMillUtil.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                //Setting area for DateTimePicker Control  
+                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
+
+                // Setting Location  
+                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
+                //Setting Value so it doesn't default to today
+                oDateTimePicker.Value = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
+                
+
+                // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
+                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+
+                 
+                // An event attached to dateTimePicker Control which is fired when any date is selected  
+                oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+                // Now make it visible  
+                //oDateTimePicker.Visible = true;  
+            }
+        }
+        void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        {
+            // Hiding the control after use   
+            oDateTimePicker.Visible = false;
+            
+        }
+        private void dateTimePicker_OnTextChange(object sender, EventArgs e)
+        {
+            // Saving the 'Selected Date on Calendar' into DataGridView current cell  
+            dgvMillUtil.CurrentCell.Value = oDateTimePicker.Text.ToString();
+           
+            
+        }
+
+        private void dgvMillUtil_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            DateTime datetimestart;
+            DateTime datetimestop;
+            int stoprowindex;
+
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 11)
+            {
+                 stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+
+                datetimestart = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
+                datetimestop = DateTime.Parse(dgvMillUtil[12, stoprowindex].Value.ToString());
+
+                var timecheckstart = from mu in context.mill_Mills_Utilization
+                                where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
+                                select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
+
+                if (timecheckstart == null)
+                {
+                    context.SaveChanges();
+                }
+                else
+                {
+                    dgvMillUtil.Rows[e.RowIndex].ErrorText = "Shift for this Mill already exisits, please change time or mill";
+                }
+                oDateTimePicker.Visible = false;
+            }
+               if (dgvMillUtil.CurrentCell.ColumnIndex == 12)
+            
+                {
+                   stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+                
+                   datetimestop = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
+                   datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
+
+
+                   var timecheckstop = from mu in context.mill_Mills_Utilization
+                                where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
+                                select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
+
+                    if (timecheckstop == null)
+                    {
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                         dgvMillUtil.Rows[e.RowIndex].ErrorText ="Shift for this Mill already exisits, please change time or mill";
+                    }
+                    oDateTimePicker.Visible = false;
+                }
+               
+                
+            }
+           
+        
+
+
+
+
+
+
+
+
+            //if (dgvMillUtil.CurrentCell.ColumnIndex == 12)
+            //{
+            //    int stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+
+            //    DateTime datetimestop = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
+            //    DateTime datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
+
+            //    var timecheck = from mu in context.mill_Mills_Utilization
+            //                    where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
+            //                    select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
+
+            //    if (timecheck == null)
+            //    {
+            //        context.SaveChanges();
+            //    }
+            //    else
+            //    {
+            //        ttDuplicateMillShift.Show("Shift for this Mill already exisits, please change time or mill", btnPost, 0, 25);
+            //    }
+            //    oDateTimePicker.Visible = false;
+            //}
+        }  
+
+
        
 
 
@@ -460,7 +618,7 @@ namespace Mill_Project
        
 
 
-    }
+    
 
     //public static class ObjectContextExtensions
     //{
