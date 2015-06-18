@@ -81,9 +81,6 @@
             this.tt24 = new System.Windows.Forms.ToolTip(this.components);
             this.ttCategory = new System.Windows.Forms.ToolTip(this.components);
             this.ttDuplicateMillShift = new System.Windows.Forms.ToolTip(this.components);
-            this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvcmbRun_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,9 +88,9 @@
             this.createdbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modifiedbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.millsUtilizationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.systemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.System_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mill_ID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.millHoursBookedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mill_Hours_Booked = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Run_Code = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,6 +108,10 @@
             this.shiftStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftStopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sONumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSysMaint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource1)).BeginInit();
@@ -480,9 +481,9 @@
             this.createdbyDataGridViewTextBoxColumn,
             this.modifiedbyDataGridViewTextBoxColumn,
             this.millsUtilizationIDDataGridViewTextBoxColumn,
-            this.systemDataGridViewTextBoxColumn,
+            this.System_Column,
             this.Mill_ID,
-            this.millHoursBookedDataGridViewTextBoxColumn,
+            this.Mill_Hours_Booked,
             this.Run_Code,
             this.startTimeDataGridViewTextBoxColumn,
             this.stopTimeDataGridViewTextBoxColumn,
@@ -563,18 +564,6 @@
             this.mtxtTemp.Size = new System.Drawing.Size(100, 24);
             this.mtxtTemp.TabIndex = 52;
             // 
-            // millMillsUtilizationBindingSource
-            // 
-            this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
-            // 
-            // millStoppageReasonsBindingSource1
-            // 
-            this.millStoppageReasonsBindingSource1.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
-            // 
-            // millStoppageReasonsBindingSource
-            // 
-            this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
-            // 
             // dgvcmbRun_Code
             // 
             this.dgvcmbRun_Code.DataPropertyName = "gl_cmp_key";
@@ -624,12 +613,13 @@
             this.millsUtilizationIDDataGridViewTextBoxColumn.Name = "millsUtilizationIDDataGridViewTextBoxColumn";
             this.millsUtilizationIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // systemDataGridViewTextBoxColumn
+            // System_Column
             // 
-            this.systemDataGridViewTextBoxColumn.DataPropertyName = "System";
-            this.systemDataGridViewTextBoxColumn.HeaderText = "System";
-            this.systemDataGridViewTextBoxColumn.Name = "systemDataGridViewTextBoxColumn";
-            this.systemDataGridViewTextBoxColumn.ReadOnly = true;
+            this.System_Column.DataPropertyName = "System";
+            this.System_Column.HeaderText = "System";
+            this.System_Column.Name = "System_Column";
+            this.System_Column.ReadOnly = true;
+            this.System_Column.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Mill_ID
             // 
@@ -639,12 +629,12 @@
             this.Mill_ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Mill_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // millHoursBookedDataGridViewTextBoxColumn
+            // Mill_Hours_Booked
             // 
-            this.millHoursBookedDataGridViewTextBoxColumn.DataPropertyName = "Mill_Hours_Booked";
-            this.millHoursBookedDataGridViewTextBoxColumn.HeaderText = "Mill_Hours_Booked";
-            this.millHoursBookedDataGridViewTextBoxColumn.Name = "millHoursBookedDataGridViewTextBoxColumn";
-            this.millHoursBookedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Mill_Hours_Booked.DataPropertyName = "Mill_Hours_Booked";
+            this.Mill_Hours_Booked.HeaderText = "Mill_Hours_Booked";
+            this.Mill_Hours_Booked.Name = "Mill_Hours_Booked";
+            this.Mill_Hours_Booked.ReadOnly = true;
             // 
             // Run_Code
             // 
@@ -766,11 +756,37 @@
             this.sONumberDataGridViewTextBoxColumn.Name = "sONumberDataGridViewTextBoxColumn";
             this.sONumberDataGridViewTextBoxColumn.Visible = false;
             // 
+            // millMillsUtilizationBindingSource
+            // 
+            this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
+            // 
+            // millStoppageReasonsBindingSource1
+            // 
+            this.millStoppageReasonsBindingSource1.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
+            // 
+            // millStoppageReasonsBindingSource
+            // 
+            this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
+            // 
+            // btnSysMaint
+            // 
+            this.btnSysMaint.Enabled = false;
+            this.btnSysMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSysMaint.Location = new System.Drawing.Point(900, 334);
+            this.btnSysMaint.Name = "btnSysMaint";
+            this.btnSysMaint.Size = new System.Drawing.Size(105, 56);
+            this.btnSysMaint.TabIndex = 53;
+            this.btnSysMaint.Text = "System Maintenance";
+            this.btnSysMaint.UseVisualStyleBackColor = true;
+            this.btnSysMaint.Visible = false;
+            this.btnSysMaint.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 657);
+            this.Controls.Add(this.btnSysMaint);
             this.Controls.Add(this.mtxtTemp);
             this.Controls.Add(this.dtStop);
             this.Controls.Add(this.dtStart);
@@ -891,9 +907,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createdbyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifiedbyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn millsUtilizationIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn systemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn System_Column;
         private System.Windows.Forms.DataGridViewComboBoxColumn Mill_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn millHoursBookedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mill_Hours_Booked;
         private System.Windows.Forms.DataGridViewComboBoxColumn Run_Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stopTimeDataGridViewTextBoxColumn;
@@ -911,6 +927,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn shiftStartTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shiftStopTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sONumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnSysMaint;
     }
 }
 

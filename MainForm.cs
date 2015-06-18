@@ -29,6 +29,7 @@ namespace Mill_Project
         BindingSource runcmb = new BindingSource(); //run code gridview combo box
         BindingSource shiftcmb = new BindingSource(); //shift category gridview combo box
         BindingSource millcmb = new BindingSource(); //mill category gridview combo box
+        BindingSource systemcmb = new BindingSource(); //system category gridview combo box
 
         Model1 context = new Model1();
         public MainForm()
@@ -40,6 +41,8 @@ namespace Mill_Project
             {
                 btnMillMaint.Enabled = true;
                 btnMillMaint.Visible = true;
+                btnSysMaint.Enabled = true;
+                btnSysMaint.Visible = true;
             }
         }
 
@@ -317,9 +320,8 @@ namespace Mill_Project
                             where cmbMill.Text == mu.Mill_ID && dtStart.Value < mu.Shift_Stop_Time && dtStop.Value > mu.Shift_Start_Time
                             select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
 
-            if (timecheck == null)
+            if (timecheck.Count() == 0)
             {
-
                 if (dtStart.Value <= dtStop.Value)
                 {
                     if (hrbooked.TotalHours <= 24)
@@ -345,7 +347,7 @@ namespace Mill_Project
                                     rec.Run_Code = cmbRunCode.Text;
                                     rec.Shift_Start_Date = dtStart.Value;
                                     rec.Shift_Start_Time = dtvstart;
-                                    rec.Shift_Stop_Time = dtStop.Value;
+                                    rec.Shift_Stop_Time = dtvstop;
                                     rec.Mill_temp = Decimal.Parse(mtxtTemp.Text);
                                     rec.D10 = Decimal.Parse(mtxtD10.Text);
                                     rec.D50 = Decimal.Parse(mtxtD50.Text);
@@ -436,6 +438,18 @@ namespace Mill_Project
             }
         }
 
+        public static string Get_Systems_Single(string company, string plant, string mill)//get list of systems in the company and plant the user has access to
+        {
+            using (var context = new Model1())
+            {
+                var systems = (from sys in context.mill_Systems
+                               join sysc in context.mill_Sys_Mills_Combo on sys.System_Name equals sysc.System
+                               where sys.gl_cmp_key == company && sys.sf_plant_key == plant && sys.Active == "Y" && sysc.Mill_ID == mill
+                               select sysc.System.ToString()).SingleOrDefault();
+                return systems;
+            }
+        }
+
         public class GetCat
         {
             public string Cat { get; set; }
@@ -456,14 +470,28 @@ namespace Mill_Project
 
         private void dgvMillUtil_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            #region Chanegs System value in data grid to match Mill
+            int stoprowindex;
+            stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+            string company = cmbCompany.Text;
+            string plant = cmbPlant.Text;
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 8)
+            {
+                stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+
+
+                var syscmb = Get_Systems_Single(company, plant, dgvMillUtil[8, stoprowindex].Value.ToString());
+                dgvMillUtil[7, stoprowindex].Value = syscmb;
+                context.SaveChanges();
+
+            }
+            #endregion
             context.SaveChanges();
         }
 
         private void dgvMillUtil_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int myRow = 2;  // row index
-            int myCol = 11;  // column index
-
+           
             if (dgvMillUtil.CurrentCell.ColumnIndex == 11 || dgvMillUtil.CurrentCell.ColumnIndex == 12)
             {
                 
@@ -521,87 +549,84 @@ namespace Mill_Project
             DateTime datetimestart;
             DateTime datetimestop;
             int stoprowindex;
+            TimeSpan newhrsbooked;
+            string millId;
+           
 
-            if (dgvMillUtil.CurrentCell.ColumnIndex == 11)
+
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 11 || dgvMillUtil.CurrentCell.ColumnIndex == 12)
             {
-                 stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+                stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
 
-                datetimestart = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
+                datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
                 datetimestop = DateTime.Parse(dgvMillUtil[12, stoprowindex].Value.ToString());
+                millId = dgvMillUtil[8, stoprowindex].Value.ToString();
 
                 var timecheckstart = from mu in context.mill_Mills_Utilization
-                                where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
+                                where millId == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
                                 select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
 
-                if (timecheckstart == null)
+                if (timecheckstart.Count() <= 1 )//One record should only exist
                 {
-                    context.SaveChanges();
-                }
-                else
-                {
-                    dgvMillUtil.Rows[e.RowIndex].ErrorText = "Shift for this Mill already exisits, please change time or mill";
-                }
-                oDateTimePicker.Visible = false;
-            }
-               if (dgvMillUtil.CurrentCell.ColumnIndex == 12)
-            
-                {
-                   stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
-                
-                   datetimestop = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
-                   datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
+                    newhrsbooked = datetimestop - datetimestart;
+                    dgvMillUtil[9, stoprowindex].Value = newhrsbooked;
 
-
-                   var timecheckstop = from mu in context.mill_Mills_Utilization
-                                where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
-                                select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
-
-                    if (timecheckstop == null)
+                    if (newhrsbooked.TotalHours <= 24)
                     {
-                        context.SaveChanges();
+                        if (datetimestart <= datetimestop)
+                        {
+                            dgvMillUtil.Rows[e.RowIndex].ErrorText = "";
+                            context.SaveChanges();
+                        }
+                        else
+                        {
+                            dgvMillUtil.Rows[e.RowIndex].ErrorText = "Start time cannot be greater then Stop Time";
+                        }
                     }
                     else
                     {
-                         dgvMillUtil.Rows[e.RowIndex].ErrorText ="Shift for this Mill already exisits, please change time or mill";
+                        dgvMillUtil.Rows[e.RowIndex].ErrorText = "Shift for this Mill already exisits, please change time or mill";
                     }
-                    oDateTimePicker.Visible = false;
                 }
-               
-                
+                else
+                {
+                    dgvMillUtil.Rows[e.RowIndex].ErrorText = "Time Span cannot be greater then 24 hours. Please check start and top time";
+                }
+                oDateTimePicker.Visible = false;
             }
-           
-        
 
 
+            
+
+               //if (dgvMillUtil.CurrentCell.ColumnIndex == 12)
+            
+               // {
+               //    stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+                
+               //    datetimestop = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
+               //    datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
 
 
+               //    var timecheckstop = from mu in context.mill_Mills_Utilization
+               //                 where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
+               //                 select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
+
+               //     if (timecheckstop == null)
+               //     {
+               //         context.SaveChanges();
+               //     }
+               //     else
+               //     {
+               //          dgvMillUtil.Rows[e.RowIndex].ErrorText ="Shift for this Mill already exisits, please change time or mill";
+               //     }
+               //     oDateTimePicker.Visible = false;
+               // }
 
 
+        }
+        }
 
-
-            //if (dgvMillUtil.CurrentCell.ColumnIndex == 12)
-            //{
-            //    int stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
-
-            //    DateTime datetimestop = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
-            //    DateTime datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
-
-            //    var timecheck = from mu in context.mill_Mills_Utilization
-            //                    where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
-            //                    select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
-
-            //    if (timecheck == null)
-            //    {
-            //        context.SaveChanges();
-            //    }
-            //    else
-            //    {
-            //        ttDuplicateMillShift.Show("Shift for this Mill already exisits, please change time or mill", btnPost, 0, 25);
-            //    }
-            //    oDateTimePicker.Visible = false;
-            //}
-        }  
-
+}
 
        
 
@@ -765,4 +790,3 @@ namespace Mill_Project
 
    
 
-}
