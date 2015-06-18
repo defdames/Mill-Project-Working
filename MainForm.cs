@@ -595,34 +595,12 @@ namespace Mill_Project
                 oDateTimePicker.Visible = false;
             }
 
+        }
 
-            
-
-               //if (dgvMillUtil.CurrentCell.ColumnIndex == 12)
-            
-               // {
-               //    stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
-                
-               //    datetimestop = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
-               //    datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
-
-
-               //    var timecheckstop = from mu in context.mill_Mills_Utilization
-               //                 where cmbMill.Text == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
-               //                 select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
-
-               //     if (timecheckstop == null)
-               //     {
-               //         context.SaveChanges();
-               //     }
-               //     else
-               //     {
-               //          dgvMillUtil.Rows[e.RowIndex].ErrorText ="Shift for this Mill already exisits, please change time or mill";
-               //     }
-               //     oDateTimePicker.Visible = false;
-               // }
-
-
+        private void btnSysMaint_Click(object sender, EventArgs e)
+        {
+            SystemMaintenance frm = new SystemMaintenance();
+            frm.Show();
         }
         }
 
