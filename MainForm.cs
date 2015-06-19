@@ -277,7 +277,7 @@ namespace Mill_Project
             Shift_Category.DataSource = shiftcmb;
             #endregion
 
-            #region Fills Mill Catergory Data Grid View Combo Box
+            #region Fills Mill Data Grid View Combo Box
             var mlcmb = Get_Mills(company, plant);
             millcmb.DataSource = mlcmb.ToList();
             Mill_ID.DataSource = millcmb;

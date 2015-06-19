@@ -39,8 +39,8 @@
             this.btnGetSystems = new System.Windows.Forms.Button();
             this.millSysMillsComboBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sysMillsComboIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.systemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.millIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MillSystem = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Mill_ID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.activeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glcmpkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,8 +59,8 @@
             this.dgvSystems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSystems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sysMillsComboIDDataGridViewTextBoxColumn,
-            this.systemDataGridViewTextBoxColumn,
-            this.millIDDataGridViewTextBoxColumn,
+            this.MillSystem,
+            this.Mill_ID,
             this.activeDataGridViewTextBoxColumn,
             this.glcmpkeyDataGridViewTextBoxColumn,
             this.sfplantkeyDataGridViewTextBoxColumn,
@@ -81,6 +81,7 @@
             this.cmbPlant.Name = "cmbPlant";
             this.cmbPlant.Size = new System.Drawing.Size(202, 21);
             this.cmbPlant.TabIndex = 52;
+            this.cmbPlant.SelectedIndexChanged += new System.EventHandler(this.cmbPlant_SelectedIndexChanged_1);
             // 
             // cmbCompany
             // 
@@ -147,18 +148,23 @@
             this.sysMillsComboIDDataGridViewTextBoxColumn.DataPropertyName = "Sys_Mills_Combo_ID";
             this.sysMillsComboIDDataGridViewTextBoxColumn.HeaderText = "Sys_Mills_Combo_ID";
             this.sysMillsComboIDDataGridViewTextBoxColumn.Name = "sysMillsComboIDDataGridViewTextBoxColumn";
+            this.sysMillsComboIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // systemDataGridViewTextBoxColumn
+            // MillSystem
             // 
-            this.systemDataGridViewTextBoxColumn.DataPropertyName = "System";
-            this.systemDataGridViewTextBoxColumn.HeaderText = "System";
-            this.systemDataGridViewTextBoxColumn.Name = "systemDataGridViewTextBoxColumn";
+            this.MillSystem.DataPropertyName = "System";
+            this.MillSystem.HeaderText = "System";
+            this.MillSystem.Name = "MillSystem";
+            this.MillSystem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MillSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // millIDDataGridViewTextBoxColumn
+            // Mill_ID
             // 
-            this.millIDDataGridViewTextBoxColumn.DataPropertyName = "Mill_ID";
-            this.millIDDataGridViewTextBoxColumn.HeaderText = "Mill_ID";
-            this.millIDDataGridViewTextBoxColumn.Name = "millIDDataGridViewTextBoxColumn";
+            this.Mill_ID.DataPropertyName = "Mill_ID";
+            this.Mill_ID.HeaderText = "Mill_ID";
+            this.Mill_ID.Name = "Mill_ID";
+            this.Mill_ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Mill_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // activeDataGridViewTextBoxColumn
             // 
@@ -240,9 +246,10 @@
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Button btnGetSystems;
+        private System.Windows.Forms.BindingSource millSysMillsComboBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn sysMillsComboIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn systemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn millIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MillSystem;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Mill_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn activeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn glcmpkeyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sfplantkeyDataGridViewTextBoxColumn;
@@ -250,6 +257,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modifieddateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdbyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifiedbyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource millSysMillsComboBindingSource;
     }
 }
