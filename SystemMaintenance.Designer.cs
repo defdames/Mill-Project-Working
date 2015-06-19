@@ -30,14 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvSystems = new System.Windows.Forms.DataGridView();
-            this.cmbPlant = new System.Windows.Forms.ComboBox();
-            this.cmbCompany = new System.Windows.Forms.ComboBox();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.lblPlant = new System.Windows.Forms.Label();
-            this.lblCompany = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.btnGetSystems = new System.Windows.Forms.Button();
-            this.millSysMillsComboBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sysMillsComboIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MillSystem = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Mill_ID = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -48,6 +40,14 @@
             this.modifieddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modifiedbyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millSysMillsComboBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbPlant = new System.Windows.Forms.ComboBox();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblPlant = new System.Windows.Forms.Label();
+            this.lblCompany = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.btnGetSystems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSystems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millSysMillsComboBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -73,75 +73,7 @@
             this.dgvSystems.Name = "dgvSystems";
             this.dgvSystems.Size = new System.Drawing.Size(610, 399);
             this.dgvSystems.TabIndex = 0;
-            // 
-            // cmbPlant
-            // 
-            this.cmbPlant.FormattingEnabled = true;
-            this.cmbPlant.Location = new System.Drawing.Point(751, 67);
-            this.cmbPlant.Name = "cmbPlant";
-            this.cmbPlant.Size = new System.Drawing.Size(202, 21);
-            this.cmbPlant.TabIndex = 52;
-            this.cmbPlant.SelectedIndexChanged += new System.EventHandler(this.cmbPlant_SelectedIndexChanged_1);
-            // 
-            // cmbCompany
-            // 
-            this.cmbCompany.FormattingEnabled = true;
-            this.cmbCompany.Location = new System.Drawing.Point(751, 39);
-            this.cmbCompany.Name = "cmbCompany";
-            this.cmbCompany.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cmbCompany.Size = new System.Drawing.Size(202, 21);
-            this.cmbCompany.TabIndex = 51;
-            this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(751, 9);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(202, 23);
-            this.lblUserName.TabIndex = 55;
-            this.lblUserName.Text = "label1";
-            // 
-            // lblPlant
-            // 
-            this.lblPlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlant.Location = new System.Drawing.Point(645, 64);
-            this.lblPlant.Name = "lblPlant";
-            this.lblPlant.Size = new System.Drawing.Size(100, 23);
-            this.lblPlant.TabIndex = 58;
-            this.lblPlant.Text = "Plant";
-            // 
-            // lblCompany
-            // 
-            this.lblCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompany.Location = new System.Drawing.Point(645, 36);
-            this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(100, 23);
-            this.lblCompany.TabIndex = 57;
-            this.lblCompany.Text = "Company";
-            // 
-            // lblUser
-            // 
-            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(645, 9);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(100, 23);
-            this.lblUser.TabIndex = 56;
-            this.lblUser.Text = "User";
-            // 
-            // btnGetSystems
-            // 
-            this.btnGetSystems.Location = new System.Drawing.Point(810, 94);
-            this.btnGetSystems.Name = "btnGetSystems";
-            this.btnGetSystems.Size = new System.Drawing.Size(143, 37);
-            this.btnGetSystems.TabIndex = 59;
-            this.btnGetSystems.Text = "Get Systems";
-            this.btnGetSystems.UseVisualStyleBackColor = true;
-            this.btnGetSystems.Click += new System.EventHandler(this.btnGetSystems_Click);
-            // 
-            // millSysMillsComboBindingSource
-            // 
-            this.millSysMillsComboBindingSource.DataSource = typeof(Mill_Project.mill_Sys_Mills_Combo);
+            this.dgvSystems.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvSystems_CellValidating_1);
             // 
             // sysMillsComboIDDataGridViewTextBoxColumn
             // 
@@ -213,6 +145,75 @@
             this.modifiedbyDataGridViewTextBoxColumn.HeaderText = "Modified_by";
             this.modifiedbyDataGridViewTextBoxColumn.Name = "modifiedbyDataGridViewTextBoxColumn";
             this.modifiedbyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // millSysMillsComboBindingSource
+            // 
+            this.millSysMillsComboBindingSource.DataSource = typeof(Mill_Project.mill_Sys_Mills_Combo);
+            // 
+            // cmbPlant
+            // 
+            this.cmbPlant.FormattingEnabled = true;
+            this.cmbPlant.Location = new System.Drawing.Point(751, 67);
+            this.cmbPlant.Name = "cmbPlant";
+            this.cmbPlant.Size = new System.Drawing.Size(202, 21);
+            this.cmbPlant.TabIndex = 52;
+            this.cmbPlant.SelectedIndexChanged += new System.EventHandler(this.cmbPlant_SelectedIndexChanged_1);
+            // 
+            // cmbCompany
+            // 
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(751, 39);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cmbCompany.Size = new System.Drawing.Size(202, 21);
+            this.cmbCompany.TabIndex = 51;
+            this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.cmbCompany_SelectedIndexChanged);
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Location = new System.Drawing.Point(751, 9);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(202, 23);
+            this.lblUserName.TabIndex = 55;
+            this.lblUserName.Text = "label1";
+            // 
+            // lblPlant
+            // 
+            this.lblPlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlant.Location = new System.Drawing.Point(645, 64);
+            this.lblPlant.Name = "lblPlant";
+            this.lblPlant.Size = new System.Drawing.Size(100, 23);
+            this.lblPlant.TabIndex = 58;
+            this.lblPlant.Text = "Plant";
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompany.Location = new System.Drawing.Point(645, 36);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(100, 23);
+            this.lblCompany.TabIndex = 57;
+            this.lblCompany.Text = "Company";
+            // 
+            // lblUser
+            // 
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(645, 9);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(100, 23);
+            this.lblUser.TabIndex = 56;
+            this.lblUser.Text = "User";
+            // 
+            // btnGetSystems
+            // 
+            this.btnGetSystems.Location = new System.Drawing.Point(810, 94);
+            this.btnGetSystems.Name = "btnGetSystems";
+            this.btnGetSystems.Size = new System.Drawing.Size(143, 37);
+            this.btnGetSystems.TabIndex = 59;
+            this.btnGetSystems.Text = "Get Systems";
+            this.btnGetSystems.UseVisualStyleBackColor = true;
+            this.btnGetSystems.Click += new System.EventHandler(this.btnGetSystems_Click);
             // 
             // SystemMaintenance
             // 

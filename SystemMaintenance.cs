@@ -143,5 +143,25 @@ namespace Mill_Project
             Mill_ID.DataSource = millcmb;
             #endregion
         }
+
+        private void dgvSystems_CellValidating_1(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            var list = new String[] { "Y", "N" };
+            if (dgvSystems.CurrentCell.ColumnIndex == 3)
+            {
+                if (!list.Contains(e.FormattedValue.ToString()))
+                {
+                    dgvSystems.Rows[e.RowIndex].ErrorText =
+                        "Active must Y or N";
+                    e.Cancel = true;
+                }
+                else
+                {
+                    dgvSystems.Rows[e.RowIndex].ErrorText = "";
+
+                }
+
+            }
+        }
     }
 }
