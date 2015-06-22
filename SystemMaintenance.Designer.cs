@@ -47,7 +47,7 @@
             this.lblPlant = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.btnGetSystems = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSystems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millSysMillsComboBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -205,22 +205,22 @@
             this.lblUser.TabIndex = 56;
             this.lblUser.Text = "User";
             // 
-            // btnGetSystems
+            // btnSubmit
             // 
-            this.btnGetSystems.Location = new System.Drawing.Point(810, 94);
-            this.btnGetSystems.Name = "btnGetSystems";
-            this.btnGetSystems.Size = new System.Drawing.Size(143, 37);
-            this.btnGetSystems.TabIndex = 59;
-            this.btnGetSystems.Text = "Get Systems";
-            this.btnGetSystems.UseVisualStyleBackColor = true;
-            this.btnGetSystems.Click += new System.EventHandler(this.btnGetSystems_Click);
+            this.btnSubmit.Location = new System.Drawing.Point(810, 94);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(143, 37);
+            this.btnSubmit.TabIndex = 59;
+            this.btnSubmit.Text = "Save Changes";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // SystemMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 423);
-            this.Controls.Add(this.btnGetSystems);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblPlant);
             this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.lblUser);
@@ -246,7 +246,7 @@
         private System.Windows.Forms.Label lblPlant;
         private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.Button btnGetSystems;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.BindingSource millSysMillsComboBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn sysMillsComboIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn MillSystem;
