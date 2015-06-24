@@ -81,6 +81,7 @@
             this.tt24 = new System.Windows.Forms.ToolTip(this.components);
             this.ttCategory = new System.Windows.Forms.ToolTip(this.components);
             this.ttDuplicateMillShift = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSysMaint = new System.Windows.Forms.Button();
             this.dgvcmbRun_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,7 +112,6 @@
             this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSysMaint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource1)).BeginInit();
@@ -297,7 +297,6 @@
             // cmbSystem
             // 
             this.cmbSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSystem.Enabled = false;
             this.cmbSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSystem.FormattingEnabled = true;
             this.cmbSystem.Location = new System.Drawing.Point(128, 181);
@@ -564,6 +563,19 @@
             this.mtxtTemp.Size = new System.Drawing.Size(100, 24);
             this.mtxtTemp.TabIndex = 52;
             // 
+            // btnSysMaint
+            // 
+            this.btnSysMaint.Enabled = false;
+            this.btnSysMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSysMaint.Location = new System.Drawing.Point(900, 334);
+            this.btnSysMaint.Name = "btnSysMaint";
+            this.btnSysMaint.Size = new System.Drawing.Size(105, 56);
+            this.btnSysMaint.TabIndex = 53;
+            this.btnSysMaint.Text = "System Maintenance";
+            this.btnSysMaint.UseVisualStyleBackColor = true;
+            this.btnSysMaint.Visible = false;
+            this.btnSysMaint.Click += new System.EventHandler(this.btnSysMaint_Click);
+            // 
             // dgvcmbRun_Code
             // 
             this.dgvcmbRun_Code.DataPropertyName = "gl_cmp_key";
@@ -767,19 +779,6 @@
             // millStoppageReasonsBindingSource
             // 
             this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
-            // 
-            // btnSysMaint
-            // 
-            this.btnSysMaint.Enabled = false;
-            this.btnSysMaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSysMaint.Location = new System.Drawing.Point(900, 334);
-            this.btnSysMaint.Name = "btnSysMaint";
-            this.btnSysMaint.Size = new System.Drawing.Size(105, 56);
-            this.btnSysMaint.TabIndex = 53;
-            this.btnSysMaint.Text = "System Maintenance";
-            this.btnSysMaint.UseVisualStyleBackColor = true;
-            this.btnSysMaint.Visible = false;
-            this.btnSysMaint.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // MainForm
             // 
