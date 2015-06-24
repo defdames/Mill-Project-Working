@@ -33,6 +33,7 @@ namespace Mill_Project
         private void SystemMaintenance_Load(object sender, EventArgs e)
         {
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
+            btnSubmit.Enabled = false;
         }
 
         //private void btnGetSystems_Click(object sender, EventArgs e)
@@ -57,29 +58,6 @@ namespace Mill_Project
         {
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text);
         }
-
-
-
-        private void dgvSystems_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            var list = new String[] { "Y", "N" };
-            if (dgvSystems.CurrentCell.ColumnIndex == 3)
-            {
-                if (!list.Contains(e.FormattedValue.ToString()))
-                {
-                    dgvSystems.Rows[e.RowIndex].ErrorText =
-                        "Active must Y or N";
-                    e.Cancel = true;
-                }
-                else
-                {
-                    dgvSystems.Rows[e.RowIndex].ErrorText = "";
-
-                }
-
-            }
-        }
-
 
 
         public static List<string> Get_Systems_Maint(string company, string plant)//get list of systems in the company and plant the user has access to
@@ -120,6 +98,11 @@ namespace Mill_Project
 
             bs.DataSource = query.ToList();
             dgvSystems.DataSource = bs;
+
+            cmbMill.DataSource = Get_Mills(company, plant);
+           
+            cmbMill.SelectedItem = null;
+            cmbSystem.Enabled = false;
 
 
             //var systems = from sys in context.mill_Sys_Mills_Combo
@@ -163,6 +146,62 @@ namespace Mill_Project
         private void btnSubmit_Click(object sender, EventArgs e)
         {
            
+
+            using (Model1 record = new Model1())
+            {
+                mill_Sys_Mills_Combo rec = new mill_Sys_Mills_Combo();
+                {
+                    rec.Active = "Y";
+                    rec.gl_cmp_key = cmbCompany.Text;
+                    rec.sf_plant_key = cmbPlant.Text;
+                    rec.Mill_ID = cmbMill.Text;
+                    rec.System = cmbSystem.Text;
+                    rec.Created_by = Program.GetUser();
+                    rec.Created_date = DateTime.Now;
+
+                    record.mill_Sys_Mills_Combo.Add(rec);
+                    record.SaveChanges();
+                    context.SaveChanges();
+
+                    context.mill_Sys_Mills_Combo.ToList();
+
+
+                    string company = cmbCompany.Text;
+                    string plant = cmbPlant.Text;
+
+                    var query = from sys in context.mill_Sys_Mills_Combo
+                                where sys.gl_cmp_key == company && sys.sf_plant_key == plant
+                                select sys;
+
+                    bs.DataSource = query.ToList();
+                    dgvSystems.DataSource = bs;
+                    
+                }
+
+            }
+        }
+
+        private void dgvSystems_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            context.SaveChanges();
+        }
+
+        private void cmbMill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string company = cmbCompany.Text;
+            string plant = cmbPlant.Text;
+            cmbSystem.DataSource = Get_Systems_Maint(company, plant);
+            
+            if (cmbMill.SelectedItem == null)
+            {
+                cmbSystem.Enabled = false;
+                btnSubmit.Enabled = false;
+            }
+            else
+            {
+                cmbSystem.Enabled = true;
+                btnSubmit.Enabled = true;
+            }
         }
     }
 }
