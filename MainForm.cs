@@ -23,10 +23,13 @@ namespace Mill_Project
 {
     public partial class MainForm : Form
     {
+        DateTimePicker oDateTimePicker;
 
         BindingSource bs = new BindingSource();
         BindingSource runcmb = new BindingSource(); //run code gridview combo box
         BindingSource shiftcmb = new BindingSource(); //shift category gridview combo box
+        BindingSource millcmb = new BindingSource(); //mill category gridview combo box
+        BindingSource systemcmb = new BindingSource(); //system category gridview combo box
 
         Model1 context = new Model1();
         public MainForm()
@@ -38,6 +41,8 @@ namespace Mill_Project
             {
                 btnMillMaint.Enabled = true;
                 btnMillMaint.Visible = true;
+                btnSysMaint.Enabled = true;
+                btnSysMaint.Visible = true;
             }
         }
 
@@ -169,7 +174,7 @@ namespace Mill_Project
         }
         #endregion
 
-        private void txtSONumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSONumber_KeyPress(object sender, KeyPressEventArgs e)//Only allow one . in text box and is a digit
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.'))
@@ -198,7 +203,7 @@ namespace Mill_Project
             }
         }
 
-        private void Column1_KeyPress(object sender, KeyPressEventArgs e)//Handles validation datagridview columns Temp and D columns
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)//Handles validation datagridview columns Temp and D columns 
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)&&
             (e.KeyChar != '.'))
@@ -272,13 +277,13 @@ namespace Mill_Project
             Shift_Category.DataSource = shiftcmb;
             #endregion
 
-            //DataGridViewComboBoxColumn dgvcmbrc = new DataGridViewComboBoxColumn();
-            //dgvcmbrc.Name = "dgvcmbRun_Code";
-            //dgvcmbrc.DataSource = bs;
-            //dgvcmbrc.HeaderText = "Run_Code";
-            //dgvcmbrc.ValueMember = "Run_Code";
-            //dgvcmbrc.DisplayMember = "Run_Code";
-            //dgvMillUtil.Columns.Add(dgvcmbrc);
+            #region Fills Mill Data Grid View Combo Box
+            var mlcmb = Get_Mills(company, plant);
+            millcmb.DataSource = mlcmb.ToList();
+            Mill_ID.DataSource = millcmb;
+            #endregion
+
+
 
         }
 
@@ -315,9 +320,8 @@ namespace Mill_Project
                             where cmbMill.Text == mu.Mill_ID && dtStart.Value < mu.Shift_Stop_Time && dtStop.Value > mu.Shift_Start_Time
                             select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
 
-            if (timecheck == null)
+            if (timecheck.Count() == 0)
             {
-
                 if (dtStart.Value <= dtStop.Value)
                 {
                     if (hrbooked.TotalHours <= 24)
@@ -342,14 +346,15 @@ namespace Mill_Project
                                     rec.Shift_Category = cmbCategory.Text;
                                     rec.Run_Code = cmbRunCode.Text;
                                     rec.Shift_Start_Date = dtStart.Value;
-                                    rec.Shift_Stop_Time = dtStop.Value;
+                                    rec.Shift_Start_Time = dtvstart;
+                                    rec.Shift_Stop_Time = dtvstop;
                                     rec.Mill_temp = Decimal.Parse(mtxtTemp.Text);
                                     rec.D10 = Decimal.Parse(mtxtD10.Text);
                                     rec.D50 = Decimal.Parse(mtxtD50.Text);
                                     rec.D90 = Decimal.Parse(mtxtD90.Text);
                                     rec.D98 = Decimal.Parse(mtxtD98.Text);
                                     rec.Item_Number = txtItemNo.Text;
-                                    rec.Shift_Start_Time = dtvstart;
+                                    
                                     rec.Mill_Hours_Booked = hrbooked;
                                     rec.SO_Number = Int32.Parse(txtSONumber.Text);
                                     rec.sa_user_key = Program.GetUser();
@@ -422,6 +427,29 @@ namespace Mill_Project
             }
         }
 
+        public static List<string> Get_Mills(string company, string plant)//get list of mills in the compnay and plant user has access to
+        {
+            using (var context = new Model1())
+            {
+                var mills = (from ml in context.mill_Mills
+                             where ml.gl_cmp_key == company && ml.sf_plant_key == plant && ml.Active == "Y"
+                             select ml.Mill_ID.ToString()).ToList();
+                return mills;
+            }
+        }
+
+        public static string Get_Systems_Single(string company, string plant, string mill)//get list of systems in the company and plant the user has access to
+        {
+            using (var context = new Model1())
+            {
+                var systems = (from sys in context.mill_Systems
+                               join sysc in context.mill_Sys_Mills_Combo on sys.System_Name equals sysc.System
+                               where sys.gl_cmp_key == company && sys.sf_plant_key == plant && sys.Active == "Y" && sysc.Mill_ID == mill
+                               select sysc.System.ToString()).SingleOrDefault();
+                return systems;
+            }
+        }
+
         public class GetCat
         {
             public string Cat { get; set; }
@@ -442,8 +470,141 @@ namespace Mill_Project
 
         private void dgvMillUtil_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            #region Chanegs System value in data grid to match Mill
+            int stoprowindex;
+            stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+            string company = cmbCompany.Text;
+            string plant = cmbPlant.Text;
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 8)
+            {
+                stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+
+
+                var syscmb = Get_Systems_Single(company, plant, dgvMillUtil[8, stoprowindex].Value.ToString());
+                dgvMillUtil[7, stoprowindex].Value = syscmb;
+                context.SaveChanges();
+
+            }
+            #endregion
             context.SaveChanges();
         }
+
+        private void dgvMillUtil_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 11 || dgvMillUtil.CurrentCell.ColumnIndex == 12)
+            {
+                
+                //Initialized a new DateTimePicker Control  
+                oDateTimePicker = new DateTimePicker();
+
+                //Adding DateTimePicker control into DataGridView   
+                dgvMillUtil.Controls.Add(oDateTimePicker);
+
+                // Setting the format  
+                oDateTimePicker.Format = DateTimePickerFormat.Custom;
+                oDateTimePicker.CustomFormat = "MM/dd/yyyy HH:mm tt";
+                oDateTimePicker.ShowUpDown = true;
+                
+
+                // It returns the retangular area that represents the Display area for a cell  
+                Rectangle oRectangle = dgvMillUtil.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                //Setting area for DateTimePicker Control  
+                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
+
+                // Setting Location  
+                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
+                //Setting Value so it doesn't default to today
+                oDateTimePicker.Value = DateTime.Parse(dgvMillUtil.CurrentCell.Value.ToString());
+                
+
+                // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
+                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+
+                 
+                // An event attached to dateTimePicker Control which is fired when any date is selected  
+                oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+                // Now make it visible  
+                //oDateTimePicker.Visible = true;  
+            }
+        }
+        void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        {
+            // Hiding the control after use   
+            oDateTimePicker.Visible = false;
+            
+        }
+        private void dateTimePicker_OnTextChange(object sender, EventArgs e)
+        {
+            // Saving the 'Selected Date on Calendar' into DataGridView current cell  
+            dgvMillUtil.CurrentCell.Value = oDateTimePicker.Text.ToString();
+           
+            
+        }
+
+        private void dgvMillUtil_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            DateTime datetimestart;
+            DateTime datetimestop;
+            int stoprowindex;
+            TimeSpan newhrsbooked;
+            string millId;
+           
+
+
+            if (dgvMillUtil.CurrentCell.ColumnIndex == 11 || dgvMillUtil.CurrentCell.ColumnIndex == 12)
+            {
+                stoprowindex = dgvMillUtil.CurrentCell.RowIndex;
+
+                datetimestart = DateTime.Parse(dgvMillUtil[11, stoprowindex].Value.ToString());
+                datetimestop = DateTime.Parse(dgvMillUtil[12, stoprowindex].Value.ToString());
+                millId = dgvMillUtil[8, stoprowindex].Value.ToString();
+
+                var timecheckstart = from mu in context.mill_Mills_Utilization
+                                where millId == mu.Mill_ID && datetimestart < mu.Shift_Stop_Time && datetimestop > mu.Shift_Start_Time
+                                select new { mu.Mills_Utilization_ID, mu.Mill_ID, mu.Shift_Start_Time, mu.Shift_Stop_Time };
+
+                if (timecheckstart.Count() <= 1 )//One record should only exist
+                {
+                    newhrsbooked = datetimestop - datetimestart;
+                    dgvMillUtil[9, stoprowindex].Value = newhrsbooked;
+
+                    if (newhrsbooked.TotalHours <= 24)
+                    {
+                        if (datetimestart <= datetimestop)
+                        {
+                            dgvMillUtil.Rows[e.RowIndex].ErrorText = "";
+                            context.SaveChanges();
+                        }
+                        else
+                        {
+                            dgvMillUtil.Rows[e.RowIndex].ErrorText = "Start time cannot be greater then Stop Time";
+                        }
+                    }
+                    else
+                    {
+                        dgvMillUtil.Rows[e.RowIndex].ErrorText = "Shift for this Mill already exisits, please change time or mill";
+                    }
+                }
+                else
+                {
+                    dgvMillUtil.Rows[e.RowIndex].ErrorText = "Time Span cannot be greater then 24 hours. Please check start and top time";
+                }
+                oDateTimePicker.Visible = false;
+            }
+
+        }
+
+        private void btnSysMaint_Click(object sender, EventArgs e)
+        {
+            SystemMaintenance frm = new SystemMaintenance();
+            frm.Show();
+        }
+        }
+
+}
 
        
 
@@ -460,7 +621,7 @@ namespace Mill_Project
        
 
 
-    }
+    
 
     //public static class ObjectContextExtensions
     //{
@@ -607,4 +768,3 @@ namespace Mill_Project
 
    
 
-}

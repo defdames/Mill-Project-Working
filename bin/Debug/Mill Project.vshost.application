@@ -15,9 +15,9 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
 <<<<<<< HEAD
-        <dsig:DigestValue>jwEMTEoatZdSES53pNZyuvdNWuj09AN7uzvJssaiq1g=</dsig:DigestValue>
+        <dsig:DigestValue>xU2WPSh2JH0y4es0TEOwx0kpp69koPRfhhrb3HNDbJo=</dsig:DigestValue>
 =======
-        <dsig:DigestValue>VruMIrQfgW6BZOpxSDxFoo32fqxoeOJ7FWj8rilqDnI=</dsig:DigestValue>
+        <dsig:DigestValue>xZXl0yDnszikeQRQFIzKC7a3oDji2/7BmTpWOafXVjs=</dsig:DigestValue>
 >>>>>>> develop
       </hash>
     </dependentAssembly>

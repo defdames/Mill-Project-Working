@@ -125,6 +125,12 @@
     <Compile Include="Data\sa_uentp_tbl.cs" />
     <Compile Include="Data\sa_user_tbl.cs" />
     <Compile Include="Data\sf_plant_tbl.cs" />
+    <Compile Include="SystemMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemMaintenance.Designer.cs">
+      <DependentUpon>SystemMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -141,6 +147,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SystemMaintenance.resx">
+      <DependentUpon>SystemMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
     <None Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
@@ -149,6 +158,7 @@
     <None Include="Properties\DataSources\mill_Mills.datasource" />
     <None Include="Properties\DataSources\mill_Mills_Utilization.datasource" />
     <None Include="Properties\DataSources\mill_Stoppage_Reasons.datasource" />
+    <None Include="Properties\DataSources\mill_Sys_Mills_Combo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,7 +170,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
