@@ -17,3 +17,4 @@ C:\Repository\Mill Project\Mill Project\obj\Release\Mill Project.application
 C:\Repository\Mill Project\Mill Project\obj\Release\Mill Project.exe
 C:\Repository\Mill Project\Mill Project\obj\Release\Mill Project.pdb
 C:\Repository\Mill Project\Mill Project\obj\Release\Mill Project.csprojResolveAssemblyReference.cache
+C:\Repository\Mill Project\Mill Project\obj\Release\Mill_Project.SystemMaintenance.resources
