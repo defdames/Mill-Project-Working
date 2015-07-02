@@ -54,16 +54,16 @@ namespace Mill_Project
            
 
             #region autofill values
-            mtxtD10.Mask = "0.00";
-            mtxtD10.Text = "0.00";
-            mtxtD50.Mask = "0.00";
-            mtxtD50.Text = "0.00";
-            mtxtD90.Mask = "0.00";
-            mtxtD90.Text = "0.00";
-            mtxtD98.Mask = "0.00";
-            mtxtD98.Text = "0.00";
-            mtxtTemp.Mask = "000.00";
-            mtxtTemp.Text = "000.00";
+            mtxtD10.Mask = "00.00";
+            mtxtD10.Text = "00.00";
+            mtxtD50.Mask = "00.00";
+            mtxtD50.Text = "00.00";
+            mtxtD90.Mask = "00.00";
+            mtxtD90.Text = "00.00";
+            mtxtD98.Mask = "00.00";
+            mtxtD98.Text = "00.00";
+            mtxtTemp.Mask = "00.0";
+            mtxtTemp.Text = "00.0";
             txtSONumber.Text = "0";
             #endregion
 
@@ -97,7 +97,7 @@ namespace Mill_Project
             if (!e.IsValidInput)
             {
                 ttD10.ToolTipTitle = "Invalid Decimal Value";
-                ttD10.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD10, 0, 25);
+                ttD10.Show("We're sorry, but the value you entered is not a valid decimal. Please change the value.", mtxtD10, 0, 25);
                 e.Cancel = true;
             }
         }
@@ -113,7 +113,7 @@ namespace Mill_Project
             if (!e.IsValidInput)
             {
                 ttD50.ToolTipTitle = "Invalid Decimal Value";
-                ttD50.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD50, 0, 25);
+                ttD50.Show("We're sorry, but the value you entered is not a valid decimal. Please change the value.", mtxtD50, 0, 25);
                 e.Cancel = true;
             }
         }
@@ -129,7 +129,7 @@ namespace Mill_Project
             if (!e.IsValidInput)
             {
                 ttD90.ToolTipTitle = "Invalid Decimal Value";
-                ttD90.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD90, 0, 25);
+                ttD90.Show("We're sorry, but the value you entered is not a valid decimal. Please change the value.", mtxtD90, 0, 25);
                 e.Cancel = true;
             }
         }
@@ -146,7 +146,7 @@ namespace Mill_Project
             if (!e.IsValidInput)
             {
                 ttD98.ToolTipTitle = "Invalid Decimal Value";
-                ttD98.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtD98, 0, 25);
+                ttD98.Show("We're sorry, but the value you entered is not a valid decimal. Please change the value.", mtxtD98, 0, 25);
                 e.Cancel = true;
             }
         }
@@ -162,7 +162,7 @@ namespace Mill_Project
             if (!e.IsValidInput)
             {
                 ttTemp.ToolTipTitle = "Invalid Decimal Value";
-                ttTemp.Show("We're sorry, but the value you entered is not a valid deciaml. Please change the value.", mtxtTemp, 0, 25);
+                ttTemp.Show("We're sorry, but the value you entered is not a valid decimal. Please change the value.", mtxtTemp, 0, 25);
                 e.Cancel = true;
             }
         }
@@ -224,16 +224,16 @@ namespace Mill_Project
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //this.Controls.ClearControls();
-            mtxtD10.Mask = "0.00";
-            mtxtD10.Text = "0.00";
-            mtxtD50.Mask = "0.00";
-            mtxtD50.Text = "0.00";
-            mtxtD90.Mask = "0.00";
-            mtxtD90.Text = "0.00";
-            mtxtD98.Mask = "0.00";
-            mtxtD98.Text = "0.00";
-            mtxtTemp.Mask = "0.000";
-            mtxtTemp.Text = "0.000";
+            mtxtD10.Mask = "00.00";
+            mtxtD10.Text = "00.00";
+            mtxtD50.Mask = "00.00";
+            mtxtD50.Text = "00.00";
+            mtxtD90.Mask = "00.00";
+            mtxtD90.Text = "00.00";
+            mtxtD98.Mask = "00.00";
+            mtxtD98.Text = "00.00";
+            mtxtTemp.Mask = "00.0";
+            mtxtTemp.Text = "00.0";
             txtSONumber.Text = "0";
         }
 
@@ -249,8 +249,8 @@ namespace Mill_Project
             cmbMill.DataSource = Program.Get_Mills(cmbCompany.Text, cmbPlant.Text);
             
             cmbShift.DataSource = Get_Shift(cmbCompany.Text, cmbPlant.Text);
-            cmbRunCode.DataSource = Program.Get_Run(cmbCompany.Text, cmbPlant.Text);
-            //cmbCategory.DataSource = Program.Get_Category(cmbCompany.Text, cmbPlant.Text);
+            cmbRunCode.DataSource = Get_Run(cmbCompany.Text, cmbPlant.Text);
+            
 
             cmbCategory.DataSource = Get_Category(cmbCompany.Text, cmbPlant.Text);
 
@@ -265,11 +265,7 @@ namespace Mill_Project
             bs.DataSource = query.ToList();
             dgvMillUtil.DataSource = bs;
 
-            #region fills Run Code Data Grid View Combo Box
-            var cmb = Program.Get_Run(company, plant);
-            runcmb.DataSource = cmb.ToList();
-            Run_Code.DataSource = runcmb;
-            #endregion
+           
 
             #region Fills Shift Category Data Grid View Combo Box
             var shcmb = Get_Category(company, plant);
@@ -277,11 +273,19 @@ namespace Mill_Project
             Shift_Category.DataSource = shiftcmb;
             #endregion
 
+            #region fills Run Code Data Grid View Combo Box
+            var rcmb = Get_Run(company, plant);
+            runcmb.DataSource = rcmb.ToList();
+            Run_Code.DataSource = runcmb;
+            #endregion
+
             #region Fills Mill Data Grid View Combo Box
             var mlcmb = Get_Mills(company, plant);
             millcmb.DataSource = mlcmb.ToList();
             Mill_ID.DataSource = millcmb;
             #endregion
+
+          
 
 
 
@@ -416,7 +420,20 @@ namespace Mill_Project
             }
         }
 
-        public static List<String> Get_Shift(string company, string plant)//get list of Shifts in the campnay plant user has access to
+        public static List<String> Get_Run(string company, string plant)//get list of stoppage reasons and descriptions
+        {
+            using (var context = new Model1())
+            {
+                var run = (from stop in context.mill_Stoppage_Reasons
+                           where stop.gl_cmp_key == company && stop.sf_plant_key == plant
+                           select stop.Stop_Reason.ToString()).ToList();
+                return run;
+            }
+        }
+
+
+
+        public static List<String> Get_Shift(string company, string plant)//get list of Shifts in the campany plant user has access to
         {
             using (var context = new Model1())
             {
@@ -427,7 +444,7 @@ namespace Mill_Project
             }
         }
 
-        public static List<string> Get_Mills(string company, string plant)//get list of mills in the compnay and plant user has access to
+        public static List<string> Get_Mills(string company, string plant)//get list of mills in the company and plant user has access to
         {
             using (var context = new Model1())
             {

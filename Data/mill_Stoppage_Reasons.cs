@@ -15,7 +15,7 @@ namespace Mill_Project
         [StringLength(255)]
         public string Stop_Reason { get; set; }
 
-        [Column(TypeName = "text")]
+        [StringLength(255)]
         public string Description { get; set; }
 
         [Required]
