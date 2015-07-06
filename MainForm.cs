@@ -426,7 +426,7 @@ namespace Mill_Project
             {
                 var run = (from stop in context.mill_Stoppage_Reasons
                            where stop.gl_cmp_key == company && stop.sf_plant_key == plant
-                           select stop.Stop_Reason.ToString()).ToList();
+                           select stop.Stop_Reason.ToString() + " - " + stop.Description.ToString()).ToList();
                 return run;
             }
         }
