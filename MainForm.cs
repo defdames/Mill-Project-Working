@@ -414,7 +414,7 @@ namespace Mill_Project
             {
                 var c = (from cat in context.mill_Shift_Categories
                         where cat.gl_cmp_key == company && cat.sf_plant_key == plant
-                        select cat.Category.ToString() + " - " + cat.Category_Description.ToString()).ToList();
+                        select cat.Category.ToString()).ToList();
 
                 return c;
             }
