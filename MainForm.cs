@@ -32,11 +32,13 @@ namespace Mill_Project
         BindingSource systemcmb = new BindingSource(); //system category gridview combo box
 
         Model1 context = new Model1();
+        
         public MainForm()
         {
             InitializeComponent();
             lblUserName.Text = Program.GetUser();
-            cmbCompany.DataSource = Program.User_cmp(); 
+            cmbCompany.DataSource = Program.User_cmp();
+            oDateTimePicker = new DateTimePicker(); //placed this up here to correct error of trying to hide datetiem picker when there isn't one
             if (Program.GetUser().ToString() == "doland")
             {
                 btnMillMaint.Enabled = true;
@@ -609,7 +611,9 @@ namespace Mill_Project
                 {
                     dgvMillUtil.Rows[e.RowIndex].ErrorText = "Time Span cannot be greater then 24 hours. Please check start and top time";
                 }
-                oDateTimePicker.Visible = false;
+                
+                    oDateTimePicker.Visible = false;
+                
             }
 
         }
