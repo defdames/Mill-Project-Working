@@ -67,7 +67,6 @@
             this.rtxtMemo = new System.Windows.Forms.RichTextBox();
             this.lblMemo = new System.Windows.Forms.Label();
             this.dgvMillUtil = new System.Windows.Forms.DataGridView();
-            this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnMillMaint = new System.Windows.Forms.Button();
             this.dtStart = new System.Windows.Forms.DateTimePicker();
@@ -83,8 +82,6 @@
             this.ttCategory = new System.Windows.Forms.ToolTip(this.components);
             this.ttDuplicateMillShift = new System.Windows.Forms.ToolTip(this.components);
             this.btnSysMaint = new System.Windows.Forms.Button();
-            this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvcmbRun_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sfplantkeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +109,9 @@
             this.shiftStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shiftStopTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sONumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millMillsUtilizationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.millStoppageReasonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillUtil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millMillsUtilizationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.millStoppageReasonsBindingSource1)).BeginInit();
@@ -346,7 +346,7 @@
             // 
             this.mtxtD98.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtD98.Location = new System.Drawing.Point(818, 141);
-            this.mtxtD98.Mask = "00.00";
+            this.mtxtD98.Mask = "999.99";
             this.mtxtD98.Name = "mtxtD98";
             this.mtxtD98.Size = new System.Drawing.Size(100, 24);
             this.mtxtD98.TabIndex = 30;
@@ -355,7 +355,7 @@
             // 
             this.mtxtD90.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtD90.Location = new System.Drawing.Point(636, 141);
-            this.mtxtD90.Mask = "00.00";
+            this.mtxtD90.Mask = "900.00";
             this.mtxtD90.Name = "mtxtD90";
             this.mtxtD90.Size = new System.Drawing.Size(100, 24);
             this.mtxtD90.TabIndex = 31;
@@ -510,10 +510,6 @@
             this.dgvMillUtil.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMillUtil_CellLeave);
             this.dgvMillUtil.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvMillUtil_EditingControlShowing);
             // 
-            // millMillsUtilizationBindingSource
-            // 
-            this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
-            // 
             // lblUserName
             // 
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -579,14 +575,6 @@
             this.btnSysMaint.UseVisualStyleBackColor = true;
             this.btnSysMaint.Visible = false;
             this.btnSysMaint.Click += new System.EventHandler(this.btnSysMaint_Click);
-            // 
-            // millStoppageReasonsBindingSource1
-            // 
-            this.millStoppageReasonsBindingSource1.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
-            // 
-            // millStoppageReasonsBindingSource
-            // 
-            this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
             // 
             // dgvcmbRun_Code
             // 
@@ -779,6 +767,18 @@
             this.sONumberDataGridViewTextBoxColumn.HeaderText = "SO_Number";
             this.sONumberDataGridViewTextBoxColumn.Name = "sONumberDataGridViewTextBoxColumn";
             this.sONumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // millMillsUtilizationBindingSource
+            // 
+            this.millMillsUtilizationBindingSource.DataSource = typeof(Mill_Project.mill_Mills_Utilization);
+            // 
+            // millStoppageReasonsBindingSource1
+            // 
+            this.millStoppageReasonsBindingSource1.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
+            // 
+            // millStoppageReasonsBindingSource
+            // 
+            this.millStoppageReasonsBindingSource.DataSource = typeof(Mill_Project.mill_Stoppage_Reasons);
             // 
             // MainForm
             // 

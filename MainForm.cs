@@ -32,11 +32,13 @@ namespace Mill_Project
         BindingSource systemcmb = new BindingSource(); //system category gridview combo box
 
         Model1 context = new Model1();
+        
         public MainForm()
         {
             InitializeComponent();
             lblUserName.Text = Program.GetUser();
-            cmbCompany.DataSource = Program.User_cmp(); 
+            cmbCompany.DataSource = Program.User_cmp();
+            oDateTimePicker = new DateTimePicker(); //placed this up here to correct error of trying to hide datetiem picker when there isn't one
             if (Program.GetUser().ToString() == "doland")
             {
                 btnMillMaint.Enabled = true;
@@ -54,15 +56,15 @@ namespace Mill_Project
            
 
             #region autofill values
-            mtxtD10.Mask = "00.00";
+            mtxtD10.Mask = "99.99";
             mtxtD10.Text = "00.00";
-            mtxtD50.Mask = "00.00";
+            mtxtD50.Mask = "99.99";
             mtxtD50.Text = "00.00";
-            mtxtD90.Mask = "00.00";
-            mtxtD90.Text = "00.00";
-            mtxtD98.Mask = "00.00";
-            mtxtD98.Text = "00.00";
-            mtxtTemp.Mask = "00.0";
+            mtxtD90.Mask = "999.99";
+            mtxtD90.Text = "000.00";
+            mtxtD98.Mask = "999.99";
+            mtxtD98.Text = "000.00";
+            mtxtTemp.Mask = "99.9";
             mtxtTemp.Text = "00.0";
             txtSONumber.Text = "0";
             #endregion
@@ -224,15 +226,15 @@ namespace Mill_Project
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //this.Controls.ClearControls();
-            mtxtD10.Mask = "00.00";
+            mtxtD10.Mask = "99.99";
             mtxtD10.Text = "00.00";
-            mtxtD50.Mask = "00.00";
+            mtxtD50.Mask = "99.99";
             mtxtD50.Text = "00.00";
-            mtxtD90.Mask = "00.00";
-            mtxtD90.Text = "00.00";
-            mtxtD98.Mask = "00.00";
-            mtxtD98.Text = "00.00";
-            mtxtTemp.Mask = "00.0";
+            mtxtD90.Mask = "999.99";
+            mtxtD90.Text = "000.00";
+            mtxtD98.Mask = "999.99";
+            mtxtD98.Text = "000.00";
+            mtxtTemp.Mask = "99.9";
             mtxtTemp.Text = "00.0";
             txtSONumber.Text = "0";
         }
@@ -259,6 +261,7 @@ namespace Mill_Project
             string plant = cmbPlant.Text;
 
             var query = from mu in context.mill_Mills_Utilization
+                        orderby mu.Mills_Utilization_ID descending
                         where mu.gl_cmp_key == company && mu.sf_plant_key == plant
                         select mu;
 
@@ -375,6 +378,7 @@ namespace Mill_Project
                                     string plant = cmbPlant.Text;
 
                                     var query = from mu in context.mill_Mills_Utilization
+                                                orderby mu.Mills_Utilization_ID descending
                                                 where mu.gl_cmp_key == company && mu.sf_plant_key == plant
                                                 select mu;
 
@@ -609,7 +613,9 @@ namespace Mill_Project
                 {
                     dgvMillUtil.Rows[e.RowIndex].ErrorText = "Time Span cannot be greater then 24 hours. Please check start and top time";
                 }
-                oDateTimePicker.Visible = false;
+                
+                    oDateTimePicker.Visible = false;
+                
             }
 
         }
