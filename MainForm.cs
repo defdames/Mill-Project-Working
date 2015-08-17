@@ -19,6 +19,7 @@ using System.Reflection;
 
 
 
+
 namespace Mill_Project
 {
     public partial class MainForm : Form
@@ -221,6 +222,22 @@ namespace Mill_Project
         private void cmbCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text); 
+           if(cmbCompany.Text == "SL")
+           {
+               dtStart.Value = DateTime.UtcNow;
+               dtStop.Value = DateTime.UtcNow;
+               dtStart.CustomFormat = "dd/MM/yyyy HH:mm tt";
+               dtStop.CustomFormat = "dd/MM/yyyy HH:mm tt";
+               
+           }
+           else
+           {
+               dtStart.Value = DateTime.Now;
+               dtStop.Value = DateTime.Now;
+               dtStart.CustomFormat = "MM/dd/yyyy HH:mm tt";
+               dtStop.CustomFormat = "MM/dd/yyyy HH:mm tt";
+           }
+                
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -287,7 +304,8 @@ namespace Mill_Project
             millcmb.DataSource = mlcmb.ToList();
             Mill_ID.DataSource = millcmb;
             #endregion
-
+            
+            
           
 
 
@@ -311,8 +329,11 @@ namespace Mill_Project
             string starttime = dtStart.Value.ToString();
             string stoptime = dtStop.Value.ToString();
 
+         
             DateTime dts = DateTime.Parse(starttime);
             DateTime dtss = DateTime.Parse(stoptime);
+            
+           
             
 
             DateTime dtvstart = Convert.ToDateTime(date + " " + dts.TimeOfDay);
