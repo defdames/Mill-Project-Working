@@ -224,8 +224,14 @@ namespace Mill_Project
             cmbPlant.DataSource = Program.Cmp_plant(cmbCompany.Text); 
            if(cmbCompany.Text == "SL")
            {
-               dtStart.Value = DateTime.UtcNow;
-               dtStop.Value = DateTime.UtcNow;
+               DateTime DateTimeNow =  DateTime.UtcNow; 
+               TimeZoneInfo BritishTimeZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
+               DateTime GmtTime =  TimeZoneInfo.ConvertTimeFromUtc(DateTimeNow, BritishTimeZone);
+
+
+               dtStart.Value = GmtTime;
+               //dtStop.Value = DateTime.UtcNow;
+               dtStop.Value = GmtTime;
                dtStart.CustomFormat = "dd/MM/yyyy HH:mm tt";
                dtStop.CustomFormat = "dd/MM/yyyy HH:mm tt";
                
